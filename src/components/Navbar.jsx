@@ -7,8 +7,7 @@ import {
   Layers, 
   BookOpen, 
   Info, 
-  Send,
-  Terminal, 
+  Send, 
   ArrowRight 
 } from 'lucide-react';
 import { useContact } from '../context/ContactContext';
@@ -44,15 +43,11 @@ export default function Navbar() {
             to="/"
             className="flex items-center gap-2.5 cursor-pointer group active:scale-95 transition-transform select-none"
           >
-            <div className="p-1.5 bg-[#1A1A1A] brutalist-border rounded text-[#C8FF3D] group-hover:border-[#C8FF3D] transition-colors">
-              <Terminal className="w-5 h-5" aria-hidden="true" />
-            </div>
+            
             <span className="font-space text-xl md:text-2xl font-bold tracking-tighter text-[#e4e2e1]">
               JhalaWebTech
             </span>
-            <span className="hidden sm:inline-block text-[10px] font-mono-code bg-[#1A1A1A] border border-[#262626] text-[#C8FF3D] px-2 py-0.5 rounded font-bold uppercase">
-              JWT // ACTIVE
-            </span>
+            
           </Link>
 
           {/* Desktop Navigation Items */}

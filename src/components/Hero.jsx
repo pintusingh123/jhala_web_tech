@@ -10,8 +10,7 @@ export default function Hero({ onExploreServices, onOpenContact }) {
         <div className="lg:col-span-8 flex flex-col justify-center items-start w-full max-w-3xl">
           {/* Top Nexvian-Style Engineering Pill */}
           <div className="inline-flex items-center gap-2 mb-5 sm:mb-6 bg-[#1A1A1A] brutalist-border py-1.5 px-3.5 rounded-full">
-            <span className="w-2 h-2 rounded-full bg-[#C8FF3D] animate-pulse shrink-0" aria-hidden="true"></span>
-            <span className="text-[10px] sm:text-xs font-mono-code font-bold tracking-widest uppercase text-[#e4e2e1]">
+             <span className="text-[10px] sm:text-xs font-mono-code font-bold tracking-widest uppercase text-[#e4e2e1]">
               AI Automation • Custom Software • Digital Systems
             </span>
           </div>
@@ -85,8 +84,7 @@ export default function Hero({ onExploreServices, onOpenContact }) {
           {/* Card 3: Telemetry Engine Bar */}
           <div className="w-full sm:max-w-[340px] bg-[#0E0E0E] brutalist-border p-3.5 flex items-center justify-between font-mono-code text-xs text-[#9CA3AF]">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#C8FF3D] animate-pulse"></span>
-              <span>SUB-10MS UI FRAMEWORK</span>
+               <span>SUB-10MS UI FRAMEWORK</span>
             </div>
             <span className="text-[#C8FF3D] font-bold">VERIFIED</span>
           </div>

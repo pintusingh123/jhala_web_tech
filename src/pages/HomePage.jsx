@@ -4,6 +4,7 @@ import TerminalHeader from '../components/TerminalHeader';
 import Hero from '../components/Hero';
 import Stats from '../components/Stats';
 import Services from '../components/Services';
+import StackedProjects from '../components/StackedProjects';
 import Process from '../components/Process';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
@@ -37,6 +38,9 @@ export default function HomePage() {
       <div className="gsap-scroll-trigger">
         <Services onSelectService={handleSelectService} />
       </div>
+
+      {/* GSAP ScrollTrigger Pinned Stacked Projects Showcase */}
+      <StackedProjects />
 
       <div className="gsap-scroll-trigger">
         <Process onOpenContact={() => openContact()} />
