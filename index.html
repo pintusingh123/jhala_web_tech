@@ -72,15 +72,56 @@
     "priceRange": "$$$$"
   }
   </script>
+  <!-- Internal CSS for High-Performance Skip Link -->
+  <style>
+    .jwt-skip-link {
+      position: fixed;
+      top: -120px;
+      left: 16px;
+      z-index: 99999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #0A0A0A;
+      color: #C8FF3D;
+      border: 2px solid #C8FF3D;
+      padding: 10px 20px;
+      font-family: 'JetBrains Mono', monospace, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      box-shadow: 4px 4px 0px 0px #C8FF3D;
+      text-decoration: none;
+      transition: top 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.1s ease;
+    }
+    .jwt-skip-link:focus {
+      top: 16px;
+      outline: none;
+    }
+    .jwt-skip-link:active {
+      transform: scale(0.96);
+    }
+    .jwt-skip-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #C8FF3D;
+      display: inline-block;
+      animation: jwt-pulse 1.5s infinite;
+    }
+    @keyframes jwt-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+  </style>
 </head>
 
 <body class="bg-[#131313] text-[#e4e2e1] antialiased selection:bg-[#C8FF3D] selection:text-[#0A0A0A]">
   <!-- Skip to main content link for screen readers & keyboard navigation -->
-  <a 
-    href="#main-content" 
-    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-[#C8FF3D] focus:text-[#0A0A0A] focus:px-4 focus:py-2 focus:font-bold focus:shadow-lg focus:outline-none"
-  >
-    Skip to main content
+  <a href="#main-content" class="jwt-skip-link">
+    <span class="jwt-skip-pulse"></span>
+    <span>SYS.JUMP // SKIP TO MAIN CONTENT</span>
   </a>
 
   <div id="root"></div>

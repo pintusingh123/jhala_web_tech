@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { X, Send, Terminal, CheckCircle2 } from 'lucide-react';
+import { useContact } from '../context/ContactContext';
 
-export default function ContactModal({ isOpen, onClose, selectedService }) {
+export default function ContactModal() {
+  const { isOpen, closeContact, selectedService } = useContact();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: selectedService?.title || 'Web Development',
+    projectType: selectedService?.title || 'Web Architecture & Development',
     budget: '$5k - $10k',
     details: '',
   });
@@ -29,11 +32,11 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
     setFormData({
       name: '',
       email: '',
-      projectType: 'Web Development',
+      projectType: 'Web Architecture & Development',
       budget: '$5k - $10k',
       details: '',
     });
-    onClose();
+    closeContact();
   };
 
   return (
@@ -51,7 +54,7 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
             <span>SYS.CONNECT // PROJECT_INQUIRY.EXE</span>
           </div>
           <button
-            onClick={onClose}
+            onClick={closeContact}
             aria-label="Close Contact Modal"
             className="text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer p-1"
           >
@@ -67,7 +70,7 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
                   INITIALIZE PROJECT INQUIRY
                 </h3>
                 <p className="font-sans-body text-xs text-[#9CA3AF] mt-1">
-                  Fill out the parameters below to connect directly with the JhalaLabs engineering team.
+                  Fill out the parameters below to connect directly with the JhalaWebTech engineering team.
                 </p>
               </div>
 
@@ -75,11 +78,11 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Name */}
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="client-name" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
+                  <label htmlFor="modal-client-name" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
                     INPUT: NAME *
                   </label>
                   <input
-                    id="client-name"
+                    id="modal-client-name"
                     name="name"
                     type="text"
                     required
@@ -92,11 +95,11 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
 
                 {/* Email */}
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="client-email" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
+                  <label htmlFor="modal-client-email" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
                     INPUT: EMAIL *
                   </label>
                   <input
-                    id="client-email"
+                    id="modal-client-email"
                     name="email"
                     type="email"
                     required
@@ -111,31 +114,31 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
               {/* Project Type & Budget */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="client-project-type" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
+                  <label htmlFor="modal-project-type" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
                     PROJECT TYPE
                   </label>
                   <select
-                    id="client-project-type"
+                    id="modal-project-type"
                     name="projectType"
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                     className="bg-[#131313] brutalist-border p-3 font-sans-body text-sm text-[#e4e2e1] focus:border-[#C8FF3D] outline-none transition-colors"
                   >
-                    <option value="Web Development">Web Development</option>
-                    <option value="E-commerce">E-commerce</option>
-                    <option value="Custom Software">Custom Software</option>
-                    <option value="AI Solutions">AI Solutions</option>
-                    <option value="UI/UX Design">UI/UX Design</option>
-                    <option value="Maintenance">Maintenance</option>
+                    <option value="Web Architecture & Development">Web Architecture & Development</option>
+                    <option value="AI & LLM Multi-Agent Systems">AI & LLM Multi-Agent Systems</option>
+                    <option value="Headless E-commerce">Headless E-commerce</option>
+                    <option value="Custom Distributed Software">Custom Distributed Software</option>
+                    <option value="UI/UX Design Systems">UI/UX Design Systems</option>
+                    <option value="DevOps & 24/7 Reliability">DevOps & 24/7 Reliability</option>
                   </select>
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="client-budget" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
+                  <label htmlFor="modal-budget" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
                     ESTIMATED BUDGET
                   </label>
                   <select
-                    id="client-budget"
+                    id="modal-budget"
                     name="budget"
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
@@ -151,11 +154,11 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
 
               {/* Message Details */}
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="client-details" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
+                <label htmlFor="modal-details" className="font-mono-code text-xs text-[#C8FF3D] uppercase">
                   PROJECT SPECIFICATIONS / DETAILS *
                 </label>
                 <textarea
-                  id="client-details"
+                  id="modal-details"
                   name="details"
                   required
                   rows={4}
@@ -175,7 +178,7 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
               >
                 {loading ? (
                   <span className="font-mono-code text-xs animate-pulse">
-                    TRANSMITTING DATA TO JHALALABS...
+                    TRANSMITTING DATA TO JHALAWEBTECH...
                   </span>
                 ) : (
                   <>
@@ -197,14 +200,14 @@ export default function ContactModal({ isOpen, onClose, selectedService }) {
 
               <div className="bg-[#131313] brutalist-border p-4 w-full text-left font-mono-code text-xs text-[#9CA3AF] space-y-1.5">
                 <p className="text-[#C8FF3D]">&gt; STATUS: 200 OK</p>
-                <p>&gt; RECIPIENT: JhalaLabs Engineering Team</p>
+                <p>&gt; RECIPIENT: JhalaWebTech Engineering Team</p>
                 <p>&gt; CLIENT: {formData.name} ({formData.email})</p>
                 <p>&gt; SERVICE: {formData.projectType}</p>
                 <p>&gt; TIMESTAMP: {new Date().toISOString()}</p>
               </div>
 
               <p className="font-sans-body text-sm text-[#9CA3AF] max-w-md">
-                Thank you for connecting with JhalaLabs. An engineer will review your specifications and reply within 24 hours.
+                Thank you for connecting with JhalaWebTech. An engineer will review your specifications and reply within 24 hours.
               </p>
 
               <button

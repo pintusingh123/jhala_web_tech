@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Stats() {
   const stats = [
-    { value: '20+', label: 'SHIPPED', desc: 'Production-ready web & AI platforms' },
+    { value: '10+', label: 'SHIPPED', desc: 'Production-ready web & AI platforms' },
     { value: '10+', label: 'CLIENTS', desc: 'Global startups & enterprise partners' },
     { value: '100%', label: 'TECHNICAL', desc: 'High-precision architecture & zero bloat' },
   ];
