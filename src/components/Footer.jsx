@@ -9,14 +9,14 @@ export default function Footer({ setActiveTab, onOpenContact }) {
         <div className="col-span-1 md:col-span-2 flex flex-col justify-between">
           <div>
             <span className="font-space text-3xl font-extrabold text-[#C8FF3D] block mb-2 tracking-tighter">
-              JhalaLabs
+              JhalaWebTech
             </span>
             <p className="font-mono-code text-xs text-[#9CA3AF] uppercase tracking-widest max-w-sm mt-2 leading-relaxed">
-              Building the underlying architecture for the next generation of digital experiences.
+              JWT — Building the underlying architecture for the next generation of digital experiences.
             </p>
           </div>
           <p className="font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] mt-8 md:mt-0">
-            © 2024 JHALALABS. BUILD. SCALE. INNOVATE.
+            © 2026 JHALAWEBTECH (JWT). BUILD. SCALE. INNOVATE.
           </p>
         </div>
 
@@ -29,25 +29,31 @@ export default function Footer({ setActiveTab, onOpenContact }) {
             onClick={() => setActiveTab('services')}
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
-            WEB DEV
+            WEB ARCHITECTURE
           </button>
           <button 
             onClick={() => setActiveTab('services')}
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
-            AI SOLUTIONS
-          </button>
-          <button 
-            onClick={() => setActiveTab('services')}
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
-          >
-            CUSTOM SOFTWARE
+            AI & LLM SYSTEMS
           </button>
           <button 
             onClick={() => setActiveTab('work')}
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
             CASE STUDIES
+          </button>
+          <button 
+            onClick={() => setActiveTab('process')}
+            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
+          >
+            METHODOLOGY
+          </button>
+          <button 
+            onClick={() => setActiveTab('blog')}
+            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
+          >
+            RESEARCH & BLOG
           </button>
         </div>
 
@@ -60,7 +66,7 @@ export default function Footer({ setActiveTab, onOpenContact }) {
             onClick={() => setActiveTab('about')}
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
-            ABOUT US
+            ABOUT JWT
           </button>
           <button 
             onClick={onOpenContact}
@@ -74,15 +80,17 @@ export default function Footer({ setActiveTab, onOpenContact }) {
               href="https://github.com" 
               target="_blank" 
               rel="noreferrer"
+              aria-label="JhalaWebTech GitHub Repository"
               className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#C8FF3D] hover:border-[#C8FF3D] transition-colors"
             >
-              <Code className="w-4 h-4" />
+              <Code className="w-4 h-4" aria-hidden="true" />
             </a>
             <button 
               onClick={onOpenContact}
+              aria-label="Open JhalaWebTech Contact Terminal"
               className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#C8FF3D] hover:border-[#C8FF3D] transition-colors cursor-pointer"
             >
-              <Terminal className="w-4 h-4" />
+              <Terminal className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>
         </div>

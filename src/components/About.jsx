@@ -33,10 +33,10 @@ export default function About({ onOpenContact }) {
         </span>
         <div className="terminal-divider my-2"></div>
         <h2 className="font-space text-3xl sm:text-5xl font-extrabold uppercase text-[#e4e2e1] mt-4">
-          ABOUT <span className="text-[#C8FF3D]">JHALALABS</span>
+          ABOUT <span className="text-[#C8FF3D]">JHALAWEBTECH (JWT)</span>
         </h2>
         <p className="font-sans-body text-base text-[#9CA3AF] max-w-3xl mt-2 leading-relaxed">
-          JhalaLabs is a digital agency & software architecture collective specializing in high-performance web systems, bespoke software, and AI solutions.
+          JhalaWebTech (JWT) is a digital engineering studio & software architecture collective specializing in high-performance web systems, bespoke software, and autonomous AI solutions.
         </p>
       </div>
 
@@ -46,14 +46,14 @@ export default function About({ onOpenContact }) {
         <div className="bg-[#131313] brutalist-border p-8 flex flex-col justify-between shadow-[4px_4px_0px_0px_#262626]">
           <div>
             <div className="flex items-center gap-2 font-mono-code text-xs text-[#C8FF3D] mb-4">
-              <Terminal className="w-4 h-4" />
-              <span>SYS.MANIFESTO</span>
+              <Terminal className="w-4 h-4" aria-hidden="true" />
+              <span>JWT.MANIFESTO</span>
             </div>
             <h3 className="font-space text-2xl md:text-3xl font-bold uppercase text-[#e4e2e1] leading-tight mb-4">
-              "We don't build simple MVPs. We engineer digital infrastructure that powers enterprise growth."
+              "We don't build simple prototypes. We engineer digital infrastructure that powers enterprise growth."
             </h3>
             <p className="font-sans-body text-sm text-[#9CA3AF] leading-relaxed mb-4">
-              Founded on principles of brutal efficiency and modern aesthetic precision, JhalaLabs bridges high-end design with deep technical capability.
+              Founded on principles of brutal efficiency and modern aesthetic precision, JhalaWebTech bridges high-end design with deep technical capability.
             </p>
             <p className="font-sans-body text-sm text-[#9CA3AF] leading-relaxed">
               Whether scaling a real-time web platform, building custom AI subagents, or crafting responsive design systems, our team delivers production code that stands the test of scale.
@@ -62,7 +62,7 @@ export default function About({ onOpenContact }) {
 
           <div className="pt-6 border-t border-[#262626] mt-6 flex justify-between items-center text-xs font-mono-code text-[#C8FF3D]">
             <span>LOC: GLOBAL // REMOTE CORE</span>
-            <span>STATUS: OPEN FOR NEW PROJECTS</span>
+            <span>STATUS: OPEN FOR NEW CLIENTS</span>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export default function About({ onOpenContact }) {
                 className="bg-[#1A1A1A] p-6 brutalist-border hover:border-[#C8FF3D] transition-all group"
               >
                 <div className="p-2.5 bg-[#0A0A0A] brutalist-border w-fit text-[#C8FF3D] mb-3 group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6" />
+                  <Icon className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <h4 className="font-space text-lg font-bold text-[#e4e2e1] mb-2 group-hover:text-[#C8FF3D] transition-colors">
                   {princ.title}
@@ -96,7 +96,7 @@ export default function About({ onOpenContact }) {
           CORE TECH STACK:
         </span>
         <div className="flex flex-wrap gap-2 text-xs font-mono-code text-[#e4e2e1]">
-          {['React', 'Node.js', 'Vite', 'Python', 'Go', 'AWS', 'Docker', 'PostgreSQL', 'Tailwind v4', 'Lucide', 'OpenAI'].map((t, idx) => (
+          {['React 19', 'Node.js', 'Vite', 'Python', 'FastAPI', 'Go', 'AWS', 'Docker', 'PostgreSQL', 'Tailwind v4', 'OpenAI', 'LangGraph'].map((t, idx) => (
             <span key={idx} className="bg-[#1A1A1A] border border-[#262626] px-2.5 py-1">
               {t}
             </span>

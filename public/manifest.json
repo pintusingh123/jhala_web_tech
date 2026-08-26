@@ -1,7 +1,7 @@
 {
-  "name": "JhalaLabs Digital Architecture Studio",
-  "short_name": "JhalaLabs",
-  "description": "We engineer robust, scalable web architectures and AI platforms.",
+  "name": "JhalaWebTech — Digital Engineering & AI Architecture Studio",
+  "short_name": "JhalaWebTech",
+  "description": "JhalaWebTech engineers scalable web systems, agentic AI pipelines, and custom enterprise software.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#131313",

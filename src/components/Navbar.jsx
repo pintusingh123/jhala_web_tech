@@ -6,6 +6,8 @@ export default function Navbar({ activeTab, setActiveTab, onOpenContact }) {
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
     { id: 'work', label: 'Work' },
+    { id: 'process', label: 'Process' },
+    { id: 'blog', label: 'Insights' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
   ];
@@ -19,18 +21,18 @@ export default function Navbar({ activeTab, setActiveTab, onOpenContact }) {
           className="flex items-center gap-2.5 cursor-pointer group active:scale-95 transition-transform select-none"
         >
           <div className="p-1.5 bg-[#1A1A1A] brutalist-border rounded text-[#C8FF3D] group-hover:border-[#C8FF3D] transition-colors">
-            <Terminal className="w-5 h-5" />
+            <Terminal className="w-5 h-5" aria-hidden="true" />
           </div>
           <span className="font-space text-xl md:text-2xl font-bold tracking-tighter text-[#e4e2e1]">
-            JhalaLabs
+            JhalaWebTech
           </span>
           <span className="hidden sm:inline-block text-[10px] font-mono-code bg-[#1A1A1A] border border-[#262626] text-[#C8FF3D] px-2 py-0.5 rounded font-bold uppercase">
-            ACTIVE
+            JWT // ACTIVE
           </span>
         </div>
 
         {/* Navigation Items */}
-        <nav className="hidden md:flex gap-6 items-center">
+        <nav className="hidden lg:flex gap-6 items-center">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -50,16 +52,17 @@ export default function Navbar({ activeTab, setActiveTab, onOpenContact }) {
         <div className="flex items-center gap-3">
           <button
             onClick={onOpenContact}
+            aria-label="Open Project Inquiry"
             className="bg-[#C8FF3D] text-[#0A0A0A] px-5 py-2.5 font-space text-xs font-bold uppercase hover:bg-[#bef532] transition-colors brutalist-border-active active:scale-95 flex items-center gap-1.5 cursor-pointer shadow-[2px_2px_0px_0px_#262626]"
           >
             <span>LET'S TALK</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
       </div>
 
       {/* Mobile Nav Bar Links */}
-      <div className="flex md:hidden overflow-x-auto border-t border-[#262626] px-4 py-2 gap-4 text-xs font-space uppercase bg-[#0E0E0E]">
+      <div className="flex lg:hidden overflow-x-auto border-t border-[#262626] px-4 py-2 gap-4 text-xs font-space uppercase bg-[#0E0E0E]">
         {navItems.map((item) => (
           <button
             key={item.id}
