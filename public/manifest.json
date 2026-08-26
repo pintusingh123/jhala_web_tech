@@ -1,0 +1,17 @@
+{
+  "name": "JhalaLabs Digital Architecture Studio",
+  "short_name": "JhalaLabs",
+  "description": "We engineer robust, scalable web architectures and AI platforms.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#131313",
+  "theme_color": "#C8FF3D",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

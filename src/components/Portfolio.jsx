@@ -1,0 +1,110 @@
+import React from 'react';
+import { ExternalLink, Sparkles } from 'lucide-react';
+
+export default function Portfolio({ onOpenContact }) {
+  const projects = [
+    {
+      title: 'KINETIC FINANCIAL DASHBOARD',
+      client: 'Apex Capital Inc.',
+      category: 'Fintech / Web Architecture',
+      description: 'Ultra-low latency trading dashboard handling real-time WebSockets stream with sub-10ms UI renders.',
+      tech: ['React', 'WebSockets', 'Tailwind', 'AWS'],
+      metrics: '< 8ms Latency // 50k Ops/sec',
+      highlight: 'Live Trading Engine',
+    },
+    {
+      title: 'SYNAPSE AI WORKFLOW AGENT',
+      client: 'NeuroTech Global',
+      category: 'AI & LLM Integration',
+      description: 'Autonomous AI subagent system running multi-modal LLM pipelines with structured JSON output parsing.',
+      tech: ['Python', 'FastAPI', 'OpenAI API', 'LangChain'],
+      metrics: '99.4% Accuracy // 10x Throughput',
+      highlight: 'Autonomous Agent',
+    },
+    {
+      title: 'NEXUS E-COMMERCE PLATFORM',
+      client: 'Vanguard Retail',
+      category: 'Headless E-commerce',
+      description: 'Custom headless storefront with automated internationalization, dynamic caching, and instant checkout.',
+      tech: ['Next.js', 'Shopify Plus', 'Stripe', 'Redis'],
+      metrics: '99/100 Lighthouse // +42% Conversions',
+      highlight: 'Headless Checkout',
+    },
+  ];
+
+  return (
+    <section className="w-full py-8">
+      <div className="mb-8">
+        <span className="font-space text-xs uppercase text-[#9CA3AF] tracking-widest block mb-1">
+          SYS.PORTFOLIO.MAP
+        </span>
+        <div className="terminal-divider my-2"></div>
+        <h2 className="font-space text-3xl sm:text-5xl font-extrabold uppercase text-[#e4e2e1] mt-4">
+          SELECTED <span className="text-[#C8FF3D]">WORK & CASE STUDIES</span>
+        </h2>
+        <p className="font-sans-body text-base text-[#9CA3AF] max-w-2xl mt-2 leading-relaxed">
+          Explore real-world technical systems and digital experiences engineered by JhalaLabs.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {projects.map((proj, idx) => (
+          <div
+            key={idx}
+            className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between group hover:border-[#C8FF3D] transition-all shadow-[4px_4px_0px_0px_#262626] hover:shadow-[8px_8px_0px_0px_#C8FF3D]"
+          >
+            <div>
+              <div className="flex justify-between items-center pb-3 border-b border-[#262626] mb-4">
+                <span className="font-mono-code text-xs text-[#C8FF3D] uppercase font-bold">
+                  {proj.category}
+                </span>
+                <span className="text-[10px] font-mono-code text-[#9CA3AF] bg-[#0A0A0A] px-2 py-0.5 border border-[#262626]">
+                  {proj.highlight}
+                </span>
+              </div>
+
+              <h3 className="font-space text-2xl font-bold text-[#e4e2e1] group-hover:text-[#C8FF3D] transition-colors mb-1">
+                {proj.title}
+              </h3>
+              <p className="font-mono-code text-xs text-[#9CA3AF] mb-4">
+                CLIENT: {proj.client}
+              </p>
+
+              <p className="font-sans-body text-sm text-[#9CA3AF] leading-relaxed mb-6">
+                {proj.description}
+              </p>
+
+              {/* Performance Metric Box */}
+              <div className="p-3 bg-[#0A0A0A] brutalist-border mb-6">
+                <div className="text-[11px] font-mono-code text-[#C8FF3D] flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>METRIC: {proj.metrics}</span>
+                </div>
+              </div>
+
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {proj.tech.map((t, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="text-[11px] font-mono-code text-[#e4e2e1] bg-[#1A1A1A] border border-[#262626] px-2 py-0.5 uppercase"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <button
+              onClick={onOpenContact}
+              className="w-full bg-[#1A1A1A] border border-[#262626] text-[#e4e2e1] font-space text-xs uppercase py-2.5 px-4 flex items-center justify-center gap-2 group-hover:bg-[#C8FF3D] group-hover:text-[#0A0A0A] group-hover:font-bold transition-all cursor-pointer"
+            >
+              <span>REQUEST CASE STUDY</span>
+              <ExternalLink className="w-4 h-4" />
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}

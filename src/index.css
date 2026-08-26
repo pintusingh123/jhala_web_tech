@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-tertiary: #C8FF3D;
+  --color-tertiary-hover: #bef532;
+  --color-background: #131313;
+  --color-surface: #131313;
+  --color-surface-container: #1f2020;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353535;
+  --color-surface-container-low: #1b1c1c;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-on-background: #e4e2e1;
+  --color-on-surface-variant: #c4c7c7;
+  --color-outline-variant: #444748;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #131313;
+  color: #e4e2e1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility Focus States */
+*:focus-visible {
+  outline: 2px solid #C8FF3D !important;
+  outline-offset: 2px !important;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Typography Classes */
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-sans-body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.font-serif-quote {
+  font-family: 'Instrument Serif', serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Exact Stitch Brutalist Styles */
+.brutalist-border {
+  border: 1px solid #262626;
+}
+
+.brutalist-border-active {
+  border: 1px solid #C8FF3D;
+}
+
+.brutalist-card-highlight {
+  border-left: 2px solid #C8FF3D;
+}
+
+.terminal-divider {
+  height: 1px;
+  background-color: #262626;
+  width: 100%;
+}
+
+.bg-level-0 {
+  background-color: #0A0A0A;
+}
+
+.bg-level-1 {
+  background-color: #1A1A1A;
+  border: 1px solid #262626;
+}
+
+.bg-level-2 {
+  background-color: #F5F5F0;
+  color: #0A0A0A;
+}
+
+.card-high-emphasis {
+  border-bottom: 2px solid #C8FF3D;
+}
+
+.card-high-emphasis:hover {
+  background-color: #1A1A1A;
+  border: 1px solid #C8FF3D;
+  border-bottom: 2px solid #C8FF3D;
+}
