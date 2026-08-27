@@ -56,6 +56,7 @@ export default function Navbar() {
               <NavLink
                 key={item.to}
                 to={item.to}
+                end={item.to === '/'}
                 className={({ isActive }) =>
                   `font-space text-xs uppercase tracking-widest transition-all duration-200 py-1 border-b-2 active:scale-95 cursor-pointer ${
                     isActive
@@ -86,7 +87,7 @@ export default function Navbar() {
       {/* Floating Mobile Bottom Navigation Dock */}
       <nav 
         aria-label="Mobile Navigation Dock"
-        className="flex lg:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-md bg-[#0E0E0E]/95 backdrop-blur-2xl border border-[#262626] rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.95)] px-2 py-1.5 items-center justify-around"
+        className="flex lg:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-md bg-[#0E0E0E]/95 backdrop-blur-xl border border-[#262626] rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.95)] px-2 py-1.5 items-center justify-around select-none"
       >
         {mobileNavItems.map((item) => {
           const Icon = item.icon;
@@ -94,23 +95,22 @@ export default function Navbar() {
             <NavLink
               key={item.to}
               to={item.to}
+              end={item.to === '/'}
+              style={{ WebkitTapHighlightColor: 'transparent' }}
               className={({ isActive }) =>
-                `flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl transition-all duration-200 cursor-pointer relative ${
+                `flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl transition-colors duration-150 cursor-pointer relative outline-none focus:outline-none select-none ${
                   isActive
-                    ? 'text-[#C8FF3D] bg-[#1A1A1A] brutalist-border font-bold scale-105'
-                    : 'text-[#9CA3AF] hover:text-[#e4e2e1]'
+                    ? 'text-[#C8FF3D] bg-[#1C1C1C] font-semibold'
+                    : 'text-[#8E8E8E] hover:text-[#e4e2e1]'
                 }`
               }
             >
               {({ isActive }) => (
                 <>
-                  <Icon className={`w-5 h-5 mb-0.5 ${isActive ? 'text-[#C8FF3D]' : 'text-[#9CA3AF]'}`} />
-                  <span className="font-space text-[10px] tracking-tight uppercase">
+                  <Icon className={`w-5 h-5 mb-0.5 transition-colors duration-150 ${isActive ? 'text-[#C8FF3D]' : 'text-[#8E8E8E]'}`} />
+                  <span className="font-space text-[10px] tracking-tight uppercase leading-none">
                     {item.label}
                   </span>
-                  {isActive && (
-                    <span className="absolute -top-1 w-1.5 h-1.5 rounded-full bg-[#C8FF3D] shadow-[0_0_8px_#C8FF3D]"></span>
-                  )}
                 </>
               )}
             </NavLink>

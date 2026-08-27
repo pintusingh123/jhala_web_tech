@@ -13,26 +13,31 @@ export default function Layout() {
   const mainRef = useRef(null);
   const lenisRef = useRef(null);
 
-  // Initialize Lenis Smooth Scrolling
+  // Initialize Lenis Smooth Scrolling (Desktop only for 60fps native mobile performance)
   useEffect(() => {
+    const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (isTouch) {
+      // Enable native hardware-accelerated scrolling on mobile for max Lighthouse score & zero main-thread lag
+      return;
+    }
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
     });
 
     lenisRef.current = lenis;
 
-    // Animation loop using requestAnimationFrame
+    let animId;
     const raf = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      animId = requestAnimationFrame(raf);
     };
-    requestAnimationFrame(raf);
+    animId = requestAnimationFrame(raf);
 
     return () => {
+      if (animId) cancelAnimationFrame(animId);
       lenis.destroy();
     };
   }, []);
