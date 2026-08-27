@@ -11,6 +11,7 @@ import Testimonials from '../components/Testimonials';
 import Blog from '../components/Blog';
 import FAQ from '../components/FAQ';
 import About from '../components/About';
+import Team from '../components/Team';
 import { useContact } from '../context/ContactContext';
 
 export default function HomePage() {
@@ -64,6 +65,10 @@ export default function HomePage() {
 
       <div className="gsap-scroll-trigger">
         <About onOpenContact={() => openContact()} />
+      </div>
+
+      <div className="gsap-scroll-trigger">
+        <Team onOpenContact={() => openContact()} />
       </div>
     </>
   );
