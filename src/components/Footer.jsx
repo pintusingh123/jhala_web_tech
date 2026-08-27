@@ -29,31 +29,31 @@ export default function Footer() {
           <span className="font-mono-code text-xs text-[#e4e2e1] uppercase border-b border-[#262626] pb-1 mb-1 font-bold">
             Directory
           </span>
-          <Link 
+          <Link
             to="/services"
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
             WEB ARCHITECTURE
           </Link>
-          <Link 
+          <Link
             to="/services"
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
             AI & LLM SYSTEMS
           </Link>
-          <Link 
+          <Link
             to="/work"
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
             CASE STUDIES
           </Link>
-          <Link 
+          <Link
             to="/process"
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
             METHODOLOGY
           </Link>
-          <Link 
+          <Link
             to="/blog"
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
@@ -66,36 +66,36 @@ export default function Footer() {
           <span className="font-mono-code text-xs text-[#e4e2e1] uppercase border-b border-[#262626] pb-1 mb-1 font-bold">
             Connect
           </span>
-          <Link 
+          <Link
             to="/about"
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
             ABOUT JWT
           </Link>
-          <Link 
+          <Link
             to="/contact"
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
           >
             CONTACT DESK
           </Link>
-          <button 
+          <button
             onClick={() => openContact()}
             className="text-left font-mono-code text-xs uppercase tracking-widest text-[#C8FF3D] hover:underline transition-all cursor-pointer font-bold mt-1"
           >
             &gt; OPEN TERMINAL
           </button>
-          
+
           <div className="flex gap-3 mt-3">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
+            <a
+              href="https://github.com"
+              target="_blank"
               rel="noreferrer"
               aria-label="JhalaWebTech GitHub Repository"
               className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#C8FF3D] hover:border-[#C8FF3D] transition-colors"
             >
               <Code className="w-4 h-4" aria-hidden="true" />
             </a>
-            <button 
+            <button
               onClick={() => openContact()}
               aria-label="Open JhalaWebTech Contact Terminal"
               className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#C8FF3D] hover:border-[#C8FF3D] transition-colors cursor-pointer"

@@ -21,7 +21,8 @@
 }
 
 /* Lenis Smooth Scrolling Base Styles */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
