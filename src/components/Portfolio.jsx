@@ -51,7 +51,7 @@ export default function Portfolio({ onOpenContact }) {
         {projects.map((proj, idx) => (
           <div
             key={idx}
-            className="bg-[#131313] brutalist-border p-4 sm:p-6 flex flex-col justify-between group hover:border-[#C8FF3D] transition-all shadow-[4px_4px_0px_0px_#262626] hover:shadow-[8px_8px_0px_0px_#C8FF3D]"
+            className="bg-[#131313] p-4 sm:p-6 flex flex-col justify-between group transition-all sm:brutalist-border sm:hover:border-[#C8FF3D] sm:shadow-[4px_4px_0px_0px_#262626] sm:hover:shadow-[8px_8px_0px_0px_#C8FF3D]"
           >
             <div>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 border-b border-[#262626] mb-4">
