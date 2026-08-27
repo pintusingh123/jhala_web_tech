@@ -11,7 +11,7 @@ export default function Hero({ onExploreServices, onOpenContact }) {
           {/* Top Nexvian-Style Engineering Pill */}
           <div className="inline-flex items-center gap-2 mb-5 sm:mb-6 bg-[#1A1A1A] brutalist-border py-1.5 px-3.5 rounded-full">
              <span className="text-[10px] sm:text-xs font-mono-code font-bold tracking-widest uppercase text-[#e4e2e1]">
-              AI Automation • Custom Software • Digital Systems
+              Full-Stack • Custom Software • Digital Systems
             </span>
           </div>
 
