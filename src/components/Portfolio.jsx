@@ -47,14 +47,14 @@ export default function Portfolio({ onOpenContact }) {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {projects.map((proj, idx) => (
           <div
             key={idx}
-            className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between group hover:border-[#C8FF3D] transition-all shadow-[4px_4px_0px_0px_#262626] hover:shadow-[8px_8px_0px_0px_#C8FF3D]"
+            className="bg-[#131313] brutalist-border p-4 sm:p-6 flex flex-col justify-between group hover:border-[#C8FF3D] transition-all shadow-[4px_4px_0px_0px_#262626] hover:shadow-[8px_8px_0px_0px_#C8FF3D]"
           >
             <div>
-              <div className="flex justify-between items-center pb-3 border-b border-[#262626] mb-4">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 border-b border-[#262626] mb-4">
                 <span className="font-mono-code text-xs text-[#C8FF3D] uppercase font-bold">
                   {proj.category}
                 </span>
@@ -63,14 +63,14 @@ export default function Portfolio({ onOpenContact }) {
                 </span>
               </div>
 
-              <h3 className="font-space text-2xl font-bold text-[#e4e2e1] group-hover:text-[#C8FF3D] transition-colors mb-1">
+              <h3 className="font-space text-xl sm:text-2xl font-bold text-[#e4e2e1] group-hover:text-[#C8FF3D] transition-colors mb-1">
                 {proj.title}
               </h3>
-              <p className="font-mono-code text-xs text-[#9CA3AF] mb-4">
+              <p className="font-mono-code text-xs sm:text-sm text-[#9CA3AF] mb-4">
                 CLIENT: {proj.client}
               </p>
 
-              <p className="font-sans-body text-sm text-[#9CA3AF] leading-relaxed mb-6">
+              <p className="font-sans-body text-sm sm:text-base text-[#9CA3AF] leading-relaxed mb-6">
                 {proj.description}
               </p>
 
