@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Terminal, Phone, Send, Sparkles } from 'lucide-react';
+import { Terminal, Phone } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const WHATSAPP_NUMBER = '8003642596';
 const CALLING_NUMBER = '8441992003';
@@ -35,7 +36,7 @@ export default function Footer() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#161616] hover:bg-[#202020] text-[#e4e2e1] hover:text-[#25D366] brutalist-border font-mono-code text-xs transition-colors"
               >
-                <Send className="w-3.5 h-3.5 text-[#25D366]" />
+                <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
                 <span>WhatsApp: +91 {WHATSAPP_NUMBER}</span>
               </a>
             </div>
@@ -114,7 +115,7 @@ export default function Footer() {
               aria-label="JhalaWebTech WhatsApp"
               className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#25D366] hover:border-[#25D366] transition-colors"
             >
-              <Send className="w-4 h-4" aria-hidden="true" />
+              <WhatsAppIcon className="w-4 h-4" aria-hidden="true" />
             </a>
             <a
               href={`tel:+91${CALLING_NUMBER}`}

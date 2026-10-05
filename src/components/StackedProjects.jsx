@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowUpRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ExternalLink, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function StackedProjects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,27 +8,27 @@ export default function StackedProjects() {
   const projects = [
     {
       id: '01',
-      title: 'HENRY CHARLES ESTATES',
-      subtitle: 'Luxury Property & Investment Web Application',
-      category: 'LUXURY REAL ESTATE & GLOBAL CRM',
-      description: 'High‑performance luxury real‑estate portal with multi‑currency conversion, interactive villa walkthroughs, sub‑second search filters, and automated investor CRM pipelines.',
-      tech: ['React 19', 'Next.js', 'Tailwind v4', 'Node.js', 'PostgreSQL'],
-      metric: '200k+ Active Searches • 4.9/5 Rating',
-      impact: '+185% Lead Generation',
-      link: 'https://henrycharlesestates.com',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+      title: 'JAY SHREE SHAM TIFFIN SERVICE',
+      subtitle: 'Fresh Homemade Pure Veg Tiffin & Subscription Web App',
+      category: 'FOOD DELIVERY & SUBSCRIPTION WEB APP',
+      description: 'Mobile-first food delivery and daily subscription web application engineered for Jay Shree Sham Tiffin Service. Features dynamic daily rotating menus, student and office meal plans (₹60–₹200), homestyle pure-veg thali customization, and instant 1-click WhatsApp order routing.',
+      tech: ['Next.js', 'React', 'Tailwind CSS', 'WhatsApp Cloud API', 'Vercel Edge'],
+      metric: '500+ Daily Meals • Instant WhatsApp Booking',
+      impact: '2x Daily Orders',
+      link: 'https://jayshreeshamtiffinservice.vercel.app/',
+      image: '/images/jayshreeshyam-showcase.jpg',
     },
     {
       id: '02',
-      title: 'SYNAPSE AI WORKFLOW OS',
-      subtitle: 'Autonomous Multi‑Agent Orchestration Pipeline',
-      category: 'AGENTIC AI & MULTI‑LLM SYSTEMS',
-      description: 'Multi‑agent reasoning platform that executes deterministic data extraction, automated tool calling, and RAG vector semantic search for mission‑critical enterprise operations.',
-      tech: ['Python', 'LangGraph', 'FastAPI', 'OpenAI API', 'Redis Vector'],
-      metric: '70% Workflow Automation • Sub‑200ms Latency',
-      impact: '10x Speedup',
-      link: 'https://synapse-ai.jwt.io',
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+      title: 'GHAROTI - ROTI SUBSCRIPTION',
+      subtitle: 'Home-Style Fresh Roti & Meal Subscription Platform',
+      category: 'FOOD TECH & SUBSCRIPTION COMMERCE',
+      description: 'Mobile-first daily homestyle roti and meal subscription platform engineered for Gharoti. Features recurring delivery scheduling, multi-category cart management, automated dispatch routes, pure desi ghee phulkas, and live order tracking.',
+      tech: ['Next.js', 'React', 'Tailwind CSS', 'Firebase', 'Vercel Edge'],
+      metric: '10k+ Fresh Rotis Delivered Daily • 99.9% On-Time Delivery',
+      impact: 'Sub-Second Ordering',
+      link: 'https://www.gharoti.com/',
+      image: '/images/gharoti-showcase.jpg',
     },
     {
       id: '03',
@@ -44,15 +44,15 @@ export default function StackedProjects() {
     },
     {
       id: '04',
-      title: 'GHAROTI SUBSCRIPTION & CRM',
-      subtitle: 'End‑to‑End Logistics & Order Management Suite',
-      category: 'SUBSCRIPTION COMMERCE & LOGISTICS',
-      description: 'Enterprise subscription platform managing recurring delivery schedules, automated billing, real‑time driver dispatch tracking, and centralized customer relationship management.',
-      tech: ['React 19', 'Firebase', 'Node.js', 'Tailwind', 'Stripe Billing'],
-      metric: '50k+ Daily Orders • 99.99% Uptime',
-      impact: 'Zero Order Failure',
-      link: 'https://gharoti.com',
-      image: 'https://images.unsplash.com/photo-1556742049-0a67e557224f?auto=format&fit=crop&w=1200&q=80',
+      title: 'SYNAPSE AI WORKFLOW OS',
+      subtitle: 'Autonomous Multi‑Agent Orchestration Pipeline',
+      category: 'AGENTIC AI & MULTI‑LLM SYSTEMS',
+      description: 'Multi‑agent reasoning platform that executes deterministic data extraction, automated tool calling, and RAG vector semantic search for mission‑critical enterprise operations.',
+      tech: ['Python', 'LangGraph', 'FastAPI', 'OpenAI API', 'Redis Vector'],
+      metric: '70% Workflow Automation • Sub‑200ms Latency',
+      impact: '10x Speedup',
+      link: 'https://synapse-ai.jwt.io',
+      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
     },
     {
       id: '05',
@@ -103,14 +103,14 @@ export default function StackedProjects() {
               <button
                 onClick={handlePrev}
                 aria-label="Previous project"
-                className="w-10 h-10 rounded-lg bg-[#1A1A1A] border border-[#262626] text-[#e4e2e1] flex items-center justify-center hover:bg-[#C8FF3D] hover:text-[#0A0A0A] hover:border-[#C8FF3D] transition-all cursor-pointer active:scale-95"
+                className="w-10 h-10 rounded-lg bg-[#1A1A1A] border border-[#262626] text-[#e4e2e1] flex items-center justify-center hover:bg-[#C8FF3D] hover:text-[#0A0A0A] hover:border-[#C8FF3D] transition-[background-color,color,border-color,transform] duration-200 cursor-pointer active:scale-95"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
                 aria-label="Next project"
-                className="w-10 h-10 rounded-lg bg-[#1A1A1A] border border-[#262626] text-[#e4e2e1] flex items-center justify-center hover:bg-[#C8FF3D] hover:text-[#0A0A0A] hover:border-[#C8FF3D] transition-all cursor-pointer active:scale-95"
+                className="w-10 h-10 rounded-lg bg-[#1A1A1A] border border-[#262626] text-[#e4e2e1] flex items-center justify-center hover:bg-[#C8FF3D] hover:text-[#0A0A0A] hover:border-[#C8FF3D] transition-[background-color,color,border-color,transform] duration-200 cursor-pointer active:scale-95"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -119,7 +119,7 @@ export default function StackedProjects() {
         </div>
 
         {/* Project Card: Responsive Layout (Mobile: Column, Desktop: Left Image & Right Details) */}
-        <div className="bg-[#181818] border border-[#262626] rounded-2xl overflow-hidden shadow-2xl transition-all duration-300">
+        <div className="bg-[#181818] border border-[#262626] rounded-2xl overflow-hidden shadow-2xl transition-shadow duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
             
             {/* Left Side: Image Showcase */}
@@ -130,40 +130,24 @@ export default function StackedProjects() {
                 className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy"
               />
-              
-              {/* Image Gradient Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#131313] via-[#131313]/20 to-black/40 pointer-events-none" />
-
-              {/* Floating Badges on Top */}
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                <span className="px-3 py-1.5 bg-[#0A0A0A]/80 backdrop-blur-md border border-[#262626] text-[#C8FF3D] font-mono-code text-xs font-semibold uppercase tracking-wider rounded-md">
-                  SYS.ID {currentProject.id}
-                </span>
-                <span className="px-3 py-1.5 bg-[#0A0A0A]/80 backdrop-blur-md border border-[#262626] text-[#e4e2e1] font-mono-code text-xs rounded-md">
-                  {currentProject.impact}
-                </span>
-              </div>
-
-              {/* Category Pill at Bottom of Image */}
-              <div className="absolute bottom-4 left-4 pointer-events-none">
-                <span className="px-3.5 py-1.5 bg-[#C8FF3D] text-[#0A0A0A] font-space text-xs font-bold uppercase tracking-wider rounded-md shadow-lg">
-                  {currentProject.category}
-                </span>
-              </div>
             </div>
 
             {/* Right Side: Project Details, Metrics, Tech Stack & Action Links */}
             <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 lg:p-10 bg-[#161616]">
               <div>
                 {/* Micro Header */}
-                <div className="flex items-center justify-between border-b border-[#262626] pb-3 mb-4">
-                  <span className="font-mono-code text-xs text-[#9CA3AF] uppercase tracking-wider">
-                    PRODUCTION RELEASE
-                  </span>
-                  <div className="flex items-center gap-1.5 text-xs text-[#C8FF3D] font-mono-code font-bold">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>VERIFIED ARCHITECTURE</span>
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#262626] pb-3 mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-[#0A0A0A] border border-[#262626] text-[#C8FF3D] font-mono-code text-[11px] font-bold rounded">
+                      PROJECT {currentProject.id}
+                    </span>
+                    <span className="font-mono-code text-[11px] text-[#9CA3AF] uppercase tracking-wider">
+                      {currentProject.category}
+                    </span>
                   </div>
+                  <span className="px-2 py-0.5 bg-[#1C260D] border border-[#C8FF3D]/30 text-[#C8FF3D] font-mono-code text-[11px] rounded font-semibold">
+                    {currentProject.impact}
+                  </span>
                 </div>
 
                 {/* Title & Subtitle */}
@@ -195,9 +179,9 @@ export default function StackedProjects() {
                     CORE TECH STACK
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {currentProject.tech.map((t, idx) => (
+                    {currentProject.tech.map((t) => (
                       <span
-                        key={idx}
+                        key={t}
                         className="px-2.5 py-1 bg-[#202020] border border-[#2d2d2d] text-[#e4e2e1] font-mono-code text-xs rounded hover:border-[#C8FF3D] transition-colors"
                       >
                         {t}
@@ -262,7 +246,7 @@ export default function StackedProjects() {
             <button
               key={proj.id}
               onClick={() => setCurrentIndex(idx)}
-              className={`px-3.5 sm:px-4 py-2 rounded-lg font-mono-code text-xs transition-all cursor-pointer flex items-center gap-2 ${
+              className={`px-3.5 sm:px-4 py-2 rounded-lg font-mono-code text-xs transition-[background-color,color,border-color,transform] duration-200 cursor-pointer flex items-center gap-2 ${
                 currentIndex === idx
                   ? 'bg-[#C8FF3D] text-[#0A0A0A] font-bold shadow-lg shadow-[#C8FF3D]/10 scale-105'
                   : 'bg-[#181818] border border-[#262626] text-[#9CA3AF] hover:text-[#e4e2e1] hover:border-[#444]'

@@ -60,7 +60,7 @@ export default function Layout() {
         ref={mainRef}
         id="main-content"
         tabIndex="-1"
-        className="flex-grow flex flex-col w-full max-w-[1440px] mx-auto px-4 md:px-12 py-6 pb-28 lg:pb-6 gap-10 outline-none"
+        className="flex-grow flex flex-col w-full max-w-[1440px] mx-auto px-4 md:px-12 pt-2 sm:pt-3 pb-28 lg:pb-8 gap-10 outline-none"
       >
         <Outlet />
       </main>

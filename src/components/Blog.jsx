@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
-import { BookOpen, ArrowUpRight, Clock, Tag, X, Sparkles, Terminal } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { BookOpen, ArrowUpRight, Clock, Tag, X, Terminal } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 export default function Blog() {
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const dialogRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedArticle) {
+      dialogRef.current?.showModal();
+    } else {
+      dialogRef.current?.close();
+    }
+  }, [selectedArticle]);
 
   const articles = [
     {
@@ -23,40 +33,53 @@ To guarantee zero hallucination in critical transactions, all agent outputs are 
 
 #### 2. Vector Memory Caching
 By deploying local Redis vector indices alongside hybrid cosine similarity searches, agent response latency is reduced by **78%** on repeated domain queries.
-      `,
-      tags: ['LangGraph', 'Python', 'Vector DB', 'Multi-Agent'],
-    },
-    {
-      id: 'react-19-sub10ms',
-      title: 'Sub-10ms UI Framework: Optimizing React 19 & Tailwind v4 at the Edge',
-      category: 'WEB ARCHITECTURE',
-      readTime: '5 min read',
-      date: 'JUL 2026',
-      summary: 'How we eliminated client hydration lag and achieved 100/100 Lighthouse performance using edge streaming, Server Components, and zero-runtime CSS.',
-      content: `
-### Engineering for Sub-Millisecond Render Loops
-When building high-concurrency trading dashboards or luxury headless commerce, every millisecond of layout shift directly degrades conversion metrics.
 
-#### Core Optimization Pillars:
-1. **Edge Streaming:** HTML chunks are streamed from Cloudflare edge nodes directly to the browser before full JS evaluation.
-2. **Tailwind v4 Engine:** Pre-compiled CSS tokens that eliminate runtime style recalculation.
-3. **Selective Hydration:** Only interactive UI islands are hydrated on user interaction.
+#### 3. State Management & Checkpointing
+State persistence across intermittent failures is maintained via SQLite / PostgreSQL checkpoints, enabling zero-loss transaction recovery.
       `,
-      tags: ['React 19', 'Tailwind v4', 'Edge CDN', 'Vite'],
+      tags: ['LangGraph', 'Python', 'FastAPI', 'VectorDB', 'OpenAI'],
     },
     {
-      id: 'distributed-microservices',
-      title: 'Zero-Downtime Migration: Scaling PostgreSQL & Redis for 100k Concurrent Users',
-      category: 'SYSTEMS & DEVOPS',
+      id: 'sub-8ms-react-terminals',
+      title: 'Sub-8ms Render Loops: Building Ultra-Low Latency React Terminals',
+      category: 'HIGH-PERFORMANCE FRONTEND',
       readTime: '8 min read',
-      date: 'JUN 2026',
-      summary: 'Practical lessons from scaling a distributed fintech payment engine through read-replica sharding, connection pooling, and automated failover gates.',
+      date: 'JUL 2026',
+      summary: 'How we engineered high-frequency financial dashboards streaming 50,000 WebSocket events/sec without triggering React fiber re-render bottlenecks.',
       content: `
-### High-Throughput Database Clustering
-Scaling transactional workloads requires strict isolation between analytical queries and high-frequency writes.
+### Conquering React 19 Fiber Render Cycles
+Financial trading terminals demand sub-frame rendering latencies. At 60 FPS, a frame budget is 16.6ms. At 120 FPS, it drops to 8.3ms. Here is how we achieved continuous sub-8ms throughput:
 
-#### Key Takeaways:
-- **Connection Pooling with PgBouncer:** Reduced server memory pressure by 60%.
+#### 1. Offloading to Canvas 2D / WebGL
+High-frequency order books and depth charts bypass the DOM tree entirely. Direct GPU rendering layers maintain smooth 120fps motion even during massive market volatility.
+
+#### 2. Selective Signal Subscriptions
+Rather than triggering component-wide re-renders on every incoming ticker message, we bind WebSocket streams to micro-signals that mutate only the target text nodes directly.
+
+#### 3. Zero-Allocation Binary Buffers
+Protocol Buffers and ArrayBuffers replace JSON payloads over WebSockets, eliminating garbage collection pauses during peak volume.
+      `,
+      tags: ['React 19', 'WebSockets', 'WebGL', 'Performance'],
+    },
+    {
+      id: 'zero-downtime-postgres-migrations',
+      title: 'Zero-Downtime Database Architecture for High-Volume E-Commerce',
+      category: 'DATABASE & INFRASTRUCTURE',
+      readTime: '5 min read',
+      date: 'JUN 2026',
+      summary: 'Lessons learned scaling PostgreSQL clusters handling 100,000+ peak daily transactions with zero customer-facing locking.',
+      content: `
+### The Expand/Contract Migration Pattern
+Migrating relational schemas in production without maintenance windows requires disciplined two-phase rollout strategies:
+
+#### 1. Expand Phase
+Add new columns as nullable, replicate writes to both old and new schema structures in application code, and backfill historical data in chunked background worker tasks.
+
+#### 2. Contract Phase
+Once 100% of read and write paths target the new schema, remove deprecations and drop old columns without blocking the active table.
+
+#### 3. Resilient Read Replicas & Connection Pooling
+- **PgBouncer Connection Pooling:** Keeps thread contention minimal across hundreds of serverless container instances.
 - **Redis Write-Back Cache:** Asynchronously syncs non-critical ledger state to prevent lock contention.
 - **Automated Blue-Green Deployments:** Zero connection drops during database schema migrations.
       `,
@@ -67,25 +90,19 @@ Scaling transactional workloads requires strict isolation between analytical que
   return (
     <section className="w-full py-8">
       {/* Header */}
-      <div className="mb-8">
-        <span className="font-space text-xs uppercase text-[#9CA3AF] tracking-widest block mb-1">
-          SYS.INSIGHTS // TECHNICAL_DISPATCHES
-        </span>
-        <div className="terminal-divider my-2"></div>
-        <h2 className="font-space text-3xl sm:text-5xl font-extrabold uppercase text-[#e4e2e1] mt-4">
-          ENGINEERING <span className="text-[#C8FF3D]">ARTICLES & RESEARCH</span>
-        </h2>
-        <p className="font-sans-body text-base text-[#9CA3AF] max-w-2xl mt-2 leading-relaxed">
-          In-depth technical architecture breakdowns, performance post-mortems, and AI engineering dispatches from the JhalaWebTech engineering collective.
-        </p>
-      </div>
+      <SectionHeader
+        tag="SYS.INSIGHTS // TECHNICAL_DISPATCHES"
+        title="ENGINEERING"
+        highlightedTitle="ARTICLES & RESEARCH"
+        description="In-depth technical architecture breakdowns, performance post-mortems, and AI engineering dispatches from the JhalaWebTech engineering collective."
+      />
 
       {/* Articles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {articles.map((art) => (
           <article
             key={art.id}
-            className="bg-[#1A1A1A] p-6 card-high-emphasis flex flex-col justify-between group transition-all duration-300 shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_0px_#C8FF3D]"
+            className="bg-[#1A1A1A] p-6 card-high-emphasis flex flex-col justify-between group transition-[box-shadow,border-color] duration-300 shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_0px_#C8FF3D]"
           >
             <div>
               {/* Meta Row */}
@@ -107,9 +124,9 @@ Scaling transactional workloads requires strict isolation between analytical que
 
               {/* Tags */}
               <div className="flex flex-wrap gap-1.5 mb-6">
-                {art.tags.map((t, idx) => (
+                {art.tags.map((t) => (
                   <span
-                    key={idx}
+                    key={t}
                     className="text-[11px] font-mono-code text-[#9CA3AF] bg-[#0A0A0A] border border-[#262626] px-2 py-0.5"
                   >
                     #{t}
@@ -122,7 +139,7 @@ Scaling transactional workloads requires strict isolation between analytical que
             <button
               onClick={() => setSelectedArticle(art)}
               aria-label={`Read article: ${art.title}`}
-              className="w-full bg-[#0A0A0A] border border-[#262626] text-[#e4e2e1] font-space text-xs uppercase py-3 px-4 flex items-center justify-center gap-2 group-hover:bg-[#C8FF3D] group-hover:text-[#0A0A0A] group-hover:font-bold transition-all cursor-pointer"
+              className="w-full bg-[#0A0A0A] border border-[#262626] text-[#e4e2e1] font-space text-xs uppercase py-3 px-4 flex items-center justify-center gap-2 group-hover:bg-[#C8FF3D] group-hover:text-[#0A0A0A] group-hover:font-bold transition-colors duration-200 cursor-pointer"
             >
               <span>READ DISPATCH</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -133,13 +150,13 @@ Scaling transactional workloads requires strict isolation between analytical que
 
       {/* Article Detail Modal */}
       {selectedArticle && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
-          role="dialog"
-          aria-modal="true"
+        <dialog 
+          ref={dialogRef}
+          onClose={() => setSelectedArticle(null)}
+          className="fixed inset-0 z-50 m-auto p-4 bg-transparent backdrop:bg-black/80 backdrop:backdrop-blur-sm max-w-3xl w-full"
           aria-labelledby="article-modal-title"
         >
-          <div className="bg-[#0A0A0A] brutalist-border-active w-full max-w-3xl max-h-[85vh] overflow-y-auto shadow-[12px_12px_0px_0px_#C8FF3D] relative p-6 md:p-8">
+          <div className="bg-[#0A0A0A] brutalist-border-active w-full max-h-[85vh] overflow-y-auto shadow-[12px_12px_0px_0px_#C8FF3D] relative p-6 md:p-8">
             <div className="flex justify-between items-start pb-4 border-b border-[#262626] mb-6">
               <div>
                 <span className="text-xs font-mono-code text-[#C8FF3D] uppercase font-bold block mb-1">
@@ -173,13 +190,13 @@ Scaling transactional workloads requires strict isolation between analytical que
               </span>
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="bg-[#C8FF3D] text-[#0A0A0A] font-space text-xs font-bold uppercase py-2 px-5 hover:bg-[#bef532] cursor-pointer"
+                className="bg-[#C8FF3D] text-[#0A0A0A] font-space text-xs font-bold uppercase py-2 px-5 hover:bg-[#bef532] cursor-pointer transition-colors duration-200"
               >
                 CLOSE DISPATCH
               </button>
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </section>
   );

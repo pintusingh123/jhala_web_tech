@@ -68,14 +68,14 @@ export default function About({ onOpenContact }) {
 
         {/* Right Principles Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {principles.map((princ, pIdx) => {
+          {principles.map((princ) => {
             const Icon = princ.icon;
             return (
               <div
-                key={pIdx}
-                className="bg-[#1A1A1A] p-6 brutalist-border hover:border-[#C8FF3D] transition-all group"
+                key={princ.title}
+                className="bg-[#1A1A1A] p-6 brutalist-border hover:border-[#C8FF3D] transition-colors duration-200 group"
               >
-                <div className="p-2.5 bg-[#0A0A0A] brutalist-border w-fit text-[#C8FF3D] mb-3 group-hover:scale-110 transition-transform">
+                <div className="p-2.5 bg-[#0A0A0A] brutalist-border w-fit text-[#C8FF3D] mb-3 group-hover:scale-110 transition-transform duration-200">
                   <Icon className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <h4 className="font-space text-lg font-bold text-[#e4e2e1] mb-2 group-hover:text-[#C8FF3D] transition-colors">
@@ -96,8 +96,8 @@ export default function About({ onOpenContact }) {
           CORE TECH STACK:
         </span>
         <div className="flex flex-wrap gap-2 text-xs font-mono-code text-[#e4e2e1]">
-          {['React 19', 'Node.js', 'Vite', 'Python', 'FastAPI', 'Go', 'AWS', 'Docker', 'PostgreSQL', 'Tailwind v4', 'OpenAI', 'LangGraph'].map((t, idx) => (
-            <span key={idx} className="bg-[#1A1A1A] border border-[#262626] px-2.5 py-1">
+          {['React 19', 'Node.js', 'Vite', 'Python', 'FastAPI', 'Go', 'AWS', 'Docker', 'PostgreSQL', 'Tailwind v4', 'OpenAI', 'LangGraph'].map((t) => (
+            <span key={t} className="bg-[#1A1A1A] border border-[#262626] px-2.5 py-1">
               {t}
             </span>
           ))}

@@ -19,7 +19,6 @@ export default function HomePage() {
   return (
     <>
       <div className="gsap-fade-in">
-        <TerminalHeader label="HOME_CORE" />
         <Hero onExploreServices={() => navigate('/services')} />
       </div>
 

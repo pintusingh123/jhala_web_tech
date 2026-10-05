@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 export default function FAQ({ onOpenContact }) {
   const [openIdx, setOpenIdx] = useState(0);
@@ -30,18 +31,12 @@ export default function FAQ({ onOpenContact }) {
   return (
     <section className="w-full py-8">
       {/* Header */}
-      <div className="mb-8">
-        <span className="font-space text-xs uppercase text-[#9CA3AF] tracking-widest block mb-1">
-          SYS.KNOWLEDGE // FAQS
-        </span>
-        <div className="terminal-divider my-2"></div>
-        <h2 className="font-space text-3xl sm:text-5xl font-extrabold uppercase text-[#e4e2e1] mt-4">
-          FREQUENTLY <span className="text-[#C8FF3D]">ASKED QUESTIONS</span>
-        </h2>
-        <p className="font-sans-body text-base text-[#9CA3AF] max-w-2xl mt-2 leading-relaxed">
-          Everything you need to know about our engineering process, AI integrations, timelines, and SLAs.
-        </p>
-      </div>
+      <SectionHeader
+        tag="SYS.KNOWLEDGE // FAQS"
+        title="FREQUENTLY"
+        highlightedTitle="ASKED QUESTIONS"
+        description="Everything you need to know about our engineering process, AI integrations, timelines, and SLAs."
+      />
 
       {/* Accordion List */}
       <div className="space-y-4 max-w-4xl">
@@ -49,8 +44,8 @@ export default function FAQ({ onOpenContact }) {
           const isOpen = openIdx === idx;
           return (
             <div
-              key={idx}
-              className={`bg-[#131313] brutalist-border transition-all duration-200 ${
+              key={faq.q}
+              className={`bg-[#131313] brutalist-border transition-colors duration-200 ${
                 isOpen ? 'brutalist-border-active bg-[#1A1A1A]' : 'hover:border-[#9CA3AF]'
               }`}
             >

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Send } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const WHATSAPP_NUMBER = '8003642596';
 
@@ -11,7 +12,7 @@ export default function Hero({ onExploreServices }) {
   };
 
   return (
-    <section className="w-full relative py-8 sm:py-12 lg:py-16">
+    <section className="w-full relative pt-1 sm:pt-3 pb-8 sm:pb-12">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-start lg:items-center">
         
         {/* Left Column (8 cols): Headline & Copy */}
@@ -46,7 +47,7 @@ export default function Hero({ onExploreServices }) {
               <Link
                 to="/contact"
                 aria-label="Get in touch with JhalaWebTech"
-                className="flex justify-center items-center gap-2 px-7 py-4 bg-[#C8FF3D] text-[#0A0A0A] text-xs sm:text-sm font-space font-bold tracking-widest uppercase hover:bg-[#bef532] transition-all brutalist-border-active active:scale-95 shadow-[4px_4px_0px_0px_#262626] cursor-pointer w-full sm:w-auto"
+                className="flex justify-center items-center gap-2 px-7 py-4 bg-[#C8FF3D] text-[#0A0A0A] text-xs sm:text-sm font-space font-bold tracking-widest uppercase hover:bg-[#bef532] transition-[background-color,transform] duration-200 brutalist-border-active active:scale-95 shadow-[4px_4px_0px_0px_#262626] cursor-pointer w-full sm:w-auto"
               >
                 <span>LET'S BUILD TOGETHER</span>
                 <ArrowRight className="w-4 h-4" />
@@ -55,16 +56,16 @@ export default function Hero({ onExploreServices }) {
               <button
                 onClick={handleWhatsApp}
                 aria-label="Direct WhatsApp consultation"
-                className="flex justify-center items-center gap-2 px-6 py-4 bg-[#1A1A1A] border border-[#25D366]/50 text-[#25D366] hover:bg-[#25D366] hover:text-[#0A0A0A] text-xs sm:text-sm font-space font-bold tracking-widest uppercase transition-all active:scale-95 cursor-pointer w-full sm:w-auto"
+                className="flex justify-center items-center gap-2 px-6 py-4 bg-[#1A1A1A] border border-[#25D366]/50 text-[#25D366] hover:bg-[#25D366] hover:text-[#0A0A0A] text-xs sm:text-sm font-space font-bold tracking-widest uppercase transition-[background-color,color,transform] duration-200 active:scale-95 cursor-pointer w-full sm:w-auto"
               >
-                <Send className="w-4 h-4 fill-current" />
+                <WhatsAppIcon className="w-4 h-4 fill-current" />
                 <span>WHATSAPP US</span>
               </button>
 
               <button
                 onClick={onExploreServices}
                 aria-label="View case studies and capabilities"
-                className="flex justify-center items-center px-6 py-4 bg-transparent border border-[#444748] text-[#e4e2e1] hover:bg-[#1A1A1A] hover:border-[#C8FF3D] hover:text-[#C8FF3D] text-xs sm:text-sm font-space font-bold tracking-widest uppercase transition-all active:scale-95 cursor-pointer w-full sm:w-auto"
+                className="flex justify-center items-center px-6 py-4 bg-transparent border border-[#444748] text-[#e4e2e1] hover:bg-[#1A1A1A] hover:border-[#C8FF3D] hover:text-[#C8FF3D] text-xs sm:text-sm font-space font-bold tracking-widest uppercase transition-[background-color,color,border-color,transform] duration-200 active:scale-95 cursor-pointer w-full sm:w-auto"
               >
                 <span>SERVICES</span>
               </button>
@@ -76,8 +77,8 @@ export default function Hero({ onExploreServices }) {
         <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col justify-start sm:justify-between items-stretch sm:items-center lg:items-end gap-6 sm:gap-8 border-t lg:border-t-0 lg:border-l border-[#262626] pt-8 lg:pt-0 lg:pl-10 w-full mt-4 lg:mt-0">
           
           {/* Card 1: 20+ Projects Delivered */}
-          <div className="flex gap-4 items-start w-full sm:max-w-[340px] bg-[#1A1A1A] brutalist-border p-5 shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_0px_#C8FF3D] hover:border-[#C8FF3D] transition-all duration-300 group">
-            <span className="text-2xl text-[#C8FF3D] select-none font-bold" aria-hidden="true">✦</span>
+          <div className="flex gap-4 items-start w-full sm:max-w-[340px] bg-[#1A1A1A] brutalist-border p-5 shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_0px_#C8FF3D] hover:border-[#C8FF3D] transition-[box-shadow,border-color] duration-300 group">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#C8FF3D] mt-1.5 shrink-0" />
             <div className="flex flex-col">
               <span className="font-space font-bold text-xs sm:text-sm tracking-wider uppercase text-[#e4e2e1] mb-1.5 group-hover:text-[#C8FF3D] transition-colors">
                 20+ PROJECTS DELIVERED
@@ -93,7 +94,7 @@ export default function Hero({ onExploreServices }) {
             to="/contact"
             className="relative group cursor-pointer shrink-0 self-center sm:self-auto lg:self-end"
           >
-            <div className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full bg-[#0E0E0E] brutalist-border-active text-[#e4e2e1] flex flex-col items-center justify-center p-4 text-center transform hover:scale-105 hover:-rotate-3 transition-all duration-300 shadow-[6px_6px_0px_0px_#C8FF3D]">
+            <div className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full bg-[#0E0E0E] brutalist-border-active text-[#e4e2e1] flex flex-col items-center justify-center p-4 text-center transform hover:scale-105 hover:-rotate-3 transition-transform duration-300 shadow-[6px_6px_0px_0px_#C8FF3D]">
               <span className="text-3xl sm:text-4xl md:text-5xl font-space font-extrabold leading-none tracking-tight mb-1 text-[#C8FF3D]">
                 99%
               </span>

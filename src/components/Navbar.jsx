@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Navbar */}
-      <header className="bg-[#131313]/95 backdrop-blur-md border-b border-[#262626] sticky top-0 z-40 transition-all duration-200">
+      <header className="bg-[#131313]/95 backdrop-blur-md border-b border-[#262626] sticky top-0 z-40 transition-colors duration-200">
         <div className="max-w-[1440px] mx-auto flex justify-between items-center px-4 md:px-12 py-3.5">
           {/* Brand Logo Link */}
           <Link 
@@ -56,7 +56,7 @@ export default function Navbar() {
                 to={item.to}
                 end={item.to === '/'}
                 className={({ isActive }) =>
-                  `font-space text-xs uppercase tracking-widest transition-all duration-200 py-1 border-b-2 active:scale-95 cursor-pointer ${
+                  `font-space text-xs uppercase tracking-widest transition-[color,border-color,transform] duration-200 py-1 border-b-2 active:scale-95 cursor-pointer ${
                     isActive
                       ? 'text-[#C8FF3D] font-bold border-[#C8FF3D]'
                       : 'text-[#9CA3AF] hover:text-[#e4e2e1] border-transparent'

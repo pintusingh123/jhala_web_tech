@@ -1,25 +1,26 @@
 import React from 'react';
-import { ExternalLink, Sparkles } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 export default function Portfolio({ onOpenContact }) {
   const projects = [
     {
-      title: 'KINETIC FINANCIAL DASHBOARD',
-      client: 'Apex Capital Inc.',
-      category: 'Fintech / Web Architecture',
-      description: 'Ultra-low latency trading dashboard handling real-time WebSockets stream with sub-10ms UI renders.',
-      tech: ['React', 'WebSockets', 'Tailwind', 'AWS'],
-      metrics: '< 8ms Latency // 50k Ops/sec',
-      highlight: 'Live Trading Engine',
+      title: 'JAY SHREE SHAM TIFFIN APP',
+      client: 'Ishue Suman (Jay Shree Shyam)',
+      category: 'Food Delivery & Subscriptions',
+      description: 'Mobile-first food delivery and daily subscription web application featuring dynamic daily rotating menus, pure-veg thali plans (₹60–₹200), and 1-click WhatsApp order routing.',
+      tech: ['Next.js', 'React', 'Tailwind', 'WhatsApp API'],
+      metrics: '2x Daily Orders // 500+ Meals/Day',
+      highlight: 'Live Production Web App',
     },
     {
-      title: 'SYNAPSE AI WORKFLOW AGENT',
-      client: 'NeuroTech Global',
-      category: 'AI & LLM Integration',
-      description: 'Autonomous AI subagent system running multi-modal LLM pipelines with structured JSON output parsing.',
-      tech: ['Python', 'FastAPI', 'OpenAI API', 'LangChain'],
-      metrics: '99.4% Accuracy // 10x Throughput',
-      highlight: 'Autonomous Agent',
+      title: 'GHAROTI ROTI SUBSCRIPTION',
+      client: 'Gharoti Technologies',
+      category: 'Subscription Commerce & Food Tech',
+      description: 'Mobile-first homestyle fresh roti and meal subscription platform with recurring delivery scheduling, automated dispatch routes, pure desi ghee phulkas, and real-time tracking.',
+      tech: ['Next.js', 'React', 'Tailwind', 'Firebase'],
+      metrics: '10k+ Rotis Delivered // 99.9% On-Time',
+      highlight: 'Live Production App',
     },
     {
       title: 'NEXUS E-COMMERCE PLATFORM',
@@ -34,24 +35,18 @@ export default function Portfolio({ onOpenContact }) {
 
   return (
     <section className="w-full py-8">
-      <div className="mb-8">
-        <span className="font-space text-xs uppercase text-[#9CA3AF] tracking-widest block mb-1">
-          SYS.PORTFOLIO.MAP
-        </span>
-        <div className="terminal-divider my-2"></div>
-        <h2 className="font-space text-3xl sm:text-5xl font-extrabold uppercase text-[#e4e2e1] mt-4">
-          SELECTED <span className="text-[#C8FF3D]">WORK & CASE STUDIES</span>
-        </h2>
-        <p className="font-sans-body text-base text-[#9CA3AF] max-w-2xl mt-2 leading-relaxed">
-          Explore real-world technical systems and digital experiences engineered by JhalaLabs.
-        </p>
-      </div>
+      <SectionHeader
+        tag="SYS.PORTFOLIO.MAP"
+        title="SELECTED"
+        highlightedTitle="WORK & CASE STUDIES"
+        description="Explore real-world technical systems and digital experiences engineered by JhalaLabs."
+      />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-        {projects.map((proj, idx) => (
+        {projects.map((proj) => (
           <div
-            key={idx}
-            className="bg-[#131313] p-4 sm:p-6 flex flex-col justify-between group transition-all sm:brutalist-border sm:hover:border-[#C8FF3D] sm:shadow-[4px_4px_0px_0px_#262626] sm:hover:shadow-[8px_8px_0px_0px_#C8FF3D]"
+            key={proj.title}
+            className="bg-[#131313] p-4 sm:p-6 flex flex-col justify-between group transition-[border-color,box-shadow] duration-200 sm:brutalist-border sm:hover:border-[#C8FF3D] sm:shadow-[4px_4px_0px_0px_#262626] sm:hover:shadow-[8px_8px_0px_0px_#C8FF3D]"
           >
             <div>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 border-b border-[#262626] mb-4">
@@ -77,16 +72,15 @@ export default function Portfolio({ onOpenContact }) {
               {/* Performance Metric Box */}
               <div className="p-3 bg-[#0A0A0A] brutalist-border mb-6">
                 <div className="text-[11px] font-mono-code text-[#C8FF3D] flex items-center gap-1.5">
-               
                   <span>METRIC: {proj.metrics}</span>
                 </div>
               </div>
 
               {/* Tech Stack */}
               <div className="flex flex-wrap gap-1.5 mb-6">
-                {proj.tech.map((t, tIdx) => (
+                {proj.tech.map((t) => (
                   <span
-                    key={tIdx}
+                    key={t}
                     className="text-[11px] font-mono-code text-[#e4e2e1] bg-[#1A1A1A] border border-[#262626] px-2 py-0.5 uppercase"
                   >
                     {t}
@@ -97,7 +91,7 @@ export default function Portfolio({ onOpenContact }) {
 
             <button
               onClick={onOpenContact}
-              className="w-full bg-[#1A1A1A] border border-[#262626] text-[#e4e2e1] font-space text-xs uppercase py-2.5 px-4 flex items-center justify-center gap-2 group-hover:bg-[#C8FF3D] group-hover:text-[#0A0A0A] group-hover:font-bold transition-all cursor-pointer"
+              className="w-full bg-[#1A1A1A] border border-[#262626] text-[#e4e2e1] font-space text-xs uppercase py-2.5 px-4 flex items-center justify-center gap-2 group-hover:bg-[#C8FF3D] group-hover:text-[#0A0A0A] group-hover:font-bold transition-colors duration-200 cursor-pointer"
             >
               <span>REQUEST CASE STUDY</span>
               <ExternalLink className="w-4 h-4" />

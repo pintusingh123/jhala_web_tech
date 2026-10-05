@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layers, Zap, Bot, ShieldCheck, ArrowRight } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 export default function Process({ onOpenContact }) {
   const steps = [
@@ -36,27 +37,21 @@ export default function Process({ onOpenContact }) {
   return (
     <section className="w-full py-8">
       {/* Header */}
-      <div className="mb-8">
-        <span className="font-space text-xs uppercase text-[#9CA3AF] tracking-widest block mb-1">
-          SYS.EXECUTION // METHODOLOGY
-        </span>
-        <div className="terminal-divider my-2"></div>
-        <h2 className="font-space text-3xl sm:text-5xl font-extrabold uppercase text-[#e4e2e1] mt-4">
-          HOW WE <span className="text-[#C8FF3D]">ENGINEER & SCALE</span>
-        </h2>
-        <p className="font-sans-body text-base text-[#9CA3AF] max-w-2xl mt-2 leading-relaxed">
-          Our 4-phase technical delivery framework guarantees predictable timelines, zero architectural debt, and enterprise-grade reliability.
-        </p>
-      </div>
+      <SectionHeader
+        tag="SYS.EXECUTION // METHODOLOGY"
+        title="HOW WE"
+        highlightedTitle="ENGINEER & SCALE"
+        description="Our 4-phase technical delivery framework guarantees predictable timelines, zero architectural debt, and enterprise-grade reliability."
+      />
 
       {/* Process 4-Col Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {steps.map((s, idx) => {
+        {steps.map((s) => {
           const Icon = s.icon;
           return (
             <div
-              key={idx}
-              className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between group hover:border-[#C8FF3D] transition-all duration-300 relative shadow-[4px_4px_0px_0px_#262626] hover:shadow-[6px_6px_0px_0px_#C8FF3D]"
+              key={s.step}
+              className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between group hover:border-[#C8FF3D] transition-[border-color,box-shadow] duration-300 relative shadow-[4px_4px_0px_0px_#262626] hover:shadow-[6px_6px_0px_0px_#C8FF3D]"
             >
               <div>
                 <div className="flex justify-between items-center pb-4 border-b border-[#262626] mb-4">

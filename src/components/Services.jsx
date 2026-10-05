@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, ShoppingCart, Cpu, Bot, Palette, Wrench, ArrowUpRight } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 export default function Services({ onSelectService }) {
   const servicesList = [
@@ -61,19 +62,13 @@ export default function Services({ onSelectService }) {
 
   return (
     <section className="w-full py-8">
-      {/* Terminal Header */}
-      <div className="w-full mb-8">
-        <span className="font-space text-xs uppercase text-[#9CA3AF] tracking-widest block mb-1">
-          SYS.SERVICES.MAP
-        </span>
-        <div className="terminal-divider my-2"></div>
-        <h2 className="font-space text-3xl sm:text-5xl font-extrabold uppercase text-[#e4e2e1] mt-4">
-          Engineering <span className="text-[#C8FF3D]">Scale</span>.
-        </h2>
-        <p className="font-sans-body text-base text-[#9CA3AF] max-w-2xl mt-3 leading-relaxed">
-          We architect and deploy robust, high-performance technical solutions designed for modern scale and relentless efficiency.
-        </p>
-      </div>
+      {/* Services Header */}
+      <SectionHeader
+        tag="SYS.SERVICES.MAP"
+        title="ENGINEERING"
+        highlightedTitle="SCALE."
+        description="We architect and deploy robust, high-performance technical solutions designed for modern scale and relentless efficiency."
+      />
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -82,7 +77,7 @@ export default function Services({ onSelectService }) {
           return (
             <div
               key={service.id}
-              className="bg-[#1A1A1A] p-6 card-high-emphasis flex flex-col justify-between group transition-all duration-300 shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_0px_#C8FF3D]"
+              className="bg-[#1A1A1A] p-6 card-high-emphasis flex flex-col justify-between group transition-[box-shadow,border-color] duration-300 shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_0px_#C8FF3D]"
             >
               <div>
                 <div className="flex justify-between items-start mb-4">
@@ -106,9 +101,9 @@ export default function Services({ onSelectService }) {
 
                 {/* Tech Tags */}
                 <div className="flex gap-2 flex-wrap mb-6">
-                  {service.tags.map((tag, tIdx) => (
+                  {service.tags.map((tag) => (
                     <span
-                      key={tIdx}
+                      key={tag}
                       className="text-xs text-[#9CA3AF] border border-[#444748] bg-[#0A0A0A] px-2 py-1 uppercase font-mono-code"
                     >
                       {tag}
@@ -120,7 +115,7 @@ export default function Services({ onSelectService }) {
               {/* Action Button */}
               <button
                 onClick={() => onSelectService(service)}
-                className="w-full bg-transparent border border-[#F5F5F0] text-[#F5F5F0] font-space text-xs uppercase py-3 px-4 flex items-center justify-center gap-2 group-hover:bg-[#F5F5F0] group-hover:text-[#0A0A0A] group-hover:font-bold transition-all cursor-pointer"
+                className="w-full bg-transparent border border-[#F5F5F0] text-[#F5F5F0] font-space text-xs uppercase py-3 px-4 flex items-center justify-center gap-2 group-hover:bg-[#F5F5F0] group-hover:text-[#0A0A0A] group-hover:font-bold transition-colors duration-200 cursor-pointer"
               >
                 <span>{service.actionText}</span>
                 <ArrowUpRight className="w-4 h-4" />

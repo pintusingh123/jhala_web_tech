@@ -11,8 +11,8 @@ export default function Stats() {
     <section className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 my-8 border-y border-[#262626] py-8">
       {stats.map((stat, idx) => (
         <div 
-          key={idx}
-          className={`flex flex-col items-start p-6 bg-[#0E0E0E] brutalist-border group hover:bg-[#131313] transition-all duration-300 ${
+          key={stat.label}
+          className={`flex flex-col items-start p-6 bg-[#0E0E0E] brutalist-border group hover:bg-[#131313] transition-colors duration-200 ${
             idx === 0 ? 'brutalist-border-active' : ''
           }`}
         >

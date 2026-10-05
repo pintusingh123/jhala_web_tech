@@ -2,10 +2,10 @@ import React from 'react';
 import { 
   Mail, 
   Phone, 
-  Send, 
   MapPin,
   Clock
 } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import TerminalHeader from '../components/TerminalHeader';
 import FAQ from '../components/FAQ';
 import { useNavigate } from 'react-router-dom';
@@ -38,7 +38,7 @@ export default function ContactPage() {
       {/* Top Direct Channels Matrix */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Channel 1: Calling & Pintu WhatsApp */}
-        <div className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between shadow-[4px_4px_0px_0px_#262626] group hover:border-[#C8FF3D] transition-all">
+        <div className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between shadow-[4px_4px_0px_0px_#262626] group hover:border-[#C8FF3D] transition-colors duration-200">
           <div>
             <div className="flex justify-between items-start mb-4">
               <div className="p-2.5 bg-[#0A0A0A] brutalist-border text-[#C8FF3D]">
@@ -65,27 +65,27 @@ export default function ContactPage() {
           <div className="flex flex-col gap-2">
             <a
               href={`tel:+91${CALLING_NUMBER}`}
-              className="w-full bg-[#1A1A1A] hover:bg-[#C8FF3D] text-[#e4e2e1] hover:text-[#0A0A0A] font-space text-xs font-bold uppercase py-2.5 px-4 brutalist-border flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full bg-[#1A1A1A] hover:bg-[#C8FF3D] text-[#e4e2e1] hover:text-[#0A0A0A] font-space text-xs font-bold uppercase py-2.5 px-4 brutalist-border flex items-center justify-center gap-2 transition-colors duration-200 cursor-pointer"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>CALL 8441992003 NOW</span>
             </a>
             <button
               onClick={handleWhatsAppPintu}
-              className="w-full bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-[#0A0A0A] font-space text-xs font-bold uppercase py-2.5 px-4 border border-[#25D366]/40 flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-[#0A0A0A] font-space text-xs font-bold uppercase py-2.5 px-4 border border-[#25D366]/40 flex items-center justify-center gap-2 transition-colors duration-200 cursor-pointer"
             >
-              <Send className="w-3.5 h-3.5 fill-current" />
+              <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
               <span>WHATSAPP PINTU ({PINTU_WHATSAPP})</span>
             </button>
           </div>
         </div>
 
         {/* Channel 2: Abhay Prajapati WhatsApp Desk */}
-        <div className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between shadow-[4px_4px_0px_0px_#262626] group hover:border-[#25D366] transition-all">
+        <div className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between shadow-[4px_4px_0px_0px_#262626] group hover:border-[#25D366] transition-colors duration-200">
           <div>
             <div className="flex justify-between items-start mb-4">
               <div className="p-2.5 bg-[#0A0A0A] brutalist-border text-[#25D366]">
-                <Send className="w-5 h-5 fill-current" />
+                <WhatsAppIcon className="w-5 h-5 fill-current" />
               </div>
               <span className="font-mono-code text-[10px] bg-[#0E1F12] text-[#25D366] px-2 py-0.5 border border-[#25D366]/40 uppercase font-bold flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-ping" />
@@ -108,15 +108,15 @@ export default function ContactPage() {
 
           <button
             onClick={handleWhatsAppAbhay}
-            className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-[#0A0A0A] font-space text-xs font-bold uppercase py-3 px-4 brutalist-border flex items-center justify-center gap-2 transition-all cursor-pointer shadow-[2px_2px_0px_0px_#0A0A0A]"
+            className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-[#0A0A0A] font-space text-xs font-bold uppercase py-3 px-4 brutalist-border flex items-center justify-center gap-2 transition-colors duration-200 cursor-pointer shadow-[2px_2px_0px_0px_#0A0A0A]"
           >
-            <Send className="w-3.5 h-3.5 fill-current" />
+            <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
             <span>CHAT WITH ABHAY ({ABHAY_WHATSAPP})</span>
           </button>
         </div>
 
         {/* Channel 3: Official Email & SLA */}
-        <div className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between shadow-[4px_4px_0px_0px_#262626] group hover:border-[#C8FF3D] transition-all">
+        <div className="bg-[#131313] brutalist-border p-6 flex flex-col justify-between shadow-[4px_4px_0px_0px_#262626] group hover:border-[#C8FF3D] transition-colors duration-200">
           <div>
             <div className="flex justify-between items-start mb-4">
               <div className="p-2.5 bg-[#0A0A0A] brutalist-border text-[#C8FF3D]">
@@ -139,7 +139,7 @@ export default function ContactPage() {
 
           <a
             href="mailto:contact@jhalawebtech.com"
-            className="w-full bg-[#1A1A1A] hover:bg-[#222] text-[#e4e2e1] hover:text-[#C8FF3D] font-space text-xs font-bold uppercase py-3 px-4 brutalist-border flex items-center justify-center gap-2 transition-all cursor-pointer shadow-[2px_2px_0px_0px_#0A0A0A]"
+            className="w-full bg-[#1A1A1A] hover:bg-[#222] text-[#e4e2e1] hover:text-[#C8FF3D] font-space text-xs font-bold uppercase py-3 px-4 brutalist-border flex items-center justify-center gap-2 transition-colors duration-200 cursor-pointer shadow-[2px_2px_0px_0px_#0A0A0A]"
           >
             <Mail className="w-3.5 h-3.5" />
             <span>SEND EMAIL INQUIRY</span>
