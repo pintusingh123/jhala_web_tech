@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ExternalLink, ArrowUpRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
-import { useContact } from '../context/ContactContext';
 
 export default function StackedProjects() {
-  const { openContact } = useContact();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const projects = [
@@ -220,13 +219,13 @@ export default function StackedProjects() {
                     <span>LIVE DEMO</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
-                  <button
-                    onClick={() => openContact({ title: `${currentProject.title} Architecture Blueprint` })}
+                  <Link
+                    to="/contact"
                     className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-transparent border border-[#333333] text-[#e4e2e1] font-space text-xs uppercase tracking-wider hover:border-[#C8FF3D] hover:text-[#C8FF3D] transition-colors rounded-lg cursor-pointer"
                   >
                     <span>BLUEPRINT</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Mobile Arrow Navigation */}

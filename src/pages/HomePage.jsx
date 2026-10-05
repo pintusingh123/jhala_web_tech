@@ -12,24 +12,15 @@ import Blog from '../components/Blog';
 import FAQ from '../components/FAQ';
 import About from '../components/About';
 import Team from '../components/Team';
-import { useContact } from '../context/ContactContext';
 
 export default function HomePage() {
   const navigate = useNavigate();
-  const { openContact } = useContact();
-
-  const handleSelectService = (service) => {
-    openContact(service);
-  };
 
   return (
     <>
       <div className="gsap-fade-in">
         <TerminalHeader label="HOME_CORE" />
-        <Hero 
-          onExploreServices={() => navigate('/services')} 
-          onOpenContact={() => openContact()} 
-        />
+        <Hero onExploreServices={() => navigate('/services')} />
       </div>
 
       <div className="gsap-scroll-trigger">
@@ -37,18 +28,18 @@ export default function HomePage() {
       </div>
 
       <div className="gsap-scroll-trigger">
-        <Services onSelectService={handleSelectService} />
+        <Services onSelectService={() => navigate('/contact')} />
       </div>
 
       {/* GSAP ScrollTrigger Pinned Stacked Projects Showcase */}
       <StackedProjects />
 
       <div className="gsap-scroll-trigger">
-        <Process onOpenContact={() => openContact()} />
+        <Process onOpenContact={() => navigate('/contact')} />
       </div>
 
       <div className="gsap-scroll-trigger">
-        <Portfolio onOpenContact={() => openContact()} />
+        <Portfolio onOpenContact={() => navigate('/contact')} />
       </div>
 
       <div className="gsap-scroll-trigger">
@@ -60,15 +51,15 @@ export default function HomePage() {
       </div>
 
       <div className="gsap-scroll-trigger">
-        <FAQ onOpenContact={() => openContact()} />
+        <FAQ onOpenContact={() => navigate('/contact')} />
       </div>
 
       <div className="gsap-scroll-trigger">
-        <About onOpenContact={() => openContact()} />
+        <About onOpenContact={() => navigate('/contact')} />
       </div>
 
       <div className="gsap-scroll-trigger">
-        <Team onOpenContact={() => openContact()} />
+        <Team onOpenContact={() => navigate('/contact')} />
       </div>
     </>
   );

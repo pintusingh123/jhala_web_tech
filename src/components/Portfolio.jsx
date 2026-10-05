@@ -77,7 +77,7 @@ export default function Portfolio({ onOpenContact }) {
               {/* Performance Metric Box */}
               <div className="p-3 bg-[#0A0A0A] brutalist-border mb-6">
                 <div className="text-[11px] font-mono-code text-[#C8FF3D] flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" />
+               
                   <span>METRIC: {proj.metrics}</span>
                 </div>
               </div>

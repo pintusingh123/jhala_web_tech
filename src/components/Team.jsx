@@ -1,21 +1,15 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
-import { useContact } from '../context/ContactContext';
+import { ArrowUpRight, Send } from 'lucide-react';
 
 export default function Team({ onOpenContact }) {
-  const { openContact } = useContact();
-
-  const handleContact = (name, role) => {
-    const contactFn = onOpenContact || openContact;
-    contactFn({ title: `Discussion with ${name} (${role})` });
-  };
-
   const members = [
     {
       name: 'Abhay Prajapati',
       role: 'Software Engineer & MERN Developer',
       tag: 'SENIOR ENGINEER // MERN STACK',
       image: '/images/abhay.png',
+      whatsapp: '9509123636',
+      phone: null,
       desc: 'Engineering modern and scalable web applications with the MERN stack, focusing on high-performance React interfaces, robust Node.js APIs, and reliable MongoDB architectures. Passionate about building clean, maintainable, and production-ready digital products.',
       skills: [
         'Software Engineering',
@@ -37,6 +31,8 @@ export default function Team({ onOpenContact }) {
       role: 'Full Stack Developer & Python Developer',
       tag: 'CORE ENGINEER // FULL-STACK',
       image: '/images/pintu.png',
+      whatsapp: '8003642596',
+      phone: '8441992003',
       desc: 'Building complete, responsive, and production-ready web applications across the frontend and backend. Experienced with React.js, Python, Django, Flask, Node.js, REST APIs, and relational as well as NoSQL databases, with a strong focus on clean architecture and practical business solutions.',
       skills: [
         'Full-Stack Development',
@@ -60,6 +56,13 @@ export default function Team({ onOpenContact }) {
     },
   ];
 
+  const handleWhatsAppRedirect = (member) => {
+    const greeting = encodeURIComponent(
+      `Hello ${member.name.split(' ')[0]}! I visited JhalaWebTech and I would like to connect with you regarding a software project.`
+    );
+    window.open(`https://wa.me/91${member.whatsapp}?text=${greeting}`, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="w-full py-12" id="team">
       {/* Section Header */}
@@ -77,7 +80,7 @@ export default function Team({ onOpenContact }) {
               MEET THE <span className="text-[#C8FF3D]">MINDS BEHIND JWT</span>
             </h2>
             <p className="font-sans-body text-base text-[#9CA3AF] max-w-2xl mt-2 leading-relaxed">
-              We are hands-on engineers, architects, and builders delivering production-grade digital platforms and full-stack solutions.
+              We are hands-on engineers, architects, and builders delivering production-grade digital platforms and full-stack solutions. Connect directly via WhatsApp.
             </p>
           </div>
           <div className="font-mono-code text-xs text-[#8E8E8E] shrink-0 border border-[#262626] bg-[#0E0E0E] px-3.5 py-2 rounded-lg self-start md:self-auto">
@@ -101,7 +104,14 @@ export default function Team({ onOpenContact }) {
                   {member.tag}
                 </span>
               </div>
-               
+              <button
+                onClick={() => handleWhatsAppRedirect(member)}
+                className="font-mono-code text-[11px] text-[#25D366] hover:text-[#e4e2e1] flex items-center gap-1.5 bg-[#0E1F12] border border-[#25D366]/40 px-2 py-0.5 rounded cursor-pointer transition-colors"
+                title={`Chat with ${member.name.split(' ')[0]} on WhatsApp`}
+              >
+                <Send className="w-3 h-3 fill-current" />
+                <span>+91 {member.whatsapp}</span>
+              </button>
             </div>
 
             {/* Main Content Area */}
@@ -127,13 +137,11 @@ export default function Team({ onOpenContact }) {
                   <p className="font-mono-code text-xs sm:text-sm text-[#C8FF3D] font-medium mb-3">
                     {member.role}
                   </p>
-                  <p className="font-sans-body text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
+                  <p className="font-sans-body text-xs sm:text-sm text-[#9CA3AF] leading-relaxed mb-3">
                     {member.desc}
                   </p>
                 </div>
               </div>
-
-              
 
               {/* Skills Chips */}
               <div className="text-left">
@@ -158,13 +166,18 @@ export default function Team({ onOpenContact }) {
               <span className="font-mono-code text-xs text-[#6B7280] text-center sm:text-left">
                 SYS.CONNECT // DIRECT COLLABORATION
               </span>
-              <button
-                onClick={() => handleContact(member.name, member.role)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C8FF3D] text-[#0A0A0A] font-space text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#bef532] transition-colors active:scale-95 cursor-pointer shadow-md"
-              >
-                <span>CONNECT WITH {member.name.split(' ')[0].toUpperCase()}</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
+              <div className="flex items-center gap-2">
+                {/* Direct WhatsApp Action Button */}
+                <button
+                  onClick={() => handleWhatsAppRedirect(member)}
+                  aria-label={`Connect with ${member.name} on WhatsApp at ${member.whatsapp}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C8FF3D] text-[#0A0A0A] font-space text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#bef532] transition-colors active:scale-95 cursor-pointer shadow-md"
+                >
+                  <Send className="w-3.5 h-3.5 fill-current" />
+                  <span>CONNECT WITH {member.name.split(' ')[0].toUpperCase()}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
           </div>
         ))}

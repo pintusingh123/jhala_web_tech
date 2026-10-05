@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Terminal, Globe, Code, ArrowUpRight } from 'lucide-react';
-import { useContact } from '../context/ContactContext';
+import { Terminal, Phone, Send, Sparkles } from 'lucide-react';
+
+const WHATSAPP_NUMBER = '8003642596';
+const CALLING_NUMBER = '8441992003';
 
 export default function Footer() {
-  const { openContact } = useContact();
-
   return (
     <footer className="bg-[#0E0E0E] w-full mt-16 border-t-2 border-[#C8FF3D]">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 md:px-12 py-12">
@@ -16,8 +16,29 @@ export default function Footer() {
               JhalaWebTech
             </Link>
             <p className="font-mono-code text-xs text-[#9CA3AF] uppercase tracking-widest max-w-sm mt-2 leading-relaxed">
-              JWT — Building the underlying architecture for the next generation of digital experiences.
+              JWT — Building high-performance custom software, AI agents, mobile apps, and scalable digital architectures.
             </p>
+
+            {/* Direct Hotline Quick Pills */}
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a
+                href={`tel:+91${CALLING_NUMBER}`}
+                className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#161616] hover:bg-[#202020] text-[#e4e2e1] hover:text-[#C8FF3D] brutalist-border font-mono-code text-xs transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#C8FF3D]" />
+                <span>Call: +91 {CALLING_NUMBER}</span>
+              </a>
+
+              <a
+                href={`https://wa.me/91${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello JhalaWebTech! I would like to inquire about a software project.')}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#161616] hover:bg-[#202020] text-[#e4e2e1] hover:text-[#25D366] brutalist-border font-mono-code text-xs transition-colors"
+              >
+                <Send className="w-3.5 h-3.5 text-[#25D366]" />
+                <span>WhatsApp: +91 {WHATSAPP_NUMBER}</span>
+              </a>
+            </div>
           </div>
           <p className="font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] mt-8 md:mt-0">
             © 2026 JHALAWEBTECH (JWT). BUILD. SCALE. INNOVATE.
@@ -54,10 +75,10 @@ export default function Footer() {
             METHODOLOGY
           </Link>
           <Link
-            to="/blog"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
+            to="/contact"
+            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#C8FF3D] hover:underline transition-colors cursor-pointer font-bold"
           >
-            RESEARCH & BLOG
+            CONTACT US
           </Link>
         </div>
 
@@ -78,30 +99,30 @@ export default function Footer() {
           >
             CONTACT DESK
           </Link>
-          <button
-            onClick={() => openContact()}
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#C8FF3D] hover:underline transition-all cursor-pointer font-bold mt-1"
+          <a
+            href="mailto:contact@jhalawebtech.com"
+            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors"
           >
-            &gt; OPEN TERMINAL
-          </button>
+            contact@jhalawebtech.com
+          </a>
 
           <div className="flex gap-3 mt-3">
             <a
-              href="https://github.com"
+              href={`https://wa.me/91${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noreferrer"
-              aria-label="JhalaWebTech GitHub Repository"
+              aria-label="JhalaWebTech WhatsApp"
+              className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#25D366] hover:border-[#25D366] transition-colors"
+            >
+              <Send className="w-4 h-4" aria-hidden="true" />
+            </a>
+            <a
+              href={`tel:+91${CALLING_NUMBER}`}
+              aria-label="JhalaWebTech Calling Line"
               className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#C8FF3D] hover:border-[#C8FF3D] transition-colors"
             >
-              <Code className="w-4 h-4" aria-hidden="true" />
+              <Phone className="w-4 h-4" aria-hidden="true" />
             </a>
-            <button
-              onClick={() => openContact()}
-              aria-label="Open JhalaWebTech Contact Terminal"
-              className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#C8FF3D] hover:border-[#C8FF3D] transition-colors cursor-pointer"
-            >
-              <Terminal className="w-4 h-4" aria-hidden="true" />
-            </button>
           </div>
         </div>
       </div>

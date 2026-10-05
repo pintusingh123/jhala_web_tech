@@ -8,13 +8,13 @@ import {
   BookOpen, 
   Info, 
   Send, 
-  ArrowRight 
+  Phone,
+  ArrowRight
 } from 'lucide-react';
-import { useContact } from '../context/ContactContext';
+
+const CALLING_NUMBER = '8441992003';
 
 export default function Navbar() {
-  const { openContact } = useContact();
-
   const navItems = [
     { to: '/', label: 'Home', icon: Home },
     { to: '/services', label: 'Services', icon: Code },
@@ -43,11 +43,9 @@ export default function Navbar() {
             to="/"
             className="flex items-center gap-2.5 cursor-pointer group active:scale-95 transition-transform select-none"
           >
-            
             <span className="font-space text-xl md:text-2xl font-bold tracking-tighter text-[#e4e2e1]">
               JhalaWebTech
             </span>
-            
           </Link>
 
           {/* Desktop Navigation Items */}
@@ -70,16 +68,26 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Top CTA Button */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => openContact()}
-              aria-label="Open Project Inquiry"
+          {/* Top CTA Buttons */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Quick Hotline on medium screens */}
+            <a
+              href={`tel:+91${CALLING_NUMBER}`}
+              aria-label="Direct Phone Line 8441992003"
+              className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 bg-[#1A1A1A] hover:bg-[#242424] text-[#e4e2e1] hover:text-[#C8FF3D] brutalist-border font-mono-code text-[11px] transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#C8FF3D]" />
+              <span>8441992003</span>
+            </a>
+
+            <Link
+              to="/contact"
+              aria-label="Contact JhalaWebTech"
               className="bg-[#C8FF3D] text-[#0A0A0A] px-4 md:px-5 py-2 md:py-2.5 font-space text-xs font-bold uppercase hover:bg-[#bef532] transition-colors brutalist-border-active active:scale-95 flex items-center gap-1.5 cursor-pointer shadow-[2px_2px_0px_0px_#262626]"
             >
               <span>LET'S TALK</span>
               <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" aria-hidden="true" />
-            </button>
+            </Link>
           </div>
         </div>
       </header>

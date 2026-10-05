@@ -4,7 +4,6 @@ import Lenis from 'lenis';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
-import ContactModal from './ContactModal';
 
 // No GSAP imports – using Lenis for smooth scrolling only
 
@@ -68,9 +67,6 @@ export default function Layout() {
 
       {/* Global Footer */}
       <Footer />
-
-      {/* Global Interactive Contact Modal */}
-      <ContactModal />
     </div>
   );
 }
