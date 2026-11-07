@@ -6,9 +6,9 @@ import { Sun, Moon } from 'lucide-react';
 export default function ThemeToggle({ className = '' }) {
   const [theme, setTheme] = useState(() => {
     if (typeof document !== 'undefined') {
-      return document.documentElement.getAttribute('data-theme') || 'dark';
+      return document.documentElement.getAttribute('data-theme') || 'light';
     }
-    return 'dark';
+    return 'light';
   });
 
   const toggleTheme = () => {

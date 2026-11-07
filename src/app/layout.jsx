@@ -127,15 +127,15 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>
-        {/* Zero-Flash Theme Initialization Script */}
+        {/* Zero-Flash Theme Initialization Script (Default: Light Mode) */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var saved=localStorage.getItem('jhala-color-theme')||localStorage.getItem('jwt-theme');if(saved==='dark'||saved==='light'){document.documentElement.setAttribute('data-theme',saved);}else{var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',prefersDark?'dark':'light');}}catch(e){}})();`,
+            __html: `(function(){try{var saved=localStorage.getItem('jhala-color-theme')||localStorage.getItem('jwt-theme');if(saved==='dark'){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`,
           }}
         />
 
