@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
 import Lenis from 'lenis';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { ArrowRight } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-
-gsap.registerPlugin(ScrollTrigger);
+import WhatsAppFab from './ui/WhatsAppFab';
+import WhatsAppIcon from './WhatsAppIcon';
+import { company } from '../content/company';
 
 export default function Layout() {
   const location = useLocation();
@@ -29,76 +28,31 @@ export default function Layout() {
 
     lenisRef.current = lenis;
 
-    // Connect Lenis to GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
-
-    const updateTicker = (time) => {
-      lenis.raf(time * 1000);
+    let animId;
+    const raf = (time) => {
+      lenis.raf(time);
+      animId = requestAnimationFrame(raf);
     };
-
-    gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0);
+    animId = requestAnimationFrame(raf);
 
     return () => {
-      gsap.ticker.remove(updateTicker);
+      if (animId) cancelAnimationFrame(animId);
       lenis.destroy();
     };
   }, []);
 
-  // Scroll to top on route change & trigger smooth GSAP reveals
+  // Scroll to top on route change
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
     } else {
       window.scrollTo(0, 0);
     }
-
-    // Allow DOM to settle, then initialize animations
-    const timer = setTimeout(() => {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-
-      const fadeEls = document.querySelectorAll('.gsap-fade-in');
-      fadeEls.forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'all' }
-        );
-      });
-
-      const scrollEls = document.querySelectorAll('.gsap-scroll-trigger');
-      scrollEls.forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.65,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 88%',
-              toggleActions: 'play none none none',
-              once: true,
-            },
-          }
-        );
-      });
-
-      ScrollTrigger.refresh();
-    }, 50);
-
-    return () => {
-      clearTimeout(timer);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFFFFF] text-[#333333] selection:bg-[#FDB345] selection:text-white font-sans-body">
-      {/* Global Sticky Header */}
+    <div className="min-h-screen flex flex-col bg-page text-primary selection:bg-[#FF6B2C] selection:text-white font-body">
+      {/* Global Header & Nav */}
       <Navbar />
 
       {/* Main Routed Page Container */}
@@ -106,13 +60,41 @@ export default function Layout() {
         ref={mainRef}
         id="main-content"
         tabIndex="-1"
-        className="flex-grow flex flex-col w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-6 pb-24 lg:pb-12 gap-12 sm:gap-16 outline-none"
+        className="flex-grow flex flex-col w-full outline-none pb-16 lg:pb-0"
       >
         <Outlet />
       </main>
 
       {/* Global Corporate Footer */}
       <Footer />
+
+      {/* Floating WhatsApp Action Button */}
+      <WhatsAppFab />
+
+      {/* Mobile Sticky Bottom CTA Bar (Section 6) */}
+      <aside
+        aria-label="Mobile quick actions"
+        className="fixed bottom-0 inset-x-0 z-40 bg-surface/95 backdrop-blur-md border-t border-subtle p-3 flex items-center gap-2.5 sm:hidden"
+      >
+        <a
+          href={`https://wa.me/91${company.phones.whatsappPintu}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#25D366] text-white font-mono text-xs font-bold uppercase shadow-xs active:scale-95"
+        >
+          <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
+          <span>WhatsApp</span>
+        </a>
+
+        <Link
+          to="/contact"
+          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#FF6B2C] text-white font-head text-xs font-bold tracking-tight shadow-xs active:scale-95 text-center"
+        >
+          <span>Get Free Quote</span>
+          <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+        </Link>
+      </aside>
     </div>
   );
 }

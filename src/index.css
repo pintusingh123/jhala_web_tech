@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
-@theme {
-  --font-slab: 'Zilla Slab', serif;
-  --font-narrow: 'PT Sans Narrow', sans-serif;
-  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  --font-space: 'PT Sans Narrow', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+:root {
+  /* ========================================================
+     DESIGN SYSTEM TOKENS — DEEP INK + SIGNAL ORANGE (DARK)
+     ======================================================== */
+  --bg:            #0B0D12;   /* page background */
+  --surface:       #12151C;   /* card background */
+  --surface-2:     #1A1E28;   /* raised / hover state */
+  --border:        #262B38;   /* subtle structural border */
+  --border-focus:  #FF6B2C;
+  --text:          #F3F4F6;   /* primary text */
+  --text-muted:    #9AA3B2;   /* secondary / label text */
 
-  /* Exact Tvisha Technologies Color Palette */
-  --color-tvisha-yellow: #FDB345;
-  --color-tvisha-yellow-dark: #F69B2E;
-  --color-tvisha-yellow-light: #FFF8EE;
-  --color-tvisha-dark: #333333;
-  --color-tvisha-gray: #575C62;
-  --color-tvisha-silver: #DADBDD;
-  --color-tvisha-border: #E5E5E5;
-  --color-tvisha-bg: #FFFFFF;
-  --color-tvisha-footer: #191D29;
-  --color-tvisha-footer-deep: #14161F;
+  /* Brand */
+  --accent:        #FF6B2C;   /* Signal Orange: max 10% screen */
+  --accent-hover:  #FF8452;
+  --accent-soft:   rgba(255, 107, 44, 0.12);
+  --secondary:     #3DD9B0;   /* success, verified pills */
+
+  /* Feedback */
+  --danger:        #F0524F;
+  --warning:       #F5B83D;
+
+  /* Typography */
+  --font-head:     'Space Grotesk', system-ui, sans-serif;
+  --font-body:     'Inter', system-ui, sans-serif;
+  --font-mono:     'JetBrains Mono', ui-monospace, monospace;
+
+  /* Fluid typography */
+  --fs-display:    clamp(2.4rem, 5.5vw + 1rem, 4.75rem);
+  --fs-h2:         clamp(1.85rem, 3vw + 0.8rem, 3rem);
+  --fs-h3:         clamp(1.2rem, 1.2vw + 0.9rem, 1.55rem);
+  --fs-body:       clamp(0.95rem, 0.3vw + 0.9rem, 1.1rem);
+  --fs-small:      0.875rem;
+
+  /* Radius & Shadows */
+  --radius-sm:     8px;
+  --radius-md:     14px;
+  --radius-lg:     22px;
+  --shadow-1:      0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2:      0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
-/* Lenis Smooth Scrolling Base Styles */
+/* ========================================================
+   LIGHT THEME OVERRIDE (WARM OFF-WHITE + DEEP INK)
+   ======================================================== */
+:root[data-theme="light"] {
+  --bg:            #FAF8F5;   /* warm off-white background */
+  --surface:       #FFFFFF;   /* clean card surface */
+  --surface-2:     #F2EFEA;   /* raised surface */
+  --border:        #E4DFD7;   /* soft warm border */
+  --border-focus:  #FF6B2C;
+  --text:          #14161C;   /* deep ink charcoal */
+  --text-muted:    #5B6372;   /* slate muted text */
+  --accent:        #FF6B2C;
+  --accent-hover:  #FF8452;
+  --accent-soft:   rgba(255, 107, 44, 0.12);
+  --secondary:     #1DB88E;
+  --shadow-1:      0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-2:      0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+@theme {
+  --font-head: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Base resets & typography */
+html, body {
+  min-height: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible Universal Focus States (Section 11) */
+*:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 3px !important;
+}
+
+/* Lenis Smooth Scroll Setup */
 html.lenis,
 html.lenis body {
   height: auto;
@@ -38,94 +102,37 @@ html.lenis body {
   overflow: hidden;
 }
 
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+/* Helper Utility Classes */
+.font-head { font-family: var(--font-head); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+.bg-page { background-color: var(--bg); }
+.bg-surface { background-color: var(--surface); }
+.bg-surface-2 { background-color: var(--surface-2); }
+.border-subtle { border-color: var(--border); }
+.text-primary { color: var(--text); }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+.bg-accent-soft { background-color: var(--accent-soft); }
+
+/* Infinite Tech Marquee Animation (Section 4.D) */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-body {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  background-color: #FFFFFF;
-  color: #333333;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.animate-marquee {
+  animation: marquee-scroll 35s linear infinite;
 }
 
-/* Focus States */
-*:focus-visible {
-  outline: 2px solid #FDB345 !important;
-  outline-offset: 2px !important;
-}
-
-/* Screen reader only utility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Tvisha Typography Classes */
-.font-slab {
-  font-family: 'Zilla Slab', serif;
-}
-
-.font-narrow {
-  font-family: 'PT Sans Narrow', sans-serif;
-}
-
-.font-sans-body {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-}
-
-/* Tvisha Signature Heading & Yellow Tag */
-.light_yellow {
-  color: #FDB345 !important;
-}
-
-.bg_tvisha_yellow {
-  background-color: #FDB345 !important;
-}
-
-/* Tvisha's Signature Banner Box with Dotted Texture */
-.tvisha-banner-box {
-  background-color: #FDB345;
-  color: #FFFFFF;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px);
-  background-size: 14px 14px;
-}
-
-/* Two-Tone Section Split */
-.two-tone-silver {
-  background-color: #F5F5F7;
-  border: 1px solid #E5E5E5;
-}
-
-.two-tone-split-card {
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
-  transition: all 0.25s ease;
-}
-
-.two-tone-split-card:hover {
-  border-color: #FDB345;
-  box-shadow: 0 10px 24px -4px rgba(253, 179, 69, 0.18);
-  transform: translateY(-2px);
-}
-
-/* Quote button styling as in Tvisha */
-.tvisha-quote-btn {
-  background: #FFFFFF;
-  color: #FDB345;
-  border: 1px solid #FDB345;
-  transition: all 0.2s ease;
-}
-
-.tvisha-quote-btn:hover {
-  background: #FDB345;
-  color: #FFFFFF;
+/* Reduced Motion Override (Section 3.5 & 11) */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

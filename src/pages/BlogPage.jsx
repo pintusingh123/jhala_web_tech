@@ -1,11 +1,11 @@
-import TerminalHeader from '../components/TerminalHeader';
 import Blog from '../components/Blog';
+import CtaBand from '../components/CtaBand';
 
 export default function BlogPage() {
   return (
-    <div className="gsap-fade-in flex flex-col gap-10">
-      <TerminalHeader label="RESEARCH_AND_INSIGHTS" />
+    <div className="flex flex-col">
       <Blog />
+      <CtaBand />
     </div>
   );
 }

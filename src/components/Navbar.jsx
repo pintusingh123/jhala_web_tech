@@ -1,201 +1,226 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import {
-  Home,
-  Code,
-  Briefcase,
-  Layers,
-  BookOpen,
-  Info,
-  Send,
-  Phone,
-  ArrowRight,
-  Menu,
-  X
+import { 
+  Menu, 
+  X, 
+  ArrowRight, 
+  Phone
 } from 'lucide-react';
+import ThemeToggle from './ui/ThemeToggle';
 import WhatsAppIcon from './WhatsAppIcon';
-
-const CALLING_NUMBER = '8441992003';
-const WHATSAPP_NUMBER = '8003642596';
+import { company } from '../content/company';
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [announcementDismissed, setAnnouncementDismissed] = useState(false);
 
-  const navItems = [
-    { to: '/', label: 'Home', icon: Home },
-    { to: '/services', label: 'Services', icon: Code },
-    { to: '/work', label: 'Portfolio', icon: Briefcase },
-    { to: '/process', label: 'Process', icon: Layers },
-    { to: '/about', label: 'Company', icon: Info },
-    { to: '/blog', label: 'Blog', icon: BookOpen },
-    { to: '/contact', label: 'Contact', icon: Send },
+  // Current month for announcement
+  const currentMonth = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(new Date());
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { to: '/services', label: 'Services' },
+    { to: '/work', label: 'Work' },
+    { to: '/process', label: 'Process' },
+    { to: '/pricing', label: 'Pricing' },
+    { to: '/about', label: 'About' },
+    { to: '/blog', label: 'Blog' },
+    { to: '/contact', label: 'Contact' },
   ];
 
   return (
     <>
-      {/* Top Navbar Styled in Tvisha's Clean Light Aesthetic */}
-      <header className="bg-white/95 backdrop-blur-md border-b border-[#E5E5E5] sticky top-0 z-40 transition-colors duration-200">
-        <div className="max-w-[1400px] mx-auto flex justify-between items-center gap-3 sm:gap-6 px-4 sm:px-6 lg:px-10 py-3">
-          
-          {/* Brand Logo Link with anti-overlap structure */}
+      {/* ================= A. ANNOUNCEMENT BAR (Section 4.A) ================= */}
+      {!announcementDismissed && (
+        <aside
+          aria-label="Current booking availability"
+          className="bg-surface-2 border-b border-subtle text-primary text-xs font-mono h-9 px-4 flex items-center justify-between z-50 relative"
+        >
+          <div className="w-full flex items-center justify-center gap-2 text-center truncate">
+            <span className="w-2 h-2 rounded-full bg-[#3DD9B0] animate-pulse shrink-0" />
+            <span className="truncate">
+              Now booking development projects for <strong className="text-[#FF6B2C]">{currentMonth}</strong> &bull; Free discovery call
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setAnnouncementDismissed(true)}
+            aria-label="Dismiss announcement banner"
+            className="text-muted hover:text-primary p-1 cursor-pointer shrink-0"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </aside>
+      )}
+
+      {/* ================= B. NAVBAR (Section 4.B) ================= */}
+      <header
+        className={`sticky top-0 z-40 transition-all duration-200 ${
+          scrolled
+            ? 'bg-surface/95 backdrop-blur-md border-b border-subtle shadow-xs py-3'
+            : 'bg-page/80 backdrop-blur-xs py-4 border-b border-transparent'
+        }`}
+      >
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between gap-4">
+          {/* Left: Brand Logo (Wordmark + Mark) */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 cursor-pointer group active:scale-95 transition-transform select-none shrink-0"
+            className="flex items-center gap-2.5 cursor-pointer group select-none shrink-0"
+            aria-label="JhalaWebTech Home"
           >
-            
-            <div className="flex flex-col justify-center shrink-0">
-              <span className="font-slab text-xl sm:text-2xl font-bold tracking-tight text-[#333333] group-hover:text-[#FDB345] transition-colors leading-none">
+            <div className="w-9 h-9 rounded-lg bg-[#FF6B2C] text-white flex items-center justify-center font-head font-bold text-lg shadow-xs group-hover:bg-[#FF8452] transition-colors">
+              J
+            </div>
+            <div className="flex flex-col">
+              <span className="font-head text-lg sm:text-xl font-bold tracking-tight text-primary group-hover:text-[#FF6B2C] transition-colors leading-none">
                 JhalaWebTech
               </span>
-              <span className="text-[10px] font-narrow font-bold text-[#FDB345] uppercase tracking-widest mt-1.5 leading-none hidden sm:block">
-                Software &amp; App Studio
+              <span className="font-mono text-[10px] text-muted tracking-wider uppercase mt-1 leading-none hidden sm:block">
+                Web &bull; Mobile &bull; CRM
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Items with anti-wrap and clean spacing */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-7 flex-nowrap shrink-0">
-            {navItems.map((item) => (
+          {/* Desktop Navigation Links */}
+          <nav
+            aria-label="Main Navigation"
+            className="hidden lg:flex items-center gap-6 xl:gap-8"
+          >
+            {navLinks.map((link) => (
               <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.to === '/'}
+                key={link.to}
+                to={link.to}
                 className={({ isActive }) =>
-                  `font-narrow text-sm uppercase tracking-wider font-bold whitespace-nowrap transition-colors duration-150 py-1 border-b-2 cursor-pointer ${
+                  `font-head text-sm font-semibold tracking-tight transition-colors py-1 relative ${
                     isActive
-                      ? 'text-[#FDB345] border-[#FDB345]'
-                      : 'text-[#333333] hover:text-[#FDB345] border-transparent'
+                      ? 'text-[#FF6B2C]'
+                      : 'text-muted hover:text-primary'
                   }`
                 }
               >
-                {item.label}
+                {({ isActive }) => (
+                  <>
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FF6B2C] rounded-full" />
+                    )}
+                  </>
+                )}
               </NavLink>
             ))}
           </nav>
 
-          {/* Top CTA Buttons with shrink-0 and clean responsiveness */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Quick Hotline (visible on xl screens to prevent overlap on 1024px-1280px) */}
-            <a
-              href={`tel:+91${CALLING_NUMBER}`}
-              aria-label={`Call us at ${CALLING_NUMBER}`}
-              className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#F5F5F7] hover:bg-[#FFF8EE] text-[#333333] hover:text-[#F69B2E] rounded border border-[#E5E5E5] text-xs font-semibold whitespace-nowrap transition-colors shrink-0"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#FDB345] shrink-0" />
-              <span className="font-narrow text-xs font-bold">+91 {CALLING_NUMBER}</span>
-            </a>
+          {/* Right Action Cluster */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            {/* Theme Toggle (Dark / Light) */}
+            <ThemeToggle />
 
-            {/* Direct WhatsApp Quick Chat */}
+            {/* Direct WhatsApp Callout for quick conversions */}
             <a
-              href={`https://wa.me/91${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello JhalaWebTech! I want to discuss a new software/app project.')}`}
+              href={`https://wa.me/91${company.phones.whatsappPintu}`}
               target="_blank"
-              rel="noreferrer"
-              aria-label="Direct WhatsApp Chat"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] rounded border border-[#25D366]/30 text-xs font-semibold whitespace-nowrap transition-colors shrink-0"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp lead chat"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#25D366]/40 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 font-mono text-xs font-bold uppercase transition-colors"
             >
-              <WhatsAppIcon className="w-3.5 h-3.5 fill-current text-[#25D366] shrink-0" />
-              <span className="font-narrow text-xs font-bold">WhatsApp</span>
+              <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
+              <span>WhatsApp</span>
             </a>
 
-            {/* Primary Get Quote CTA in Tvisha Yellow */}
+            {/* Primary CTA Button: "Start a project" (Section 4.B) */}
             <Link
               to="/contact"
-              aria-label="Get a free quote from JhalaWebTech"
-              className="bg-[#FDB345] hover:bg-[#F69B2E] text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider whitespace-nowrap transition-colors shadow-xs hover:shadow-md active:scale-95 flex items-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-[#FF6B2C] hover:bg-[#FF8452] text-white px-4 sm:px-5 py-2.5 rounded-lg font-head text-xs sm:text-sm font-bold tracking-tight shadow-xs hover:shadow-md transition-all active:scale-[0.98] flex items-center gap-1.5 cursor-pointer shrink-0"
             >
-              <span>Get Free Quote</span>
-              <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
+              <span>Start a project</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Menu Toggle Button */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#333333] hover:text-[#FDB345] rounded hover:bg-slate-100 transition-colors shrink-0"
-              aria-label="Toggle menu"
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-expanded={mobileOpen}
+              aria-label="Toggle Navigation Menu"
+              className="lg:hidden p-2 rounded-lg border border-subtle bg-surface text-primary hover:bg-surface-2 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
-
-        {/* Mobile Dropdown Menu for Small Screens */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-[#E5E5E5] bg-white px-4 pt-3 pb-5 space-y-2 shadow-lg">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  end={item.to === '/'}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2.5 rounded text-sm font-narrow uppercase tracking-wider font-bold transition-colors ${
-                      isActive
-                        ? 'bg-[#FFF8EE] text-[#FDB345]'
-                        : 'text-[#333333] hover:bg-slate-50'
-                    }`
-                  }
-                >
-                  <Icon className="w-4 h-4 text-[#FDB345] shrink-0" />
-                  <span>{item.label}</span>
-                </NavLink>
-              );
-            })}
-            <div className="pt-3 border-t border-[#E5E5E5] flex flex-col gap-2">
-              <a
-                href={`tel:+91${CALLING_NUMBER}`}
-                className="flex items-center justify-center gap-2 w-full py-2 bg-[#F5F5F7] border border-[#E5E5E5] rounded text-xs font-bold font-narrow uppercase text-[#333333]"
-              >
-                <Phone className="w-4 h-4 text-[#FDB345]" />
-                <span>Call Hotline: +91 {CALLING_NUMBER}</span>
-              </a>
-              <a
-                href={`https://wa.me/91${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello JhalaWebTech! I want to discuss a new software/app project.')}`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-2 bg-[#25D366]/10 border border-[#25D366]/30 rounded text-xs font-bold font-narrow uppercase text-[#25D366]"
-              >
-                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        )}
       </header>
 
-      {/* Floating Bottom Nav for Mobile Convenience */}
-      <nav
-        aria-label="Mobile Navigation Dock"
-        className="flex lg:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-md bg-white/95 backdrop-blur-xl border border-[#E5E5E5] rounded-xl shadow-xl px-2 py-1.5 items-center justify-around select-none"
-      >
-        {[
-          { to: '/', label: 'Home', icon: Home },
-          { to: '/services', label: 'Services', icon: Code },
-          { to: '/work', label: 'Work', icon: Briefcase },
-          { to: '/process', label: 'Process', icon: Layers },
-          { to: '/contact', label: 'Quote', icon: Send },
-        ].map((item) => {
-          const Icon = item.icon;
-          return (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === '/'}
-              className={({ isActive }) =>
-                `flex flex-col items-center justify-center py-1 px-3 rounded-lg transition-all ${
-                  isActive
-                    ? 'text-[#FDB345] font-bold bg-[#FFF8EE] scale-105'
-                    : 'text-[#666666] hover:text-[#333333]'
-                }`
-              }
+      {/* ================= MOBILE FULL-SCREEN SLIDE DRAWER ================= */}
+      {mobileOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation Drawer"
+          className="fixed inset-x-0 top-[88px] bottom-0 z-40 bg-page/98 backdrop-blur-xl border-t border-subtle flex flex-col justify-between p-6 sm:p-8 overflow-y-auto lg:hidden"
+        >
+          <nav className="flex flex-col gap-4">
+            <span className="font-mono text-xs uppercase text-muted tracking-widest block mb-1">
+              Menu Navigation
+            </span>
+
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                onClick={() => setMobileOpen(false)}
+                className={({ isActive }) =>
+                  `font-head text-2xl font-bold tracking-tight transition-colors py-2 flex items-center justify-between border-b border-subtle/50 ${
+                    isActive ? 'text-[#FF6B2C]' : 'text-primary'
+                  }`
+                }
+              >
+                <span>{link.label}</span>
+                <ArrowRight className="w-4 h-4 text-muted" />
+              </NavLink>
+            ))}
+          </nav>
+
+          {/* Mobile Bottom Actions */}
+          <div className="pt-6 border-t border-subtle flex flex-col gap-3">
+            <a
+              href={`https://wa.me/91${company.phones.whatsappPintu}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/40 rounded-xl font-mono text-sm font-bold uppercase"
             >
-              <Icon className="w-5 h-5 mb-0.5" />
-              <span className="text-[10px] font-narrow tracking-tight uppercase font-bold">{item.label}</span>
-            </NavLink>
-          );
-        })}
-      </nav>
+              <WhatsAppIcon className="w-4 h-4 fill-current" />
+              <span>Chat with Pintu on WhatsApp</span>
+            </a>
+
+            <a
+              href={`tel:+91${company.phones.callingRaw}`}
+              onClick={() => setMobileOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-surface-2 text-primary border border-subtle rounded-xl font-mono text-sm font-bold uppercase"
+            >
+              <Phone className="w-4 h-4 text-[#FF6B2C]" />
+              <span>Call: +91 8441992003</span>
+            </a>
+
+            <Link
+              to="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-[#FF6B2C] text-white rounded-xl font-head text-base font-bold shadow-md"
+            >
+              <span>Get Free Technical Quote</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      )}
     </>
   );
 }

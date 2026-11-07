@@ -1,82 +1,61 @@
 import { useNavigate } from 'react-router-dom';
 import Hero from '../components/Hero';
-import Stats from '../components/Stats';
+import TechMarquee from '../components/TechMarquee';
 import Services from '../components/Services';
-import TechStack from '../components/TechStack';
-import StackedProjects from '../components/StackedProjects';
+import Portfolio from '../components/Portfolio';
 import Process from '../components/Process';
 import WhyChooseUs from '../components/WhyChooseUs';
-import Portfolio from '../components/Portfolio';
+import Stats from '../components/Stats';
+import PricingSection from '../components/PricingSection';
 import Testimonials from '../components/Testimonials';
-import Blog from '../components/Blog';
+import TechStack from '../components/TechStack';
 import FAQ from '../components/FAQ';
-import About from '../components/About';
-import Team from '../components/Team';
+import Blog from '../components/Blog';
+import CtaBand from '../components/CtaBand';
 
 export default function HomePage() {
   const navigate = useNavigate();
 
   return (
     <>
-      <div className="gsap-fade-in">
-        <Hero onExploreServices={() => navigate('/services')} />
-      </div>
+      {/* C. Hero */}
+      <Hero onExploreWork={() => navigate('/work')} />
 
-      <div className="gsap-scroll-trigger">
-        <Stats />
-      </div>
+      {/* D. Logo / Tech Marquee */}
+      <TechMarquee />
 
-      <div className="gsap-scroll-trigger">
-        <Services onSelectService={() => navigate('/contact')} />
-      </div>
+      {/* E. Services Bento Grid */}
+      <Services onSelectService={() => navigate('/contact')} />
 
-      {/* Interactive Technology Architecture Showcase (Tvisha Inspiration) */}
-      <div className="gsap-scroll-trigger">
-        <TechStack />
-      </div>
+      {/* F. Selected Work (Real Case Studies) */}
+      <Portfolio onOpenContact={() => navigate('/contact')} />
 
-      {/* Featured Production Releases Showcase */}
-      <StackedProjects />
+      {/* G. Process (5-Step Timeline) */}
+      <Process onOpenContact={() => navigate('/contact')} />
 
-      {/* 6-Step Agile Engineering Methodology */}
-      <div className="gsap-scroll-trigger">
-        <Process onOpenContact={() => navigate('/contact')} />
-      </div>
+      {/* H. Why Us / Differentiators */}
+      <WhyChooseUs onOpenContact={() => navigate('/contact')} />
 
-      {/* Why Choose Us - Engineering Differentiators */}
-      <div className="gsap-scroll-trigger">
-        <WhyChooseUs onOpenContact={() => navigate('/contact')} />
-      </div>
+      {/* I. Stats Strip */}
+      <Stats />
 
-      {/* Selected Work & Case Studies */}
-      <div className="gsap-scroll-trigger">
-        <Portfolio onOpenContact={() => navigate('/contact')} />
-      </div>
+      {/* J. Pricing / Packages & Interactive App Estimator */}
+      <PricingSection onOpenContact={() => navigate('/contact')} />
 
-      {/* Client Reviews & Validation */}
-      <div className="gsap-scroll-trigger">
-        <Testimonials />
-      </div>
+      {/* K. Testimonials */}
+      <Testimonials />
 
-      {/* Technical Insights & Research */}
-      <div className="gsap-scroll-trigger">
-        <Blog />
-      </div>
+      {/* L. Tech Stack Breakdown */}
+      <TechStack />
 
-      {/* Frequently Asked Questions */}
-      <div className="gsap-scroll-trigger">
-        <FAQ onOpenContact={() => navigate('/contact')} />
-      </div>
+      {/* M. FAQ Accordion */}
+      <FAQ onOpenContact={() => navigate('/contact')} />
 
-      {/* About JWT Collective & Principles */}
-      <div className="gsap-scroll-trigger">
-        <About onOpenContact={() => navigate('/contact')} />
-      </div>
+      {/* N. Blog / Insights */}
+      <Blog />
 
-      {/* Senior Leadership & Technical Team */}
-      <div className="gsap-scroll-trigger">
-        <Team onOpenContact={() => navigate('/contact')} />
-      </div>
+      {/* O. Final CTA Band */}
+      <CtaBand />
     </>
   );
 }

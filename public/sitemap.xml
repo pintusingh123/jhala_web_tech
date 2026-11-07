@@ -1,45 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jhalawebtech.com/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://jhalawebtech.vercel.app/</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jhalawebtech.com/#services</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://jhalawebtech.vercel.app/services</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://jhalawebtech.com/#work</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://jhalawebtech.vercel.app/work</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jhalawebtech.vercel.app/process</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jhalawebtech.com/#process</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://jhalawebtech.vercel.app/pricing</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jhalawebtech.vercel.app/about</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jhalawebtech.com/#blog</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://jhalawebtech.vercel.app/blog</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jhalawebtech.vercel.app/contact</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://jhalawebtech.com/#about</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://jhalawebtech.vercel.app/privacy</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://jhalawebtech.com/#contact</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://jhalawebtech.vercel.app/terms</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

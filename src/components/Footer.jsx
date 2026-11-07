@@ -1,171 +1,207 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ShieldCheck } from 'lucide-react';
+import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
+import Container from './ui/Container';
 import WhatsAppIcon from './WhatsAppIcon';
-
-const WHATSAPP_NUMBER = '8003642596';
-const CALLING_NUMBER = '8441992003';
+import { company } from '../content/company';
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-[#191D29] text-slate-300 w-full mt-16 border-t border-white/10 font-sans-body">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
-          {/* Brand Column (2 cols) */}
-          <div className="lg:col-span-2 flex flex-col justify-between">
-            <div>
-              <Link to="/" className="flex items-center gap-2.5 mb-4 group inline-flex">
-                <div className="w-9 h-9 rounded bg-[#FDB345] flex items-center justify-center text-white font-slab font-bold text-lg shadow-xs">
-                  J
-                </div>
-                <span className="font-slab text-2xl font-bold text-white tracking-tight group-hover:text-[#FDB345] transition-colors">
-                  JhalaWebTech
-                </span>
-              </Link>
-
-              <p className="font-sans-body text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm mb-6">
-                Mobile app and custom software development company. We engineer high-performance iOS &amp; Android applications, custom enterprise platforms, and scalable web solutions for growing businesses.
-              </p>
-
-              {/* Direct Hotlines in Tvisha Style */}
-              <div className="flex flex-wrap gap-2.5">
-                <a
-                  href={`tel:+91${CALLING_NUMBER}`}
-                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-white/5 hover:bg-[#FDB345] hover:text-[#191D29] text-white rounded text-xs font-narrow font-bold uppercase tracking-wider border border-white/10 transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5 text-[#FDB345]" />
-                  <span>Call: +91 {CALLING_NUMBER}</span>
-                </a>
-
-                <a
-                  href={`https://wa.me/91${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello JhalaWebTech! I want to discuss a new software/app project.')}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-[#25D366]/20 hover:bg-[#25D366]/30 text-[#25D366] rounded text-xs font-narrow font-bold uppercase tracking-wider border border-[#25D366]/40 transition-colors"
-                >
-                  <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] fill-current" />
-                  <span>WhatsApp Direct</span>
-                </a>
+    <footer className="w-full bg-surface border-t border-subtle pt-14 pb-8 sm:pt-16 sm:pb-10 font-body text-muted text-xs sm:text-sm">
+      <Container>
+        {/* 4 Columns Grid (Section 4.Q) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-subtle">
+          {/* Column 1: Brand (4 cols) */}
+          <div className="lg:col-span-4">
+            <Link to="/" className="flex items-center gap-2.5 mb-3 group w-fit">
+              <div className="w-8 h-8 rounded-lg bg-[#FF6B2C] text-white flex items-center justify-center font-head font-bold text-base shadow-xs">
+                J
               </div>
+              <span className="font-head text-lg font-bold text-primary group-hover:text-[#FF6B2C] transition-colors">
+                JhalaWebTech
+              </span>
+            </Link>
+
+            <p className="font-body text-xs text-muted leading-relaxed mb-5 max-w-sm">
+              Engineering-led web and React Native mobile app development studio based in Rajasthan, India. We ship fast, reliable, revenue-generating software for startups and ambitious businesses worldwide.
+            </p>
+
+            <div className="flex items-center gap-2.5">
+              <a
+                href={company.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Repository"
+                className="w-8 h-8 rounded-lg border border-subtle bg-surface-2 flex items-center justify-center text-primary hover:text-[#FF6B2C] hover:border-[#FF6B2C] transition-colors"
+              >
+                <span className="font-mono text-xs font-bold">GH</span>
+              </a>
+
+              <a
+                href={`https://wa.me/91${company.phones.whatsappPintu}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Direct WhatsApp Chat"
+                className="w-8 h-8 rounded-lg border border-subtle bg-surface-2 flex items-center justify-center text-[#25D366] hover:border-[#25D366] transition-colors"
+              >
+                <WhatsAppIcon className="w-4 h-4 fill-current" />
+              </a>
+
+              <span className="font-mono text-[11px] text-muted">
+                Rajasthan &bull; Global Delivery
+              </span>
             </div>
           </div>
 
-          {/* Core Services Links */}
-          <div>
-            <h4 className="font-narrow text-xs font-bold uppercase tracking-widest text-[#FDB345] mb-4">
-              Services
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400 font-sans-body">
+          {/* Column 2: Services (3 cols) */}
+          <div className="lg:col-span-3">
+            <span className="font-mono text-xs uppercase font-bold text-primary tracking-wider block mb-4">
+              What We Build
+            </span>
+            <ul className="space-y-2.5 text-xs font-body">
               <li>
-                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
-                  Mobile App Development
+                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                  React Native Mobile Apps (iOS &amp; Android)
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
-                  Custom Software Development
+                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                  Website Design &amp; React.js SPAs
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
-                  Website Design and Development
+                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                  Next.js 15 E-Commerce Storefronts
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
-                  AI &amp; Machine Learning Development
+                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                  Custom CRM Platforms &amp; Dashboards
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
-                  E-Commerce Solutions
+                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                  Node.js &amp; Django (Python) Backends
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
-                  UI/UX Design Services
+                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                  Firebase Real-Time DB &amp; Auth
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Quick Navigation */}
-          <div>
-            <h4 className="font-narrow text-xs font-bold uppercase tracking-widest text-[#FDB345] mb-4">
+          {/* Column 3: Company & Process (2 cols) */}
+          <div className="lg:col-span-2">
+            <span className="font-mono text-xs uppercase font-bold text-primary tracking-wider block mb-4">
               Company
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400 font-sans-body">
+            </span>
+            <ul className="space-y-2.5 text-xs font-body">
               <li>
-                <Link to="/about" className="hover:text-[#FDB345] transition-colors">
-                  About Us
+                <Link to="/work" className="hover:text-[#FF6B2C] transition-colors">
+                  Selected Work
                 </Link>
               </li>
               <li>
-                <Link to="/work" className="hover:text-[#FDB345] transition-colors">
-                  Our Portfolio
+                <Link to="/process" className="hover:text-[#FF6B2C] transition-colors">
+                  5-Step Process
                 </Link>
               </li>
               <li>
-                <Link to="/process" className="hover:text-[#FDB345] transition-colors">
-                  How We Develop
+                <Link to="/pricing" className="hover:text-[#FF6B2C] transition-colors">
+                  Pricing &amp; Packages
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-[#FDB345] transition-colors">
-                  Tech Insights
+                <Link to="/about" className="hover:text-[#FF6B2C] transition-colors">
+                  About Team
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white transition-colors font-bold text-[#FDB345]">
-                  Get Free Quote
+                <Link to="/blog" className="hover:text-[#FF6B2C] transition-colors">
+                  Engineering Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-[#FF6B2C] transition-colors">
+                  Free Quote
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Office & Guarantees */}
-          <div>
-            <h4 className="font-narrow text-xs font-bold uppercase tracking-widest text-[#FDB345] mb-4">
-              Headquarters
-            </h4>
-            <div className="space-y-3 text-xs text-slate-400 font-sans-body">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#FDB345] mt-0.5 shrink-0" />
-                <span>Rajasthan, India (Delivering Worldwide)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#FDB345] shrink-0" />
-                <a href="mailto:contact@jhalawebtech.com" className="hover:text-white transition-colors">
-                  contact@jhalawebtech.com
+          {/* Column 4: Contact & Office (3 cols) */}
+          <div className="lg:col-span-3">
+            <span className="font-mono text-xs uppercase font-bold text-primary tracking-wider block mb-4">
+              Get in Touch
+            </span>
+            <ul className="space-y-3 text-xs font-mono">
+              <li>
+                <a
+                  href={`tel:+91${company.phones.callingRaw}`}
+                  className="flex items-center gap-2 hover:text-[#FF6B2C] transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#FF6B2C] shrink-0" />
+                  <span>{company.phones.calling}</span>
                 </a>
-              </div>
-              <div className="pt-2 flex items-center gap-1.5 text-[#FDB345] font-semibold">
-                <ShieldCheck className="w-4 h-4" />
-                <span className="font-narrow text-xs font-bold uppercase tracking-wider">
-                  100% On-Time Delivery Guarantee
-                </span>
-              </div>
-            </div>
+              </li>
+              <li>
+                <a
+                  href={`https://wa.me/91${company.phones.whatsappPintu}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-[#25D366] transition-colors"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5 fill-current text-[#25D366] shrink-0" />
+                  <span>WhatsApp: +91 {company.phones.whatsappPintu}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${company.email}`}
+                  className="flex items-center gap-2 hover:text-[#FF6B2C] transition-colors"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#FF6B2C] shrink-0" />
+                  <span className="truncate">{company.email}</span>
+                </a>
+              </li>
+              <li className="flex items-start gap-2 pt-1">
+                <MapPin className="w-3.5 h-3.5 text-[#FF6B2C] shrink-0 mt-0.5" />
+                <span>Rajasthan, India &bull; {company.timezone}</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Copyright Strip */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 bg-[#14161F] -mx-4 sm:-mx-6 lg:-mx-10 -mb-12 p-6 mt-6">
-          <div>
-            © {new Date().getFullYear()} JhalaWebTech (JWT). All rights reserved.
-          </div>
-          <div className="flex items-center gap-6 font-narrow uppercase tracking-wider font-bold">
-            <Link to="/services" className="hover:text-[#FDB345] transition-colors">
-              Services
+        {/* Bottom Bar: Copyright, Legal Links & Back to Top */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-center sm:text-left">
+            <span>&copy; {currentYear} {company.legalName}. All rights reserved.</span>
+            <Link to="/privacy" className="hover:text-primary transition-colors">
+              Privacy Policy
             </Link>
-            <Link to="/work" className="hover:text-[#FDB345] transition-colors">
-              Portfolio
-            </Link>
-            <Link to="/contact" className="hover:text-[#FDB345] transition-colors">
-              Contact Us
+            <Link to="/terms" className="hover:text-primary transition-colors">
+              Terms of Service
             </Link>
           </div>
+
+          <button
+            type="button"
+            onClick={scrollToTop}
+            aria-label="Back to top of page"
+            className="flex items-center gap-1.5 text-muted hover:text-[#FF6B2C] transition-colors cursor-pointer p-1"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="w-4 h-4" />
+          </button>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

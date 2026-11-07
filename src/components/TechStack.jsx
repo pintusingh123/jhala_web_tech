@@ -1,120 +1,115 @@
 import { useState } from 'react';
-import { Smartphone, Globe, Server, Database, Sparkles, CheckCircle2 } from 'lucide-react';
-import SectionHeader from './SectionHeader';
-import TiltCard from './3d/TiltCard';
+import { Smartphone, Laptop, Server, Database, Cloud } from 'lucide-react';
+import Section from './ui/Section';
+import Card from './ui/Card';
+import Badge from './ui/Badge';
 
 export default function TechStack() {
-  const [activeTab, setActiveTab] = useState('mobile');
+  const [activeGroup, setActiveGroup] = useState('mobile');
 
-  const stackTabs = [
-    { id: 'mobile', label: 'Mobile Apps', icon: Smartphone },
-    { id: 'frontend', label: 'Frontend & Web', icon: Globe },
+  const groups = [
+    { id: 'mobile', label: 'Mobile (React Native)', icon: Smartphone },
+    { id: 'frontend', label: 'Frontend & SPAs', icon: Laptop },
     { id: 'backend', label: 'Backend & APIs', icon: Server },
-    { id: 'database', label: 'Database & Cloud', icon: Database },
-    { id: 'ai', label: 'AI & Machine Learning', icon: Sparkles },
+    { id: 'database', label: 'Database & Real-time', icon: Database },
+    { id: 'cloud', label: 'DevOps & Deployment', icon: Cloud },
   ];
 
-  const technologies = {
+  const stackData = {
     mobile: [
-      { name: 'React Native', desc: 'Single codebase cross-platform iOS & Android mobile apps with native 60fps UI', level: 'Primary Mobile' },
-      { name: 'React Native CLI & Expo', desc: 'Universal native runtime with rapid development workflows and OTA updates', level: 'Production' },
-      { name: 'Firebase Mobile SDK', desc: 'Push notifications, real-time database, auth & mobile crashlytics telemetry', level: 'Mobile Cloud' },
-      { name: 'Google Play Store', desc: 'Complete APK/AAB build signing, testing track deployment, and store compliance', level: 'Deployment' },
-      { name: 'Apple App Store', desc: 'TestFlight beta distribution, Apple developer guidelines, and production release', level: 'Deployment' },
-      { name: 'Razorpay UPI Mobile SDK', desc: 'Instant native UPI, cards, and netbanking checkout inside mobile apps', level: 'Fintech' },
+      { name: 'React Native', role: 'Primary cross-platform framework for iOS & Android', tag: 'Core Mobile' },
+      { name: 'React Native CLI & Expo', role: 'Rapid development, device testing & build toolchain', tag: 'Toolchain' },
+      { name: 'Firebase Mobile SDK', role: 'Push notifications, crashlytics & offline cache sync', tag: 'Cloud' },
+      { name: 'Razorpay UPI Mobile SDK', role: 'Native UPI, card, and netbanking checkout inside mobile apps', tag: 'Payments' },
+      { name: 'Google Play Console', role: 'AAB build signing, internal testing & live store deployment', tag: 'Release' },
+      { name: 'Apple App Store / TestFlight', role: 'iOS bundle submission & TestFlight beta distribution', tag: 'Release' },
     ],
     frontend: [
-      { name: 'React.js & SPAs', desc: 'Modern Single Page Applications (SPAs) with stateful routing and clean UI', level: 'Expert' },
-      { name: 'Next.js 15', desc: 'High-performance SSR, ISR, edge caching, and SEO-optimized storefronts', level: 'Expert' },
-      { name: 'HTML5, CSS3 & Modern JS', desc: 'Accessible, responsive static and dynamic web structures adhering to WCAG', level: 'Expert' },
-      { name: 'Tailwind CSS v4', desc: 'Utility-first responsive modern styling with minimal runtime overhead', level: 'Expert' },
-      { name: 'Static & Dynamic Web', desc: 'Landing pages, corporate portals, and dynamic content-driven websites', level: 'Expert' },
-      { name: 'Vite & TypeScript', desc: 'Sub-second modern bundling with strict static type safety across contracts', level: 'Standard' },
+      { name: 'React.js SPAs', role: 'Dynamic Single Page Applications with fast client routing', tag: 'Core' },
+      { name: 'Next.js 15', role: 'Server-side rendering (SSR), edge caching & optimal SEO', tag: 'Core' },
+      { name: 'HTML5, CSS3 & JavaScript', role: 'Semantic markup, accessible structures adhering to WCAG', tag: 'Foundation' },
+      { name: 'Tailwind CSS v4', role: 'Utility-first modern styling with zero runtime bloat', tag: 'Styling' },
+      { name: 'TypeScript', role: 'Strict static type contracts across frontend and API layers', tag: 'Type Safety' },
+      { name: 'Vite', role: 'Sub-second Hot Module Replacement and production bundling', tag: 'Bundler' },
     ],
     backend: [
-      { name: 'Node.js & Express', desc: 'Event-driven high-concurrency microservices, REST APIs, and authentication', level: 'Expert' },
-      { name: 'Django (Python)', desc: 'Robust enterprise Python framework with ORM, security middleware & admin portal', level: 'Expert' },
-      { name: 'Firebase Backend', desc: 'Real-time database sync, Firestore, cloud functions, and instant user auth', level: 'Expert' },
-      { name: 'Custom CRM Systems', desc: 'Lead tracking, customer communications, pipeline automation & role access', level: 'Bespoke CRM' },
-      { name: 'Custom CMS Platforms', desc: 'Bespoke content management systems for dynamic catalogs, blogs & media', level: 'Custom CMS' },
-      { name: 'REST APIs & WebSockets', desc: 'Documented JSON API endpoints and live bidirectional WebSocket streams', level: 'Standard' },
+      { name: 'Node.js & Express', role: 'Event-driven high-concurrency microservices and REST APIs', tag: 'Core' },
+      { name: 'Django (Python)', role: 'Robust enterprise Python framework with ORM & admin dashboard', tag: 'Core' },
+      { name: 'Firebase Cloud Functions', role: 'Serverless backend logic, webhooks, and background jobs', tag: 'Serverless' },
+      { name: 'Custom CRM Architecture', role: 'Lead pipelines, user roles, audit trails & permissions', tag: 'Custom CRM' },
+      { name: 'Custom CMS Systems', role: 'Dynamic content editing portals for blogs & catalogs', tag: 'Custom CMS' },
+      { name: 'WebSockets', role: 'Live bidirectional streaming for real-time tracking & chat', tag: 'Real-time' },
     ],
     database: [
-      { name: 'PostgreSQL', desc: 'Enterprise relational database with ACID guarantees', level: 'Primary DB' },
-      { name: 'MongoDB', desc: 'Document store for flexible schemas and high read throughput', level: 'NoSQL DB' },
-      { name: 'MySQL', desc: 'Reliable relational database management system', level: 'Relational' },
-      { name: 'Redis', desc: 'In-memory caching and session management for sub-5ms access', level: 'Cache / Queue' },
-      { name: 'Amazon Web Services (AWS)', desc: 'EC2, S3, RDS, CloudFront, Lambda scalable cloud infrastructure', level: 'Cloud Host' },
-      { name: 'Docker & Containers', desc: 'Containerized reproducible environments for zero-drift deploys', level: 'DevOps' },
+      { name: 'PostgreSQL', role: 'ACID-compliant relational database for transactional integrity', tag: 'Primary SQL' },
+      { name: 'Firebase Firestore', role: 'Document database with real-time multi-device synchronization', tag: 'Real-time NoSQL' },
+      { name: 'MongoDB', role: 'High-throughput document store for flexible schema needs', tag: 'NoSQL' },
+      { name: 'Redis', role: 'In-memory caching and session store for sub-5ms responses', tag: 'Cache' },
     ],
-    ai: [
-      { name: 'OpenAI API & Claude', desc: 'Commercial LLM integration with structured JSON outputs', level: 'LLM Native' },
-      { name: 'LangGraph & LangChain', desc: 'Multi-agent orchestration and deterministic reasoning loops', level: 'Agentic AI' },
-      { name: 'Vector Databases', desc: 'Pinecone, pgvector & Redis Vector for RAG semantic search', level: 'Retrieval' },
-      { name: 'Data Pipeline Automation', desc: 'Automated data ingestion, ETL cleaning, and normalization', level: 'Pipelines' },
-      { name: 'WhatsApp Cloud API', desc: 'Automated conversational commerce, bot replies & alerts', level: 'Messaging' },
-      { name: 'Razorpay & Stripe APIs', desc: 'Zero-friction payment rails, UPI, and recurring billing', level: 'Fintech' },
+    cloud: [
+      { name: 'Vercel Edge', role: 'Global edge deployment with automated CI/CD previews', tag: 'Web Hosting' },
+      { name: 'AWS (EC2, S3, RDS)', role: 'Scalable cloud computing, asset buckets, and database hosting', tag: 'Cloud' },
+      { name: 'Docker Containers', role: 'Isolated reproducible runtime environments for zero-drift deploys', tag: 'DevOps' },
+      { name: 'GitHub Actions', role: 'Automated test runners, linting checks, and staging pipelines', tag: 'CI/CD' },
     ],
   };
 
   return (
-    <section className="w-full py-8 sm:py-12 bg-[#F5F5F7] p-6 sm:p-10 rounded border border-[#E5E5E5]" id="technologies">
-      <SectionHeader
-        tag="TECHNOLOGIES WE MASTER"
-        title="Proven Modern Tech"
-        highlightedTitle="Frameworks"
-        description="We build with modern, scalable, and battle-tested frameworks that guarantee maximum security, execution speed, and long-term maintainability."
-      />
+    <Section
+      id="tech-stack"
+      eyebrow="TECHNOLOGIES WE MASTER"
+      title="Battle-tested, modern engineering"
+      highlightWord="frameworks."
+      subtitle="We choose frameworks with strong long-term maintenance records, zero proprietary vendor traps, and high community support."
+    >
+      {/* Category Tab Switcher */}
+      <div className="flex flex-wrap gap-2 mb-8 p-1.5 rounded-xl border border-subtle bg-surface w-fit">
+        {groups.map((g) => {
+          const Icon = g.icon;
+          const isActive = activeGroup === g.id;
 
-      {/* Stack Navigation Tabs with Tvisha Yellow */}
-      <div className="flex flex-wrap gap-2 mb-8 bg-white p-1.5 rounded border border-[#E5E5E5] w-fit shadow-2xs">
-        {stackTabs.map((tab) => {
-          const Icon = tab.icon;
-          const isActive = activeTab === tab.id;
           return (
             <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider rounded transition-all cursor-pointer ${
+              type="button"
+              key={g.id}
+              onClick={() => setActiveGroup(g.id)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-head text-xs sm:text-sm font-bold tracking-tight transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-[#FDB345] text-white shadow-xs'
-                  : 'text-[#575C62] hover:text-[#333333] hover:bg-[#F5F5F7]'
+                  ? 'bg-[#FF6B2C] text-white shadow-2xs'
+                  : 'text-muted hover:text-primary hover:bg-surface-2'
               }`}
             >
               <Icon className="w-4 h-4" />
-              <span>{tab.label}</span>
+              <span>{g.label}</span>
             </button>
           );
         })}
       </div>
 
-      {/* Technologies Cards Grid with 3D Tilt */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {technologies[activeTab].map((tech) => (
-          <TiltCard key={tech.name} maxTilt={5} scale={1.01} className="h-full">
-            <div className="bg-white p-5 rounded border border-[#E5E5E5] shadow-xs hover:border-[#FDB345] hover:shadow-md transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group">
-              <div>
-                <div className="flex justify-between items-start mb-3">
-                  <h4 className="font-slab text-lg font-bold text-[#333333] group-hover:text-[#FDB345] transition-colors">
-                    {tech.name}
-                  </h4>
-                  <span className="font-narrow text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FFF8EE] text-[#F69B2E] border border-[#FDB345]/30">
-                    {tech.level}
-                  </span>
-                </div>
-                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-4">
-                  {tech.desc}
-                </p>
+      {/* Tech Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {stackData[activeGroup].map((tech) => (
+          <Card
+            key={tech.name}
+            className="p-5 bg-surface hover:border-[#FF6B2C]/50 transition-colors flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex justify-between items-start gap-2 mb-2">
+                <h4 className="font-head text-base sm:text-lg font-bold text-primary">
+                  {tech.name}
+                </h4>
+                <Badge variant="neutral" size="sm">
+                  {tech.tag}
+                </Badge>
               </div>
 
-              <div className="flex items-center gap-1.5 font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345] pt-3 border-t border-[#E5E5E5]">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Production Tested</span>
-              </div>
+              <p className="font-body text-xs text-muted leading-relaxed">
+                {tech.role}
+              </p>
             </div>
-          </TiltCard>
+          </Card>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

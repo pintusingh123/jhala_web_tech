@@ -1,11 +1,11 @@
 {
-  "name": "JhalaWebTech — Digital Engineering & AI Architecture Studio",
+  "name": "JhalaWebTech — Web & Mobile App Development Agency",
   "short_name": "JhalaWebTech",
-  "description": "JhalaWebTech engineers scalable web systems, agentic AI pipelines, and custom enterprise software.",
+  "description": "We build websites and mobile apps that turn visitors into customers. Fast, clean, and reliable software development from Rajasthan to the world.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#131313",
-  "theme_color": "#C8FF3D",
+  "background_color": "#0B0D12",
+  "theme_color": "#FF6B2C",
   "icons": [
     {
       "src": "/favicon.svg",

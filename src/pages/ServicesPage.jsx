@@ -1,22 +1,22 @@
 import { useNavigate } from 'react-router-dom';
-import TerminalHeader from '../components/TerminalHeader';
 import Services from '../components/Services';
 import TechStack from '../components/TechStack';
-import Process from '../components/Process';
 import WhyChooseUs from '../components/WhyChooseUs';
+import Process from '../components/Process';
 import FAQ from '../components/FAQ';
+import CtaBand from '../components/CtaBand';
 
 export default function ServicesPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="gsap-fade-in flex flex-col gap-10">
-      <TerminalHeader label="SERVICES_AND_CAPABILITIES" />
+    <div className="flex flex-col">
       <Services onSelectService={() => navigate('/contact')} />
       <TechStack />
       <WhyChooseUs onOpenContact={() => navigate('/contact')} />
       <Process onOpenContact={() => navigate('/contact')} />
       <FAQ onOpenContact={() => navigate('/contact')} />
+      <CtaBand />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,79 +8,110 @@
   <link rel="manifest" href="/manifest.json" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
-  <title>JhalaWebTech (JWT) — Mobile App & Custom Software Development Company</title>
-  <meta name="title" content="JhalaWebTech (JWT) — Mobile App & Custom Software Development Company" />
+  <!-- Zero-Flash Theme Initialization Script -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('jwt-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        }
+      } catch (e) { }
+    })();
+  </script>
+
+  <!-- Primary SEO Meta Tags (Section 10) -->
+  <title>Web & Mobile App Development Company in Rajasthan | JhalaWebTech</title>
+  <meta name="title" content="Web & Mobile App Development Company in Rajasthan | JhalaWebTech" />
   <meta name="description"
-    content="JhalaWebTech is a mobile app and custom software development company engineering scalable digital platforms, iOS & Android apps, and enterprise software." />
+    content="Custom websites and React Native mobile apps that turn visitors into customers. Engineering-led development, clear pricing, weekly demos, launch in weeks." />
   <meta name="keywords"
-    content="JhalaWebTech, JWT, Mobile App Development, Custom Software Development, Web Development, Full-Stack Development, React 19, Cloud Solutions" />
+    content="website development company in Rajasthan, mobile app development India, React Native app developers, e-commerce website development, Node.js, Django, CRM development" />
   <meta name="author" content="JhalaWebTech" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#FDB345" />
-  <link rel="canonical" href="https://jhalawebtech.com/" />
+  <meta name="theme-color" content="#FF6B2C" />
+  <link rel="canonical" href="https://jhalawebtech.vercel.app/" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://jhalawebtech.com/" />
-  <meta property="og:title" content="JhalaWebTech (JWT) — Mobile App & Custom Software Development Company" />
+  <meta property="og:url" content="https://jhalawebtech.vercel.app/" />
+  <meta property="og:title" content="Web & Mobile App Development Company in Rajasthan | JhalaWebTech" />
   <meta property="og:description"
-    content="We build high-performance mobile apps, custom software platforms, and scalable web solutions for growing businesses." />
+    content="Custom websites and React Native mobile apps that turn visitors into customers. Clear pricing, weekly demos, launch in weeks." />
   <meta property="og:image" content="/favicon.svg" />
   <meta property="og:site_name" content="JhalaWebTech" />
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://jhalawebtech.com/" />
-  <meta property="twitter:title" content="JhalaWebTech (JWT) — Mobile App & Custom Software Development Company" />
+  <meta property="twitter:url" content="https://jhalawebtech.vercel.app/" />
+  <meta property="twitter:title" content="Web & Mobile App Development Company in Rajasthan | JhalaWebTech" />
   <meta property="twitter:description"
-    content="We build high-performance mobile apps, custom software platforms, and scalable web solutions for growing businesses." />
+    content="Custom websites and React Native mobile apps that turn visitors into customers. Clear pricing, weekly demos, launch in weeks." />
   <meta property="twitter:image" content="/favicon.svg" />
 
-  <!-- Resource Hints & DNS Prefetch -->
+  <!-- Resource Hints & Google Fonts (Space Grotesk, Inter, JetBrains Mono) -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet" />
 
-  <!-- Exact Tvisha Technologies Font Stack: Zilla Slab, PT Sans Narrow, Roboto -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
-    media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" />
-  </noscript>
-
-  <!-- Schema.org JSON-LD Structured Data for Rich SEO Results -->
+  <!-- Schema.org JSON-LD Structured Data for LocalBusiness & Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "JhalaWebTech",
     "alternateName": "JWT",
-    "url": "https://jhalawebtech.com",
-    "logo": "https://jhalawebtech.com/favicon.svg",
-    "image": "https://jhalawebtech.com/favicon.svg",
-    "description": "Mobile app and custom software development company building scalable digital platforms, modern web architectures, and AI systems.",
+    "url": "https://jhalawebtech.vercel.app/",
+    "logo": "https://jhalawebtech.vercel.app/favicon.svg",
+    "image": "https://jhalawebtech.vercel.app/favicon.svg",
+    "description": "Custom websites and React Native mobile apps engineered for growing businesses. Based in Rajasthan, India and serving global clients.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Rajasthan",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 26.9124,
+      "longitude": 75.7873
+    },
+    "telephone": "+918441992003",
+    "priceRange": "₹₹ - ₹₹₹₹",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
     "sameAs": [
-      "https://github.com",
-      "https://twitter.com",
-      "https://linkedin.com"
+      "https://github.com/pintusingh123"
     ],
     "serviceType": [
-      "Mobile App Development",
-      "Custom Software Development",
-      "Website Design and Development",
-      "AI & Machine Learning Development",
-      "E-Commerce Solutions",
-      "Cloud Architecture & DevOps"
-    ],
-    "priceRange": "$$$$"
+      "Website Development",
+      "React Native Mobile App Development",
+      "Custom CRM & CMS Development",
+      "UI/UX Design",
+      "Backend & API Development",
+      "E-Commerce Solutions"
+    ]
   }
   </script>
 
-  <!-- Skip link styled with Tvisha Yellow -->
+  <!-- Universal Skip to Content Link -->
   <style>
     .jwt-skip-link {
       position: fixed;
@@ -90,28 +121,29 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background-color: #FDB345;
+      background-color: #FF6B2C;
       color: #FFFFFF;
-      border-radius: 4px;
-      padding: 10px 22px;
-      font-family: 'PT Sans Narrow', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(253, 179, 69, 0.4);
+      box-shadow: 0 4px 16px rgba(255, 107, 44, 0.4);
       text-decoration: none;
-      transition: top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .jwt-skip-link:focus {
       top: 16px;
-      outline: none;
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
     }
   </style>
 </head>
 
-<body class="bg-[#FFFFFF] text-[#333333] antialiased selection:bg-[#FDB345] selection:text-white">
-  <!-- Skip to main content link for screen readers & keyboard navigation -->
+<body class="bg-page text-primary antialiased selection:bg-[#FF6B2C] selection:text-white font-body">
+  <!-- Accessibility Skip link -->
   <a href="#main-content" class="jwt-skip-link">
     <span>Skip to main content</span>
   </a>
