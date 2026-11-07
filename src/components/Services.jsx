@@ -45,14 +45,14 @@ export default function Services({ onSelectService }) {
               >
                 <div>
                   {/* Top Header: Icon & Tags */}
-                  <div className="flex items-start justify-between gap-3 mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-surface-2 border border-subtle text-[#FF6B2C] flex items-center justify-center group-hover:bg-[#FF6B2C] group-hover:text-white transition-colors">
-                      <Icon className="w-6 h-6 stroke-[1.5]" />
+                  <div className="flex items-start justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-5">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-surface-2 border border-subtle text-[#FF6B2C] flex items-center justify-center group-hover:bg-[#FF6B2C] group-hover:text-white transition-colors shrink-0">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.5]" />
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 justify-end">
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 justify-end">
                       {service.tags.slice(0, 2).map((t) => (
-                        <Badge key={t} variant="neutral" size="sm">
+                        <Badge key={t} variant="neutral" size="sm" className="text-[10px] sm:text-xs">
                           {t}
                         </Badge>
                       ))}
@@ -60,20 +60,20 @@ export default function Services({ onSelectService }) {
                   </div>
 
                   {/* Title & Outcome */}
-                  <h3 className="font-head text-xl sm:text-2xl font-bold text-primary group-hover:text-[#FF6B2C] transition-colors mb-2">
+                  <h3 className="font-head text-lg sm:text-2xl font-bold text-primary group-hover:text-[#FF6B2C] transition-colors mb-2 leading-snug">
                     {service.title}
                   </h3>
 
-                  <p className="font-body text-xs sm:text-sm font-semibold text-[#FF6B2C] mb-3">
+                  <p className="font-body text-xs sm:text-sm font-semibold text-[#FF6B2C] mb-2 sm:mb-3">
                     {service.outcome}
                   </p>
 
-                  <p className="font-body text-xs sm:text-sm text-muted leading-relaxed mb-6">
+                  <p className="font-body text-xs sm:text-sm text-muted leading-relaxed mb-5 sm:mb-6">
                     {service.desc}
                   </p>
 
                   {/* Highlights Checkpoints */}
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2 mb-5 sm:mb-6">
                     {service.highlights.map((h) => (
                       <li key={h} className="flex items-start gap-2 text-xs font-body text-primary">
                         <Check className="w-3.5 h-3.5 text-[#3DD9B0] shrink-0 mt-0.5" />
@@ -84,10 +84,10 @@ export default function Services({ onSelectService }) {
                 </div>
 
                 {/* Footer Action */}
-                <div className="pt-4 border-t border-subtle flex items-center justify-between">
-                  <div className="flex flex-wrap gap-1">
-                    {service.tags.slice(2, 4).map((t) => (
-                      <span key={t} className="font-mono text-[10px] text-muted">
+                <div className="pt-3.5 sm:pt-4 border-t border-subtle flex items-center justify-between gap-2 min-w-0">
+                  <div className="flex flex-wrap gap-1 min-w-0">
+                    {service.tags.slice(2, 4).map((t, idx) => (
+                      <span key={t} className={`font-mono text-[10px] text-muted truncate ${idx > 0 ? 'hidden xs:inline' : ''}`}>
                         #{t}
                       </span>
                     ))}
@@ -96,10 +96,10 @@ export default function Services({ onSelectService }) {
                   <Link
                     href="/contact"
                     onClick={onSelectService}
-                    className="inline-flex items-center gap-1.5 font-head text-xs sm:text-sm font-bold text-[#FF6B2C] hover:text-[#FF8452] transition-colors"
+                    className="inline-flex items-center gap-1 font-head text-xs sm:text-sm font-bold text-[#FF6B2C] hover:text-[#FF8452] transition-colors shrink-0"
                   >
                     <span>Request Scope</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </Card>

@@ -51,23 +51,23 @@ export default function ClientLayout({ children }) {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-page text-primary selection:bg-[#FF6B2C] selection:text-white font-body">
+    <div className="min-h-screen flex flex-col bg-page text-primary selection:bg-[#FF6B2C] selection:text-white font-body pb-20 sm:pb-0">
       {children}
 
-      {/* Floating WhatsApp Action Button */}
+      {/* Floating WhatsApp Action Button (Desktop & Tablet only) */}
       <WhatsAppFab />
 
       {/* Mobile Sticky Bottom CTA Bar (Section 6) */}
       <aside
         aria-label="Mobile quick actions"
-        className="fixed bottom-0 inset-x-0 z-40 bg-surface/95 backdrop-blur-md border-t border-subtle p-3 flex items-center gap-2.5 sm:hidden"
+        className="fixed bottom-0 inset-x-0 z-40 bg-surface/95 backdrop-blur-md border-t border-subtle px-4 py-2.5 flex items-center gap-3 sm:hidden shadow-lg"
       >
         <a
           href={`https://wa.me/91${company.phones.whatsappPintu}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#25D366] text-white font-mono text-xs font-bold uppercase shadow-xs active:scale-95"
+          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-xs font-bold uppercase shadow-xs active:scale-95 transition-all"
         >
           <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
           <span>WhatsApp</span>
@@ -75,7 +75,7 @@ export default function ClientLayout({ children }) {
 
         <Link
           href="/contact"
-          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#FF6B2C] text-white font-head text-xs font-bold tracking-tight shadow-xs active:scale-95 text-center"
+          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#FF6B2C] hover:bg-[#FF8452] text-white font-head text-xs font-bold tracking-tight shadow-xs active:scale-95 text-center transition-all"
         >
           <span>Get Free Quote</span>
           <ArrowRight className="w-3.5 h-3.5 shrink-0" />

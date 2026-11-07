@@ -15,7 +15,7 @@ export default function Process({ onOpenContact }) {
       subtitle="From the first call to production launch, you have full transparency: weekly live demos, fixed milestones, and continuous communication."
     >
       {/* 5-Step Progress Timeline (Section 4.G) */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 relative">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 relative">
         {processSteps.map((step, idx) => (
           <Card
             key={step.step}

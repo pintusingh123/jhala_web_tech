@@ -43,18 +43,30 @@ export default function Navbar() {
     { to: '/contact', label: 'Contact' },
   ];
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
   return (
     <>
       {/* ================= A. ANNOUNCEMENT BAR (Section 4.A) ================= */}
       {!announcementDismissed && (
         <aside
           aria-label="Current booking availability"
-          className="bg-surface-2 border-b border-subtle text-primary text-xs font-mono h-9 px-4 flex items-center justify-between z-50 relative"
+          className="bg-surface-2 border-b border-subtle text-primary text-xs font-mono h-9 px-3 sm:px-4 flex items-center justify-between z-50 relative"
         >
-          <div className="w-full flex items-center justify-center gap-2 text-center truncate">
+          <div className="w-full flex items-center justify-center gap-1.5 sm:gap-2 text-center truncate">
             <span className="w-2 h-2 rounded-full bg-[#3DD9B0] animate-pulse shrink-0" />
-            <span className="truncate">
-              Now booking development projects for <strong className="text-[#FF6B2C]">{currentMonth}</strong> &bull; Free discovery call
+            <span className="truncate text-[11px] sm:text-xs">
+              Now booking for <strong className="text-[#FF6B2C]">{currentMonth}</strong> <span className="hidden xs:inline">&bull; Free discovery call</span>
             </span>
           </div>
           <button
@@ -72,11 +84,11 @@ export default function Navbar() {
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-200 ${
           scrolled
-            ? 'bg-surface/95 backdrop-blur-md border-b border-subtle shadow-xs py-3'
-            : 'bg-page/80 backdrop-blur-xs py-4 border-b border-transparent'
+            ? 'bg-surface/95 backdrop-blur-md border-b border-subtle shadow-xs py-2.5 sm:py-3'
+            : 'bg-page/80 backdrop-blur-xs py-3 sm:py-4 border-b border-transparent'
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between gap-4">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-4">
           {/* Left: Brand Logo (Wordmark + Mark) */}
           <Link
             href="/"
@@ -111,26 +123,26 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action Cluster */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Theme Toggle (Dark / Light) */}
             <ThemeToggle />
 
-            {/* Direct WhatsApp Callout for quick conversions */}
+            {/* Direct WhatsApp Callout for quick conversions on tablets/desktops */}
             <a
               href={`https://wa.me/91${company.phones.whatsappPintu}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp lead chat"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#25D366]/40 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 font-mono text-xs font-bold uppercase transition-colors"
+              className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#25D366]/40 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 font-mono text-xs font-bold uppercase transition-colors"
             >
               <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
               <span>WhatsApp</span>
             </a>
 
-            {/* Primary CTA Button: "Start a project" (Section 4.B) */}
+            {/* Primary CTA Button: "Start a project" - shown on sm+ screens */}
             <Link
               href="/contact"
-              className="bg-[#FF6B2C] hover:bg-[#FF8452] text-white px-4 sm:px-5 py-2.5 rounded-lg font-head text-xs sm:text-sm font-bold tracking-tight shadow-xs hover:shadow-md transition-[background-color,box-shadow,transform] active:scale-[0.98] flex items-center gap-1.5 cursor-pointer shrink-0"
+              className="hidden sm:inline-flex bg-[#FF6B2C] hover:bg-[#FF8452] text-white px-4 sm:px-5 py-2.5 rounded-lg font-head text-xs sm:text-sm font-bold tracking-tight shadow-xs hover:shadow-md transition-[background-color,box-shadow,transform] active:scale-[0.98] items-center gap-1.5 cursor-pointer shrink-0"
             >
               <span>Start a project</span>
               <ArrowRight className="w-4 h-4" />
@@ -156,10 +168,35 @@ export default function Navbar() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Drawer"
-          className="fixed inset-x-0 top-[88px] bottom-0 z-40 bg-page/98 backdrop-blur-xl border-t border-subtle flex flex-col justify-between p-6 sm:p-8 overflow-y-auto lg:hidden"
+          className="fixed inset-0 z-50 bg-page/98 backdrop-blur-xl flex flex-col justify-between p-5 sm:p-8 overflow-y-auto lg:hidden"
         >
-          <nav className="flex flex-col gap-4">
-            <span className="font-mono text-xs uppercase text-muted tracking-widest block mb-1">
+          {/* Top Bar inside Drawer */}
+          <div className="flex items-center justify-between pb-4 border-b border-subtle">
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className="cursor-pointer group select-none shrink-0"
+              aria-label="JhalaWebTech Home"
+            >
+              <Logo size="sm" />
+            </Link>
+
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                aria-label="Close Navigation Menu"
+                className="p-2 rounded-lg border border-subtle bg-surface text-primary hover:bg-surface-2 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="flex flex-col gap-2 py-6">
+            <span className="font-mono text-[11px] uppercase text-muted tracking-widest block mb-2 px-3">
               Menu Navigation
             </span>
 
@@ -170,8 +207,10 @@ export default function Navbar() {
                   key={link.to}
                   href={link.to}
                   onClick={() => setMobileOpen(false)}
-                  className={`font-head text-2xl font-bold tracking-tight transition-colors py-2 flex items-center justify-between border-b border-subtle/50 ${
-                    isActive ? 'text-[#FF6B2C]' : 'text-primary'
+                  className={`font-head text-xl font-bold tracking-tight transition-colors py-3 px-3 rounded-lg flex items-center justify-between ${
+                    isActive
+                      ? 'text-[#FF6B2C] bg-[#FF6B2C]/10'
+                      : 'text-primary hover:bg-surface-2'
                   }`}
                 >
                   <span>{link.label}</span>
@@ -182,13 +221,22 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile Bottom Actions */}
-          <div className="pt-6 border-t border-subtle flex flex-col gap-3">
+          <div className="pt-4 border-t border-subtle flex flex-col gap-2.5">
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#FF6B2C] text-white rounded-xl font-head text-sm font-bold tracking-tight shadow-xs active:scale-95 transition-transform"
+            >
+              <span>Start a Project &bull; Get Quote</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
             <a
               href={`https://wa.me/91${company.phones.whatsappPintu}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/40 rounded-xl font-mono text-sm font-bold uppercase"
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/40 rounded-xl font-mono text-xs font-bold uppercase active:scale-95 transition-transform"
             >
               <WhatsAppIcon className="w-4 h-4 fill-current" />
               <span>Chat with Pintu on WhatsApp</span>
@@ -197,20 +245,11 @@ export default function Navbar() {
             <a
               href={`tel:+91${company.phones.callingRaw}`}
               onClick={() => setMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-surface-2 text-primary border border-subtle rounded-xl font-mono text-sm font-bold uppercase"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-surface-2 text-primary border border-subtle rounded-xl font-mono text-xs font-bold uppercase"
             >
-              <Phone className="w-4 h-4 text-[#FF6B2C]" />
-              <span>Call: +91 8441992003</span>
+              <Phone className="w-3.5 h-3.5 text-[#FF6B2C]" />
+              <span>Call: +91 {company.phones.callingDisplay}</span>
             </a>
-
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-[#FF6B2C] text-white rounded-xl font-head text-base font-bold shadow-md"
-            >
-              <span>Get Free Technical Quote</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       )}

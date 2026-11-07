@@ -9,7 +9,7 @@ export default function WhatsAppFab() {
   return (
     <aside
       aria-label="Direct WhatsApp consultation"
-      className="fixed bottom-20 sm:bottom-6 right-5 z-40"
+      className="hidden sm:block fixed bottom-6 right-6 z-40"
     >
       <a
         href={whatsappUrl}

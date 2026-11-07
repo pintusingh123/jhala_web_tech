@@ -34,7 +34,7 @@ export default function AppEstimator({ onOpenQuote }) {
   const totalWeeks = baseWeeks + featureWeeks;
 
   return (
-    <div className="rounded-2xl border border-subtle bg-surface p-6 sm:p-8 lg:p-10 shadow-lg">
+    <div className="rounded-2xl border border-subtle bg-surface p-5 sm:p-8 lg:p-10 shadow-lg">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-8 border-b border-subtle">
         <div>
           <Eyebrow>ESTIMATE YOUR TIMELINE &amp; COST</Eyebrow>
@@ -60,7 +60,7 @@ export default function AppEstimator({ onOpenQuote }) {
             <span className="block font-mono text-xs uppercase font-bold text-primary mb-2">
               1. Platform Deployment
             </span>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 xs:grid-cols-3 gap-2">
               {[
                 { id: 'mobile', label: 'React Native App', icon: Smartphone },
                 { id: 'web', label: 'Website / Web App', icon: Laptop },
@@ -119,7 +119,7 @@ export default function AppEstimator({ onOpenQuote }) {
             <span className="block font-mono text-xs uppercase font-bold text-primary mb-2">
               3. Key Integrations Needed
             </span>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {[
                 { id: 'auth', label: 'User Login & Biometrics' },
                 { id: 'payments', label: 'Razorpay / Stripe UPI' },
@@ -158,7 +158,7 @@ export default function AppEstimator({ onOpenQuote }) {
         </div>
 
         {/* Right Estimation Result Box (5 cols) */}
-        <div className="lg:col-span-5 bg-surface-2 p-6 sm:p-7 rounded-xl border border-subtle flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-surface-2 p-5 sm:p-7 rounded-xl border border-subtle flex flex-col justify-between">
           <div>
             <span className="font-mono text-xs font-bold text-[#FF6B2C] uppercase tracking-wider block mb-1">
               Estimated Investment

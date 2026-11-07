@@ -74,18 +74,18 @@ export default function Hero({ onExploreWork }) {
             </div>
 
             {/* Micro-Trust Strip Under CTAs (Section 4.C & 7) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-subtle">
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full pt-6 border-t border-subtle">
               <div className="flex items-center gap-2 font-mono text-xs text-muted">
                 <ShieldCheck className="w-4 h-4 text-[#FF6B2C] shrink-0" />
-                <span className="truncate">100% Code Ownership</span>
+                <span>100% Code Ownership</span>
               </div>
               <div className="flex items-center gap-2 font-mono text-xs text-muted">
                 <Zap className="w-4 h-4 text-[#FF6B2C] shrink-0" />
-                <span className="truncate">Weekly Live Demos</span>
+                <span>Weekly Live Demos</span>
               </div>
-              <div className="flex items-center gap-2 font-mono text-xs text-muted col-span-2 sm:col-span-1">
+              <div className="flex items-center gap-2 font-mono text-xs text-muted xs:col-span-2 sm:col-span-1">
                 <Users className="w-4 h-4 text-[#FF6B2C] shrink-0" />
-                <span className="truncate">Direct Developer Access</span>
+                <span>Direct Developer Access</span>
               </div>
             </div>
           </div>

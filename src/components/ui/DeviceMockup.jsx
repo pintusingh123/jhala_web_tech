@@ -44,9 +44,9 @@ export default function DeviceMockup({
             <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
           </div>
 
-          <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-surface-2 text-[10px] font-mono text-muted border border-subtle">
-            <span className="text-[#3DD9B0]">https://</span>
-            <span>jhalawebtech.com/work/{current.name.toLowerCase().replace(/\s+/g, '-')}</span>
+          <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 rounded-full bg-surface-2 text-[10px] font-mono text-muted border border-subtle max-w-[130px] xs:max-w-[200px] sm:max-w-none truncate">
+            <span className="text-[#3DD9B0] shrink-0">https://</span>
+            <span className="truncate">jhalawebtech.com/work/{current.name.toLowerCase().replace(/\s+/g, '-')}</span>
           </div>
 
           <div className="flex items-center gap-1">
@@ -58,7 +58,7 @@ export default function DeviceMockup({
         </div>
 
         {/* Laptop Screen Display with Real Project Screenshot */}
-        <div className="relative w-full h-[220px] sm:h-[300px] rounded-lg overflow-hidden bg-surface-2 border border-subtle">
+        <div className="relative w-full h-[190px] xs:h-[230px] sm:h-[300px] rounded-lg overflow-hidden bg-surface-2 border border-subtle">
           <img
             src={current.laptopImg || laptopImage}
             alt={`${current.name} real production web application`}
@@ -70,17 +70,17 @@ export default function DeviceMockup({
           />
 
           {/* Project Overlay Strip */}
-          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-3 sm:p-4 flex items-end justify-between">
+          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-2.5 sm:p-4 flex items-end justify-between">
             <div>
-              <span className="font-mono text-[10px] font-bold text-[#FF6B2C] uppercase tracking-wider block">
+              <span className="font-mono text-[9px] sm:text-[10px] font-bold text-[#FF6B2C] uppercase tracking-wider block">
                 {current.type}
               </span>
-              <h4 className="font-head text-white text-sm sm:text-base font-bold">
+              <h4 className="font-head text-white text-xs sm:text-base font-bold">
                 {current.name}
               </h4>
             </div>
 
-            <span className="font-mono text-[11px] font-semibold text-[#3DD9B0] bg-black/60 px-2.5 py-1 rounded border border-[#3DD9B0]/30 backdrop-blur-xs">
+            <span className="font-mono text-[10px] sm:text-[11px] font-semibold text-[#3DD9B0] bg-black/60 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-[#3DD9B0]/30 backdrop-blur-xs">
               {current.stat}
             </span>
           </div>
@@ -91,12 +91,12 @@ export default function DeviceMockup({
       </div>
 
       {/* ================= OVERLAPPING PHONE MOCKUP FRAME ================= */}
-      <div className="absolute -bottom-4 sm:-bottom-6 -right-2 sm:-right-4 w-[130px] sm:w-[170px] rounded-2xl border-2 border-subtle bg-surface shadow-2xl p-1 sm:p-1.5 transition-transform duration-300 hover:scale-105">
+      <div className="absolute -bottom-3 sm:-bottom-6 right-1 sm:-right-4 w-[110px] xs:w-[135px] sm:w-[170px] rounded-2xl border-2 border-subtle bg-surface shadow-2xl p-1 sm:p-1.5 transition-transform duration-300 hover:scale-105">
         {/* Phone Speaker Notch */}
         <div className="w-8 sm:w-10 h-1 bg-border rounded-full mx-auto mb-1" />
 
         {/* Phone Screen with Real App Screenshot */}
-        <div className="w-full h-[180px] sm:h-[230px] rounded-xl overflow-hidden bg-surface-2 relative border border-subtle">
+        <div className="w-full h-[150px] xs:h-[185px] sm:h-[230px] rounded-xl overflow-hidden bg-surface-2 relative border border-subtle">
           <img
             src={current.phoneImg || phoneImage}
             alt="React Native Mobile App UI preview"
