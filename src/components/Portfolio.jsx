@@ -1,101 +1,197 @@
-import React from 'react';
+import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 
 export default function Portfolio({ onOpenContact }) {
+  const [selectedFilter, setSelectedFilter] = useState('all');
+
+  const filterTabs = [
+    { id: 'all', label: 'All Projects' },
+    { id: 'foodtech', label: 'FoodTech & Subscriptions' },
+    { id: 'commerce', label: 'E-Commerce' },
+    { id: 'enterprise', label: 'Enterprise & AI' },
+  ];
+
   const projects = [
     {
-      title: 'JAY SHREE SHAM TIFFIN APP',
+      id: 'jayshreesham',
+      category: 'foodtech',
+      title: 'Jay Shree Sham Tiffin App',
       client: 'Ishue Suman (Jay Shree Shyam)',
-      category: 'Food Delivery & Subscriptions',
+      categoryLabel: 'Food Delivery & Subscriptions',
       description: 'Mobile-first food delivery and daily subscription web application featuring dynamic daily rotating menus, pure-veg thali plans (₹60–₹200), and 1-click WhatsApp order routing.',
       tech: ['Next.js', 'React', 'Tailwind', 'WhatsApp API'],
-      metrics: '2x Daily Orders // 500+ Meals/Day',
+      metrics: '2x Daily Orders • 500+ Meals/Day',
       highlight: 'Live Production Web App',
+      link: 'https://jayshreeshamtiffinservice.vercel.app/',
+      image: '/images/jayshreeshyam-showcase.jpg',
     },
     {
-      title: 'GHAROTI ROTI SUBSCRIPTION',
+      id: 'gharoti',
+      category: 'foodtech',
+      title: 'Gharoti Roti Subscription',
       client: 'Gharoti Technologies',
-      category: 'Subscription Commerce & Food Tech',
+      categoryLabel: 'Subscription Commerce & Food Logistics',
       description: 'Mobile-first homestyle fresh roti and meal subscription platform with recurring delivery scheduling, automated dispatch routes, pure desi ghee phulkas, and real-time tracking.',
       tech: ['Next.js', 'React', 'Tailwind', 'Firebase'],
-      metrics: '10k+ Rotis Delivered // 99.9% On-Time',
+      metrics: '10k+ Rotis Delivered • 99.9% On-Time',
       highlight: 'Live Production App',
+      link: 'https://www.gharoti.com/',
+      image: '/images/gharoti-showcase.jpg',
     },
     {
-      title: 'NEXUS E-COMMERCE PLATFORM',
+      id: 'nexus',
+      category: 'commerce',
+      title: 'Nexus E-Commerce Platform',
       client: 'Vanguard Retail',
-      category: 'Headless E-commerce',
-      description: 'Custom headless storefront with automated internationalization, dynamic caching, and instant checkout.',
+      categoryLabel: 'Headless E-Commerce',
+      description: 'Custom headless storefront with automated internationalization, dynamic edge caching, and sub-second checkout.',
       tech: ['Next.js', 'Shopify Plus', 'Stripe', 'Redis'],
-      metrics: '99/100 Lighthouse // +42% Conversions',
-      highlight: 'Headless Checkout',
+      metrics: '99/100 Lighthouse • +42% Conversions',
+      highlight: 'Edge Storefront',
+      link: 'https://nexus-commerce.jwt.io',
+      image: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=1000&q=80',
+    },
+    {
+      id: 'synapse',
+      category: 'enterprise',
+      title: 'Synapse AI Orchestration OS',
+      client: 'Synthetix Global',
+      categoryLabel: 'Agentic AI & Multi-LLM Systems',
+      description: 'Multi-agent reasoning platform that executes deterministic data extraction, automated tool calling, and RAG vector semantic search.',
+      tech: ['Python', 'LangGraph', 'FastAPI', 'OpenAI'],
+      metrics: '70% Workflow Automation • Sub-200ms Latency',
+      highlight: 'Enterprise AI',
+      link: 'https://synapse-ai.jwt.io',
+      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80',
+    },
+    {
+      id: 'kinetic',
+      category: 'enterprise',
+      title: 'Kinetic Trading Engine',
+      client: 'Apex Capital',
+      categoryLabel: 'FinTech & Real-Time WebSockets',
+      description: 'High-frequency algorithmic trading terminal delivering sub-8ms UI render loops, real-time WebSocket market streams, and custom portfolio analytics.',
+      tech: ['React 19', 'WebSockets', 'Go', 'AWS'],
+      metrics: '< 8ms Latency • 50k Ops/sec',
+      highlight: 'FinTech Terminal',
+      link: 'https://kinetic-trading.jwt.io',
+      image: 'https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1000&q=80',
     },
   ];
 
-  return (
-    <section className="w-full py-8">
-      <SectionHeader
-        tag="SYS.PORTFOLIO.MAP"
-        title="SELECTED"
-        highlightedTitle="WORK & CASE STUDIES"
-        description="Explore real-world technical systems and digital experiences engineered by JhalaLabs."
-      />
+  const filteredProjects = selectedFilter === 'all'
+    ? projects
+    : projects.filter((p) => p.category === selectedFilter);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-        {projects.map((proj) => (
+  return (
+    <section className="w-full py-8 sm:py-12" id="work">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#E5E5E5] gap-4">
+        <SectionHeader
+          tag="SELECTED WORK &amp; CASE STUDIES"
+          title="Digital Products Engineered for"
+          highlightedTitle="Growth"
+          description="Explore real-world technical systems and digital experiences engineered by JhalaWebTech for ambitious clients."
+        />
+
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap gap-1 p-1 bg-[#F5F5F7] rounded border border-[#E5E5E5] self-start md:self-end">
+          {filterTabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setSelectedFilter(tab.id)}
+              className={`px-3 py-1.5 font-narrow text-xs uppercase tracking-wider font-bold rounded transition-all cursor-pointer ${
+                selectedFilter === tab.id
+                  ? 'bg-[#FDB345] text-white shadow-xs'
+                  : 'text-[#575C62] hover:text-[#333333]'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredProjects.map((proj) => (
           <div
             key={proj.title}
-            className="bg-[#131313] p-4 sm:p-6 flex flex-col justify-between group transition-[border-color,box-shadow] duration-200 sm:brutalist-border sm:hover:border-[#C8FF3D] sm:shadow-[4px_4px_0px_0px_#262626] sm:hover:shadow-[8px_8px_0px_0px_#C8FF3D]"
+            className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 border-b border-[#262626] mb-4">
-                <span className="font-mono-code text-xs text-[#C8FF3D] uppercase font-bold">
-                  {proj.category}
-                </span>
-                <span className="text-[10px] font-mono-code text-[#9CA3AF] bg-[#0A0A0A] px-2 py-0.5 border border-[#262626]">
-                  {proj.highlight}
-                </span>
-              </div>
-
-              <h3 className="font-space text-xl sm:text-2xl font-bold text-[#e4e2e1] group-hover:text-[#C8FF3D] transition-colors mb-1">
-                {proj.title}
-              </h3>
-              <p className="font-mono-code text-xs sm:text-sm text-[#9CA3AF] mb-4">
-                CLIENT: {proj.client}
-              </p>
-
-              <p className="font-sans-body text-sm sm:text-base text-[#9CA3AF] leading-relaxed mb-6">
-                {proj.description}
-              </p>
-
-              {/* Performance Metric Box */}
-              <div className="p-3 bg-[#0A0A0A] brutalist-border mb-6">
-                <div className="text-[11px] font-mono-code text-[#C8FF3D] flex items-center gap-1.5">
-                  <span>METRIC: {proj.metrics}</span>
+              {/* Image Preview Container */}
+              <div className="relative h-48 w-full bg-[#F5F5F7] overflow-hidden">
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    e.target.src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';
+                  }}
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="font-narrow text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-white text-[#F69B2E] shadow-2xs border border-[#FDB345]/40">
+                    {proj.categoryLabel}
+                  </span>
                 </div>
               </div>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {proj.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[11px] font-mono-code text-[#e4e2e1] bg-[#1A1A1A] border border-[#262626] px-2 py-0.5 uppercase"
-                  >
-                    {t}
+              {/* Text Info */}
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="font-narrow text-xs font-bold uppercase tracking-wider text-[#575C62]">
+                    Client: {proj.client}
                   </span>
-                ))}
+                </div>
+
+                <h3 className="font-slab text-xl font-bold text-[#333333] mb-2 group-hover:text-[#FDB345] transition-colors">
+                  {proj.title}
+                </h3>
+
+                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-4">
+                  {proj.description}
+                </p>
+
+                {/* Metrics Chip */}
+                <div className="inline-block px-3 py-1 bg-[#FFF8EE] border border-[#FDB345]/30 text-[#F69B2E] font-narrow text-xs font-bold uppercase tracking-wider rounded mb-4">
+                  {proj.metrics}
+                </div>
+
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-1.5">
+                  {proj.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-2 py-0.5 bg-[#F5F5F7] border border-[#DADBDD] text-[#333333] font-narrow text-[11px] font-bold uppercase rounded"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <button
-              onClick={onOpenContact}
-              className="w-full bg-[#1A1A1A] border border-[#262626] text-[#e4e2e1] font-space text-xs uppercase py-2.5 px-4 flex items-center justify-center gap-2 group-hover:bg-[#C8FF3D] group-hover:text-[#0A0A0A] group-hover:font-bold transition-colors duration-200 cursor-pointer"
-            >
-              <span>REQUEST CASE STUDY</span>
-              <ExternalLink className="w-4 h-4" />
-            </button>
+            {/* Card Action */}
+            <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-[#E5E5E5]">
+              <a
+                href={proj.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider text-[#FDB345] hover:text-[#F69B2E] transition-colors cursor-pointer"
+              >
+                <span>Live Preview</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              <button
+                onClick={onOpenContact}
+                className="font-narrow text-xs font-bold uppercase tracking-wider text-[#575C62] hover:text-[#333333] transition-colors cursor-pointer"
+              >
+                Inquire Similar
+              </button>
+            </div>
           </div>
         ))}
       </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import TerminalHeader from '../components/TerminalHeader';
 import Blog from '../components/Blog';
 

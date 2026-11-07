@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
@@ -17,8 +17,8 @@ export default function App() {
     <BrowserRouter>
       <Suspense
         fallback={
-          <div className="min-h-screen bg-[#131313] flex items-center justify-center">
-            <div className="w-8 h-8 border-2 border-[#262626] border-t-[#C8FF3D] rounded-full animate-spin" />
+          <div className="min-h-screen bg-white flex items-center justify-center">
+            <div className="w-10 h-10 border-3 border-amber-100 border-t-[#FDB345] rounded-full animate-spin" />
           </div>
         }
       >

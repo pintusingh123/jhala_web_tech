@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --font-space: 'Space Grotesk', sans-serif;
-  --font-sans: 'DM Sans', sans-serif;
-  --font-serif: 'Instrument Serif', serif;
+  --font-slab: 'Zilla Slab', serif;
+  --font-narrow: 'PT Sans Narrow', sans-serif;
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-space: 'PT Sans Narrow', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --color-tertiary: #C8FF3D;
-  --color-tertiary-hover: #bef532;
-  --color-background: #131313;
-  --color-surface: #131313;
-  --color-surface-container: #1f2020;
-  --color-surface-container-high: #2a2a2a;
-  --color-surface-container-highest: #353535;
-  --color-surface-container-low: #1b1c1c;
-  --color-surface-container-lowest: #0e0e0e;
-  --color-on-background: #e4e2e1;
-  --color-on-surface-variant: #c4c7c7;
-  --color-outline-variant: #444748;
+  /* Exact Tvisha Technologies Color Palette */
+  --color-tvisha-yellow: #FDB345;
+  --color-tvisha-yellow-dark: #F69B2E;
+  --color-tvisha-yellow-light: #FFF8EE;
+  --color-tvisha-dark: #333333;
+  --color-tvisha-gray: #575C62;
+  --color-tvisha-silver: #DADBDD;
+  --color-tvisha-border: #E5E5E5;
+  --color-tvisha-bg: #FFFFFF;
+  --color-tvisha-footer: #191D29;
+  --color-tvisha-footer-deep: #14161F;
 }
 
 /* Lenis Smooth Scrolling Base Styles */
@@ -43,16 +43,16 @@ html.lenis body {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
-  background-color: #131313;
-  color: #e4e2e1;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background-color: #FFFFFF;
+  color: #333333;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Accessibility Focus States */
+/* Focus States */
 *:focus-visible {
-  outline: 2px solid #C8FF3D !important;
+  outline: 2px solid #FDB345 !important;
   outline-offset: 2px !important;
 }
 
@@ -69,62 +69,63 @@ body {
   border-width: 0;
 }
 
-/* Typography Classes */
-.font-space {
-  font-family: 'Space Grotesk', sans-serif;
+/* Tvisha Typography Classes */
+.font-slab {
+  font-family: 'Zilla Slab', serif;
+}
+
+.font-narrow {
+  font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .font-sans-body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
-.font-serif-quote {
-  font-family: 'Instrument Serif', serif;
+/* Tvisha Signature Heading & Yellow Tag */
+.light_yellow {
+  color: #FDB345 !important;
 }
 
-.font-mono-code {
-  font-family: 'JetBrains Mono', monospace;
+.bg_tvisha_yellow {
+  background-color: #FDB345 !important;
 }
 
-/* Exact Stitch Brutalist Styles */
-.brutalist-border {
-  border: 1px solid #262626;
+/* Tvisha's Signature Banner Box with Dotted Texture */
+.tvisha-banner-box {
+  background-color: #FDB345;
+  color: #FFFFFF;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
 }
 
-.brutalist-border-active {
-  border: 1px solid #C8FF3D;
+/* Two-Tone Section Split */
+.two-tone-silver {
+  background-color: #F5F5F7;
+  border: 1px solid #E5E5E5;
 }
 
-.brutalist-card-highlight {
-  border-left: 2px solid #C8FF3D;
+.two-tone-split-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  transition: all 0.25s ease;
 }
 
-.terminal-divider {
-  height: 1px;
-  background-color: #262626;
-  width: 100%;
+.two-tone-split-card:hover {
+  border-color: #FDB345;
+  box-shadow: 0 10px 24px -4px rgba(253, 179, 69, 0.18);
+  transform: translateY(-2px);
 }
 
-.bg-level-0 {
-  background-color: #0A0A0A;
+/* Quote button styling as in Tvisha */
+.tvisha-quote-btn {
+  background: #FFFFFF;
+  color: #FDB345;
+  border: 1px solid #FDB345;
+  transition: all 0.2s ease;
 }
 
-.bg-level-1 {
-  background-color: #1A1A1A;
-  border: 1px solid #262626;
-}
-
-.bg-level-2 {
-  background-color: #F5F5F0;
-  color: #0A0A0A;
-}
-
-.card-high-emphasis {
-  border-bottom: 2px solid #C8FF3D;
-}
-
-.card-high-emphasis:hover {
-  background-color: #1A1A1A;
-  border: 1px solid #C8FF3D;
-  border-bottom: 2px solid #C8FF3D;
+.tvisha-quote-btn:hover {
+  background: #FDB345;
+  color: #FFFFFF;
 }

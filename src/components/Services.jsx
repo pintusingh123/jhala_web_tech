@@ -1,125 +1,231 @@
-import React from 'react';
-import { Code, ShoppingCart, Cpu, Bot, Palette, Wrench, ArrowUpRight } from 'lucide-react';
+import { useState } from 'react';
+import { 
+  Smartphone, 
+  Code, 
+  Globe, 
+  Bot, 
+  ShoppingCart, 
+  Palette, 
+  Cloud, 
+  ArrowRight,
+  Check
+} from 'lucide-react';
 import SectionHeader from './SectionHeader';
 
 export default function Services({ onSelectService }) {
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const categories = [
+    { id: 'all', label: 'All Services' },
+    { id: 'mobile', label: 'Mobile Apps' },
+    { id: 'software', label: 'Custom Software' },
+    { id: 'web', label: 'Web Development' },
+    { id: 'ai', label: 'AI & Cloud' },
+  ];
+
   const servicesList = [
     {
-      id: 'web-dev',
+      id: 'mobile-app-dev',
+      category: 'mobile',
+      icon: Smartphone,
+      badge: 'FEATURED',
+      title: 'Mobile App Development',
+      description: 'Native iOS (Swift), Android (Kotlin), and cross-platform Flutter & React Native applications built for smooth gestures, offline capabilities, and high conversion.',
+      points: [
+        'React Native & Flutter Cross-Platform',
+        'Native iOS (Swift) & Android (Kotlin)',
+        'Biometric Auth & Payment Gateways',
+        'Google Play Store & App Store Deployment'
+      ],
+      tags: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase'],
+    },
+    {
+      id: 'custom-software',
+      category: 'software',
       icon: Code,
-      badge: 'ACTIVE',
-      title: 'Web Development',
-      description: 'High-performance frontend architectures and scalable backend APIs built for modern browsers and demanding workloads.',
-      tags: ['React', 'Node.js', 'AWS'],
-      actionText: 'Explore Code',
+      badge: 'ENTERPRISE',
+      title: 'Custom Software Development',
+      description: 'Bespoke enterprise management systems, custom ERPs, CRM platforms, and high-concurrency microservices engineered to fit your exact operational workflows.',
+      points: [
+        'Custom ERP & CRM Platforms',
+        'High-Throughput REST & GraphQL APIs',
+        'Role-Based Access & Multi-Tenancy',
+        'Automated Workflow Pipelines'
+      ],
+      tags: ['Python', 'Node.js', 'PostgreSQL', 'Docker', 'Go'],
     },
     {
-      id: 'ecommerce',
-      icon: ShoppingCart,
-      badge: '',
-      title: 'E-commerce',
-      description: 'Custom storefronts, complex inventory integrations, and frictionless checkout flows optimized for high-volume transactions.',
-      tags: ['Shopify Plus', 'Stripe'],
-      actionText: 'Explore Code',
-    },
-    {
-      id: 'custom-sw',
-      icon: Cpu,
-      badge: '',
-      title: 'Custom Software',
-      description: 'Bespoke internal tools, complex data pipelines, and specialized software tailored precisely to unique operational requirements.',
-      tags: ['Python', 'Go', 'PostgreSQL'],
-      actionText: 'Explore Code',
+      id: 'web-development',
+      category: 'web',
+      icon: Globe,
+      badge: 'HIGH SPEED',
+      title: 'Website Design & Development',
+      description: 'Modern, responsive web applications engineered with React 19, Next.js, and edge caching for sub-second speeds, SEO optimization, and 99+ Core Web Vitals.',
+      points: [
+        'React 19 & Next.js Web Storefronts',
+        'Sub-Second Page Loads & 99+ Lighthouse',
+        'Custom Admin Dashboards & Analytics',
+        'Complete SEO & Mobile Optimization'
+      ],
+      tags: ['React 19', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Vercel'],
     },
     {
       id: 'ai-solutions',
+      category: 'ai',
       icon: Bot,
-      badge: 'BETA',
-      title: 'AI Solutions',
-      description: 'Integration of LLMs, custom machine learning models, and automated reasoning pipelines into existing product ecosystems.',
-      tags: ['TensorFlow', 'OpenAI API'],
-      actionText: 'Explore Code',
+      badge: 'AI NATIVE',
+      title: 'AI & Machine Learning Development',
+      description: 'Production-ready AI integration, autonomous reasoning agent workflows, custom RAG vector search, and intelligent document parsing to automate business operations.',
+      points: [
+        'Autonomous Multi-Agent Systems',
+        'Enterprise RAG & Semantic Vector Search',
+        'Intelligent Document & Data Extraction',
+        'Custom OpenAI & Claude Fine-Tuning'
+      ],
+      tags: ['Python', 'LangGraph', 'FastAPI', 'OpenAI', 'Redis Vector'],
     },
     {
-      id: 'ui-ux',
+      id: 'ecommerce-solutions',
+      category: 'web',
+      icon: ShoppingCart,
+      badge: 'COMMERCE',
+      title: 'E-Commerce Solutions',
+      description: 'Scalable digital storefronts, custom checkout funnels, automated WhatsApp order integrations, and high-frequency real-time inventory management.',
+      points: [
+        'Custom Storefronts & Shopify Plus',
+        '1-Click Razorpay UPI & Stripe Connect',
+        'Automated WhatsApp Order Dispatch',
+        'Real-Time Inventory Synchronization'
+      ],
+      tags: ['Shopify Plus', 'Stripe', 'Razorpay', 'Next.js', 'GraphQL'],
+    },
+    {
+      id: 'ui-ux-design',
+      category: 'web',
       icon: Palette,
-      badge: '',
-      title: 'UI/UX Design',
-      description: 'Systematic, brutally efficient interface design focused on cognitive clarity, technical precision, and component reusability.',
-      tags: ['Figma', 'Design Systems'],
-      actionText: 'Explore Specs',
+      badge: 'DESIGN',
+      title: 'UI/UX Design Services',
+      description: 'User-centric product architecture, user journeys, clickable interactive Figma prototypes, and complete enterprise design systems.',
+      points: [
+        'User Journey Mapping & Wireframing',
+        'High-Fidelity Interactive Figma Mockups',
+        'Scalable Reusable Design Tokens',
+        'Design-to-Code Translation'
+      ],
+      tags: ['Figma', 'Design Systems', 'WCAG A11y', 'Tailwind', 'Prototyping'],
     },
     {
-      id: 'devops',
-      icon: Wrench,
-      badge: '',
-      title: 'Maintenance',
-      description: 'Continuous deployment oversight, legacy system refactoring, and proactive security patching for mission-critical infrastructure.',
-      tags: ['CI/CD', 'Docker', 'Kubernetes'],
-      actionText: 'Explore Code',
+      id: 'cloud-devops',
+      category: 'ai',
+      icon: Cloud,
+      badge: 'CLOUD',
+      title: 'Cloud Architecture & DevOps',
+      description: 'Scalable cloud infrastructure setup on AWS, zero-downtime CI/CD deployment pipelines, automated backups, and 24/7 telemetry monitoring.',
+      points: [
+        'AWS & Google Cloud Setup',
+        'Docker & Kubernetes Containerization',
+        'Zero-Downtime Blue-Green Deploys',
+        'Proactive Security & SLA Monitoring'
+      ],
+      tags: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Linux'],
     },
   ];
 
-  return (
-    <section className="w-full py-8">
-      {/* Services Header */}
-      <SectionHeader
-        tag="SYS.SERVICES.MAP"
-        title="ENGINEERING"
-        highlightedTitle="SCALE."
-        description="We architect and deploy robust, high-performance technical solutions designed for modern scale and relentless efficiency."
-      />
+  const filteredServices = activeCategory === 'all'
+    ? servicesList
+    : servicesList.filter((s) => s.category === activeCategory);
 
-      {/* Services Grid */}
+  return (
+    <section className="w-full py-8 sm:py-12" id="services">
+      {/* Header with Tvisha Two-Tone Composition */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#E5E5E5] gap-4">
+        <SectionHeader
+          tag="OUR CORE SERVICES"
+          title="Mobile App & Custom"
+          highlightedTitle="Software Solutions"
+          description="We take your business idea from concept and architecture to production deployment, providing transparent communication, milestone delivery, and guaranteed performance."
+        />
+
+        {/* Category Filter Pills in Tvisha Style */}
+        <div className="flex flex-wrap gap-1 p-1 bg-[#F5F5F7] rounded border border-[#E5E5E5] self-start md:self-end">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={`px-3 py-1.5 font-narrow text-xs uppercase tracking-wider font-bold rounded transition-all cursor-pointer ${
+                activeCategory === cat.id
+                  ? 'bg-[#FDB345] text-white shadow-xs'
+                  : 'text-[#575C62] hover:text-[#333333]'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Services Grid with Two-Tone Borders and Yellow Accents */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {servicesList.map((service) => {
+        {filteredServices.map((service) => {
           const IconComp = service.icon;
           return (
             <div
               key={service.id}
-              className="bg-[#1A1A1A] p-6 card-high-emphasis flex flex-col justify-between group transition-[box-shadow,border-color] duration-300 shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_0px_#C8FF3D]"
+              className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
+                {/* Icon & Badge Header */}
                 <div className="flex justify-between items-start mb-4">
-                  <div className="p-2 bg-[#0A0A0A] brutalist-border text-[#C8FF3D] group-hover:scale-110 transition-transform">
-                    <IconComp className="w-7 h-7" />
+                  <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center group-hover:bg-[#FDB345] group-hover:text-white transition-all">
+                    <IconComp className="w-6 h-6" />
                   </div>
                   {service.badge && (
-                    <span className="bg-[#C8FF3D] text-[#0A0A0A] font-space text-[10px] font-bold px-2 py-0.5 uppercase">
+                    <span className="font-narrow text-[11px] font-bold uppercase tracking-wider text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30">
                       {service.badge}
                     </span>
                   )}
                 </div>
 
-                <h3 className="font-space text-2xl font-bold text-[#e4e2e1] mb-2 group-hover:text-[#C8FF3D] transition-colors">
+                <h3 className="font-slab text-xl font-bold text-[#333333] mb-2.5 group-hover:text-[#FDB345] transition-colors">
                   {service.title}
                 </h3>
 
-                <p className="font-sans-body text-sm text-[#9CA3AF] leading-relaxed mb-6">
+                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-5">
                   {service.description}
                 </p>
 
-                {/* Tech Tags */}
-                <div className="flex gap-2 flex-wrap mb-6">
-                  {service.tags.map((tag) => (
+                {/* Bullet Points with Yellow Checks */}
+                <ul className="space-y-2 mb-6">
+                  {service.points.map((pt, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs font-medium text-[#333333]">
+                      <Check className="w-4 h-4 text-[#FDB345] mt-0.5 shrink-0" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Footer Tech Tags & Quote Trigger */}
+              <div className="pt-4 border-t border-[#E5E5E5]">
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {service.tags.map((t) => (
                     <span
-                      key={tag}
-                      className="text-xs text-[#9CA3AF] border border-[#444748] bg-[#0A0A0A] px-2 py-1 uppercase font-mono-code"
+                      key={t}
+                      className="px-2 py-0.5 bg-[#F5F5F7] border border-[#DADBDD] text-[#575C62] font-narrow text-[11px] font-bold uppercase rounded"
                     >
-                      {tag}
+                      {t}
                     </span>
                   ))}
                 </div>
-              </div>
 
-              {/* Action Button */}
-              <button
-                onClick={() => onSelectService(service)}
-                className="w-full bg-transparent border border-[#F5F5F0] text-[#F5F5F0] font-space text-xs uppercase py-3 px-4 flex items-center justify-center gap-2 group-hover:bg-[#F5F5F0] group-hover:text-[#0A0A0A] group-hover:font-bold transition-colors duration-200 cursor-pointer"
-              >
-                <span>{service.actionText}</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
+                <button
+                  onClick={onSelectService}
+                  className="w-full flex items-center justify-between text-xs sm:text-sm font-narrow uppercase tracking-wider font-bold text-[#FDB345] hover:text-[#F69B2E] py-2 group/btn cursor-pointer"
+                >
+                  <span>Request Project Estimate</span>
+                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform" />
+                </button>
+              </div>
             </div>
           );
         })}

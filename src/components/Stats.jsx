@@ -1,37 +1,107 @@
-import React from 'react';
+import { Award, Users, ShieldCheck, Clock, CheckCircle } from 'lucide-react';
 
 export default function Stats() {
   const stats = [
-    { value: '10+', label: 'SHIPPED', desc: 'Production-ready web & AI platforms' },
-    { value: '10+', label: 'CLIENTS', desc: 'Global startups & enterprise partners' },
-    { value: '100%', label: 'TECHNICAL', desc: 'High-precision architecture & zero bloat' },
+    {
+      icon: Award,
+      value: '50+',
+      label: 'Projects Delivered',
+      desc: 'Mobile apps, custom software & web platforms deployed to live production',
+      featured: true,
+    },
+    {
+      icon: Users,
+      value: '99%',
+      label: 'Client Satisfaction',
+      desc: 'High client retention with direct access to senior full-stack architects',
+      featured: false,
+    },
+    {
+      icon: ShieldCheck,
+      value: '100%',
+      label: 'Code Ownership',
+      desc: 'Clean modular codebases with full intellectual property transfer',
+      featured: false,
+    },
+    {
+      icon: Clock,
+      value: '24/7',
+      label: 'SLA Support',
+      desc: 'Continuous performance monitoring, zero downtime & rapid bug resolution',
+      featured: false,
+    },
+  ];
+
+  const domains = [
+    'Quick Commerce & FoodTech',
+    'FinTech & Banking Rails',
+    'D2C & Headless E-Commerce',
+    'HealthTech & Medical Portals',
+    'Logistics & Fleet Dispatch',
+    'Enterprise B2B SaaS',
   ];
 
   return (
-    <section className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 my-8 border-y border-[#262626] py-8">
-      {stats.map((stat, idx) => (
-        <div 
-          key={stat.label}
-          className={`flex flex-col items-start p-6 bg-[#0E0E0E] brutalist-border group hover:bg-[#131313] transition-colors duration-200 ${
-            idx === 0 ? 'brutalist-border-active' : ''
-          }`}
-        >
-          <span className={`font-space text-5xl font-extrabold transition-transform origin-left group-hover:scale-105 ${
-            idx === 0 ? 'text-[#C8FF3D]' : 'text-[#e4e2e1] group-hover:text-[#C8FF3D]'
-          }`}>
-            {stat.value}
-          </span>
-          <span className="font-space text-xs font-bold text-[#9CA3AF] uppercase tracking-widest mt-3 flex items-center gap-2">
-            <span className={`w-2 h-2 inline-block ${
-              idx === 0 ? 'bg-[#C8FF3D]' : 'bg-[#e4e2e1] group-hover:bg-[#C8FF3D]'
-            }`}></span>
-            {stat.label}
-          </span>
-          <p className="font-mono-code text-xs text-[#9CA3AF] mt-1">
-            {stat.desc}
-          </p>
+    <section className="w-full my-6 sm:my-10">
+      {/* 4-Column Tvisha Two-Tone Metrics Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {stats.map((stat) => {
+          const Icon = stat.icon;
+          return (
+            <div
+              key={stat.label}
+              className={`p-5 sm:p-6 rounded border transition-all duration-200 flex flex-col justify-between group ${
+                stat.featured
+                  ? 'bg-[#FDB345] text-white border-[#FDB345] shadow-sm'
+                  : 'bg-white text-[#333333] border-[#E5E5E5] hover:border-[#FDB345] shadow-xs hover:shadow-md'
+              }`}
+            >
+              <div>
+                <div className={`w-10 h-10 rounded flex items-center justify-center mb-4 transition-all ${
+                  stat.featured
+                    ? 'bg-white/20 text-white'
+                    : 'bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] group-hover:bg-[#FDB345] group-hover:text-white'
+                }`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div className={`font-slab text-4xl sm:text-5xl font-bold tracking-tight mb-1 ${
+                  stat.featured ? 'text-white' : 'text-[#333333] group-hover:text-[#FDB345]'
+                }`}>
+                  {stat.value}
+                </div>
+                <div className={`font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider mb-2 ${
+                  stat.featured ? 'text-white' : 'text-[#333333]'
+                }`}>
+                  {stat.label}
+                </div>
+              </div>
+              <p className={`font-sans-body text-xs sm:text-sm leading-relaxed ${
+                stat.featured ? 'text-white/90' : 'text-[#575C62]'
+              }`}>
+                {stat.desc}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Industries & Domains Trust Bar in Tvisha Two-Tone Style */}
+      <div className="mt-8 py-5 px-6 bg-[#F5F5F7] rounded border border-[#E5E5E5] flex flex-col md:flex-row items-center justify-between gap-4">
+        <span className="font-narrow text-xs font-bold uppercase tracking-widest text-[#575C62] shrink-0">
+          Domains We Specialize In:
+        </span>
+        <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-3">
+          {domains.map((d) => (
+            <span
+              key={d}
+              className="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-[#DADBDD] text-[#333333] font-narrow text-xs font-bold uppercase tracking-wide rounded shadow-2xs"
+            >
+              <CheckCircle className="w-3.5 h-3.5 text-[#FDB345]" />
+              <span>{d}</span>
+            </span>
+          ))}
         </div>
-      ))}
+      </div>
     </section>
   );
 }

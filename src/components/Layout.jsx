@@ -1,22 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-// No GSAP imports – using Lenis for smooth scrolling only
-
 export default function Layout() {
   const location = useLocation();
   const mainRef = useRef(null);
   const lenisRef = useRef(null);
 
-  // Initialize Lenis Smooth Scrolling (Desktop only for 60fps native mobile performance)
+  // Initialize Lenis Smooth Scrolling (Desktop only for native mobile performance)
   useEffect(() => {
     const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
     if (isTouch) {
-      // Enable native hardware-accelerated scrolling on mobile for max Lighthouse score & zero main-thread lag
       return;
     }
 
@@ -51,21 +48,21 @@ export default function Layout() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#131313] text-[#e4e2e1] selection:bg-[#C8FF3D] selection:text-[#0A0A0A]">
-      {/* Global Sticky Header & Floating Mobile Dock */}
+    <div className="min-h-screen flex flex-col bg-[#FFFFFF] text-[#333333] selection:bg-[#FDB345] selection:text-white font-sans-body">
+      {/* Global Sticky Header */}
       <Navbar />
 
-      {/* Main Routed Page Container with extra bottom padding for mobile floating dock */}
+      {/* Main Routed Page Container */}
       <main
         ref={mainRef}
         id="main-content"
         tabIndex="-1"
-        className="flex-grow flex flex-col w-full max-w-[1440px] mx-auto px-4 md:px-12 pt-2 sm:pt-3 pb-28 lg:pb-8 gap-10 outline-none"
+        className="flex-grow flex flex-col w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-6 pb-24 lg:pb-12 gap-12 sm:gap-16 outline-none"
       >
         <Outlet />
       </main>
 
-      {/* Global Footer */}
+      {/* Global Corporate Footer */}
       <Footer />
     </div>
   );

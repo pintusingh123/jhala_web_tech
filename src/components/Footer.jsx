@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Terminal, Phone } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 const WHATSAPP_NUMBER = '8003642596';
@@ -8,122 +7,162 @@ const CALLING_NUMBER = '8441992003';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0E0E0E] w-full mt-16 border-t-2 border-[#C8FF3D]">
-      <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 md:px-12 py-12">
-        {/* Brand & Manifesto - 2 cols */}
-        <div className="col-span-1 md:col-span-2 flex flex-col justify-between">
-          <div>
-            <Link to="/" className="font-space text-3xl font-extrabold text-[#C8FF3D] block mb-2 tracking-tighter hover:opacity-90 transition-opacity">
-              JhalaWebTech
-            </Link>
-            <p className="font-mono-code text-xs text-[#9CA3AF] uppercase tracking-widest max-w-sm mt-2 leading-relaxed">
-              JWT — Building high-performance custom software, AI agents, mobile apps, and scalable digital architectures.
-            </p>
+    <footer className="bg-[#191D29] text-slate-300 w-full mt-16 border-t border-white/10 font-sans-body">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+          {/* Brand Column (2 cols) */}
+          <div className="lg:col-span-2 flex flex-col justify-between">
+            <div>
+              <Link to="/" className="flex items-center gap-2.5 mb-4 group inline-flex">
+                <div className="w-9 h-9 rounded bg-[#FDB345] flex items-center justify-center text-white font-slab font-bold text-lg shadow-xs">
+                  J
+                </div>
+                <span className="font-slab text-2xl font-bold text-white tracking-tight group-hover:text-[#FDB345] transition-colors">
+                  JhalaWebTech
+                </span>
+              </Link>
 
-            {/* Direct Hotline Quick Pills */}
-            <div className="flex flex-wrap gap-3 mt-6">
-              <a
-                href={`tel:+91${CALLING_NUMBER}`}
-                className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#161616] hover:bg-[#202020] text-[#e4e2e1] hover:text-[#C8FF3D] brutalist-border font-mono-code text-xs transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#C8FF3D]" />
-                <span>Call: +91 {CALLING_NUMBER}</span>
-              </a>
+              <p className="font-sans-body text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm mb-6">
+                Mobile app and custom software development company. We engineer high-performance iOS &amp; Android applications, custom enterprise platforms, and scalable web solutions for growing businesses.
+              </p>
 
-              <a
-                href={`https://wa.me/91${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello JhalaWebTech! I would like to inquire about a software project.')}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#161616] hover:bg-[#202020] text-[#e4e2e1] hover:text-[#25D366] brutalist-border font-mono-code text-xs transition-colors"
-              >
-                <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
-                <span>WhatsApp: +91 {WHATSAPP_NUMBER}</span>
-              </a>
+              {/* Direct Hotlines in Tvisha Style */}
+              <div className="flex flex-wrap gap-2.5">
+                <a
+                  href={`tel:+91${CALLING_NUMBER}`}
+                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-white/5 hover:bg-[#FDB345] hover:text-[#191D29] text-white rounded text-xs font-narrow font-bold uppercase tracking-wider border border-white/10 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#FDB345]" />
+                  <span>Call: +91 {CALLING_NUMBER}</span>
+                </a>
+
+                <a
+                  href={`https://wa.me/91${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello JhalaWebTech! I want to discuss a new software/app project.')}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-[#25D366]/20 hover:bg-[#25D366]/30 text-[#25D366] rounded text-xs font-narrow font-bold uppercase tracking-wider border border-[#25D366]/40 transition-colors"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] fill-current" />
+                  <span>WhatsApp Direct</span>
+                </a>
+              </div>
             </div>
           </div>
-          <p className="font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] mt-8 md:mt-0">
-            © 2026 JHALAWEBTECH (JWT). BUILD. SCALE. INNOVATE.
-          </p>
+
+          {/* Core Services Links */}
+          <div>
+            <h4 className="font-narrow text-xs font-bold uppercase tracking-widest text-[#FDB345] mb-4">
+              Services
+            </h4>
+            <ul className="space-y-2.5 text-xs text-slate-400 font-sans-body">
+              <li>
+                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
+                  Mobile App Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
+                  Custom Software Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
+                  Website Design and Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
+                  AI &amp; Machine Learning Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
+                  E-Commerce Solutions
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-[#FDB345] transition-colors">
+                  UI/UX Design Services
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Quick Navigation */}
+          <div>
+            <h4 className="font-narrow text-xs font-bold uppercase tracking-widest text-[#FDB345] mb-4">
+              Company
+            </h4>
+            <ul className="space-y-2.5 text-xs text-slate-400 font-sans-body">
+              <li>
+                <Link to="/about" className="hover:text-[#FDB345] transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/work" className="hover:text-[#FDB345] transition-colors">
+                  Our Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link to="/process" className="hover:text-[#FDB345] transition-colors">
+                  How We Develop
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-[#FDB345] transition-colors">
+                  Tech Insights
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-white transition-colors font-bold text-[#FDB345]">
+                  Get Free Quote
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Office & Guarantees */}
+          <div>
+            <h4 className="font-narrow text-xs font-bold uppercase tracking-widest text-[#FDB345] mb-4">
+              Headquarters
+            </h4>
+            <div className="space-y-3 text-xs text-slate-400 font-sans-body">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-[#FDB345] mt-0.5 shrink-0" />
+                <span>Rajasthan, India (Delivering Worldwide)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#FDB345] shrink-0" />
+                <a href="mailto:contact@jhalawebtech.com" className="hover:text-white transition-colors">
+                  contact@jhalawebtech.com
+                </a>
+              </div>
+              <div className="pt-2 flex items-center gap-1.5 text-[#FDB345] font-semibold">
+                <ShieldCheck className="w-4 h-4" />
+                <span className="font-narrow text-xs font-bold uppercase tracking-wider">
+                  100% On-Time Delivery Guarantee
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Directory - 1 col */}
-        <div className="col-span-1 flex flex-col gap-2.5">
-          <span className="font-mono-code text-xs text-[#e4e2e1] uppercase border-b border-[#262626] pb-1 mb-1 font-bold">
-            Directory
-          </span>
-          <Link
-            to="/services"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
-          >
-            WEB ARCHITECTURE
-          </Link>
-          <Link
-            to="/services"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
-          >
-            AI & LLM SYSTEMS
-          </Link>
-          <Link
-            to="/work"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
-          >
-            CASE STUDIES
-          </Link>
-          <Link
-            to="/process"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
-          >
-            METHODOLOGY
-          </Link>
-          <Link
-            to="/contact"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#C8FF3D] hover:underline transition-colors cursor-pointer font-bold"
-          >
-            CONTACT US
-          </Link>
-        </div>
-
-        {/* Connect - 1 col */}
-        <div className="col-span-1 flex flex-col gap-2.5">
-          <span className="font-mono-code text-xs text-[#e4e2e1] uppercase border-b border-[#262626] pb-1 mb-1 font-bold">
-            Connect
-          </span>
-          <Link
-            to="/about"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
-          >
-            ABOUT JWT
-          </Link>
-          <Link
-            to="/contact"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors cursor-pointer"
-          >
-            CONTACT DESK
-          </Link>
-          <a
-            href="mailto:contact@jhalawebtech.com"
-            className="text-left font-mono-code text-xs uppercase tracking-widest text-[#9CA3AF] hover:text-[#C8FF3D] transition-colors"
-          >
-            contact@jhalawebtech.com
-          </a>
-
-          <div className="flex gap-3 mt-3">
-            <a
-              href={`https://wa.me/91${WHATSAPP_NUMBER}`}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="JhalaWebTech WhatsApp"
-              className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#25D366] hover:border-[#25D366] transition-colors"
-            >
-              <WhatsAppIcon className="w-4 h-4" aria-hidden="true" />
-            </a>
-            <a
-              href={`tel:+91${CALLING_NUMBER}`}
-              aria-label="JhalaWebTech Calling Line"
-              className="p-2 bg-[#1A1A1A] brutalist-border text-[#9CA3AF] hover:text-[#C8FF3D] hover:border-[#C8FF3D] transition-colors"
-            >
-              <Phone className="w-4 h-4" aria-hidden="true" />
-            </a>
+        {/* Bottom Copyright Strip */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 bg-[#14161F] -mx-4 sm:-mx-6 lg:-mx-10 -mb-12 p-6 mt-6">
+          <div>
+            © {new Date().getFullYear()} JhalaWebTech (JWT). All rights reserved.
+          </div>
+          <div className="flex items-center gap-6 font-narrow uppercase tracking-wider font-bold">
+            <Link to="/services" className="hover:text-[#FDB345] transition-colors">
+              Services
+            </Link>
+            <Link to="/work" className="hover:text-[#FDB345] transition-colors">
+              Portfolio
+            </Link>
+            <Link to="/contact" className="hover:text-[#FDB345] transition-colors">
+              Contact Us
+            </Link>
           </div>
         </div>
       </div>

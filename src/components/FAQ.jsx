@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 
 export default function FAQ({ onOpenContact }) {
@@ -7,72 +7,92 @@ export default function FAQ({ onOpenContact }) {
 
   const faqs = [
     {
-      q: 'How fast can JhalaWebTech initiate our engineering sprint?',
-      a: 'We kick off with an Architectural Blueprint session within 48-72 hours of contract execution. Active development sprints begin immediately following architecture spec sign-off.',
+      q: 'How quickly can JhalaWebTech initiate our software or mobile app project?',
+      a: 'We kick off with a thorough Discovery & Architecture Blueprint session within 48 to 72 hours of initial agreement. Active design and development sprints begin immediately after the architecture and milestone scope are signed off.',
     },
     {
-      q: 'What is your core tech stack and architectural philosophy?',
-      a: 'We specialize in React 19, TypeScript, Next.js, Python (FastAPI/LangGraph), Go microservices, PostgreSQL, Redis, and Cloudflare Edge networks. We adhere strictly to zero bloat, type safety, and sub-10ms UI execution.',
+      q: 'What mobile app and software technologies do you specialize in?',
+      a: 'We specialize in React Native and Flutter for mobile apps, native Swift and Kotlin, React 19 and Next.js for high-speed web apps, and Python (FastAPI/Django), Node.js, PostgreSQL, and AWS for backend microservices and databases.',
     },
     {
-      q: 'Can you integrate autonomous AI agents into our existing codebase?',
-      a: 'Yes. We engineer isolated AI orchestration microservices that connect to your current database, APIs, and authorization layers without requiring you to rewrite your existing backend.',
+      q: 'Can you integrate AI or LLMs into our existing legacy software?',
+      a: 'Yes, absolutely. We engineer isolated AI orchestration microservices that connect directly to your existing database, APIs, and authorization layers without disrupting your current core operations.',
     },
     {
-      q: 'What SLA and post-launch maintenance guarantees do you provide?',
-      a: 'We offer guaranteed 99.999% uptime SLAs with 24/7 telemetry monitoring, automated security patch cycles, and dedicated Slack/Discord communication channels with our lead architects.',
+      q: 'Do you handle the entire Apple App Store and Google Play Store submission process?',
+      a: 'Yes. We manage end-to-end app store configuration, bundle signing, compliance guidelines, privacy policies, screenshot assets, and review resolution until your app is live and verified on both stores.',
     },
     {
-      q: 'How are projects scoped and billed?',
-      a: 'We work through milestone-based fixed sprints (2 to 6 weeks) or dedicated engineering retainers depending on project scope and velocity requirements.',
+      q: 'What post-launch SLA and maintenance guarantees do you provide?',
+      a: 'We provide comprehensive post-launch SLA coverage including 24/7 server uptime telemetry, database automated backups, security patching, and direct WhatsApp / Slack access to our lead engineers.',
+    },
+    {
+      q: 'How are development milestones, project estimates, and payments structured?',
+      a: 'We operate on transparent milestone-based payments (e.g. 2 to 6 week agile milestones). You test and verify live demos on staging environments before approving milestone payouts.',
     },
   ];
 
   return (
-    <section className="w-full py-8">
-      {/* Header */}
+    <section className="w-full py-8 sm:py-12" id="faq">
       <SectionHeader
-        tag="SYS.KNOWLEDGE // FAQS"
-        title="FREQUENTLY"
-        highlightedTitle="ASKED QUESTIONS"
-        description="Everything you need to know about our engineering process, AI integrations, timelines, and SLAs."
+        tag="FREQUENTLY ASKED QUESTIONS"
+        title="Everything You Need to Know About"
+        highlightedTitle="Working With Us"
+        description="Clear answers regarding our engineering methodology, app delivery timelines, code ownership, and support SLAs."
       />
 
-      {/* Accordion List */}
-      <div className="space-y-4 max-w-4xl">
+      <div className="space-y-3.5 max-w-4xl mx-auto">
         {faqs.map((faq, idx) => {
           const isOpen = openIdx === idx;
           return (
             <div
               key={faq.q}
-              className={`bg-[#131313] brutalist-border transition-colors duration-200 ${
-                isOpen ? 'brutalist-border-active bg-[#1A1A1A]' : 'hover:border-[#9CA3AF]'
+              className={`rounded border transition-all duration-200 overflow-hidden ${
+                isOpen
+                  ? 'bg-[#FFF8EE] border-[#FDB345] shadow-xs'
+                  : 'bg-white border-[#E5E5E5] hover:border-[#DADBDD]'
               }`}
             >
               <button
                 onClick={() => setOpenIdx(isOpen ? -1 : idx)}
                 aria-expanded={isOpen}
-                className="w-full p-6 text-left flex justify-between items-center gap-4 cursor-pointer"
+                className="w-full p-5 sm:p-6 text-left flex justify-between items-center gap-4 cursor-pointer"
               >
-                <span className="font-space text-base md:text-lg font-bold text-[#e4e2e1] flex items-center gap-3">
-                  <span className="font-mono-code text-xs text-[#C8FF3D]">0{idx + 1}.</span>
-                  {faq.q}
+                <span className="font-slab text-base sm:text-lg font-bold text-[#333333] flex items-center gap-3">
+                  <span className="font-narrow text-xs font-bold text-[#FDB345] bg-white px-2 py-0.5 rounded border border-[#FDB345]/40">
+                    0{idx + 1}
+                  </span>
+                  <span>{faq.q}</span>
                 </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-[#C8FF3D] transition-transform duration-200 shrink-0 ${
-                    isOpen ? 'rotate-180' : ''
-                  }`}
-                />
+                <div className={`p-1.5 rounded transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#FDB345]' : 'text-[#575C62]'}`}>
+                  <ChevronDown className="w-4 h-4" />
+                </div>
               </button>
 
               {isOpen && (
-                <div className="px-6 pb-6 pt-2 text-sm font-sans-body text-[#9CA3AF] leading-relaxed border-t border-[#262626]">
-                  {faq.a}
+                <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-[#FDB345]/20">
+                  <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed">
+                    {faq.a}
+                  </p>
                 </div>
               )}
             </div>
           );
         })}
+      </div>
+
+      {/* Still have questions? */}
+      <div className="mt-8 text-center">
+        <p className="font-sans-body text-xs sm:text-sm text-[#575C62] mb-3">
+          Have a unique question or custom technical requirement?
+        </p>
+        <button
+          onClick={onOpenContact}
+          className="inline-flex items-center gap-2 font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider text-[#FDB345] hover:text-[#F69B2E] cursor-pointer"
+        >
+          <span>Ask Our Lead Engineers Directly</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
       </div>
     </section>
   );
