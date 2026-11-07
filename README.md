@@ -64,7 +64,6 @@ npm run lint
 │   │   ├── process/        # 5-step delivery timeline (/process)
 │   │   ├── pricing/        # Transparent tiers & App Estimator (/pricing)
 │   │   ├── about/          # Agency manifesto & engineering principles (/about)
-│   │   ├── blog/           # Engineering articles & performance deep dives (/blog)
 │   │   ├── contact/        # 1-click quote & WhatsApp routing (/contact)
 │   │   ├── privacy/        # Privacy policy & data governance (/privacy)
 │   │   ├── terms/          # Terms of service & code IP handover (/terms)
