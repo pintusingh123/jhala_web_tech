@@ -12,7 +12,6 @@ import PricingSection from '../components/PricingSection';
 import Testimonials from '../components/Testimonials';
 import TechStack from '../components/TechStack';
 import FAQ from '../components/FAQ';
-import Blog from '../components/Blog';
 import CtaBand from '../components/CtaBand';
 
 export default function HomePage() {
@@ -53,10 +52,7 @@ export default function HomePage() {
       {/* M. FAQ Accordion */}
       <FAQ onOpenContact={() => router.push('/contact')} />
 
-      {/* N. Blog / Insights */}
-      <Blog />
-
-      {/* O. Final CTA Band */}
+      {/* N. Final CTA Band */}
       <CtaBand />
     </>
   );

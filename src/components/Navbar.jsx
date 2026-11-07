@@ -7,7 +7,11 @@ import {
   Menu, 
   X, 
   ArrowRight, 
-  Phone
+  Phone,
+  Home,
+  Layers,
+  Briefcase,
+  Tag
 } from 'lucide-react';
 import ThemeToggle from './ui/ThemeToggle';
 import WhatsAppIcon from './WhatsAppIcon';
@@ -37,7 +41,6 @@ export default function Navbar() {
     { to: '/process', label: 'Process' },
     { to: '/pricing', label: 'Pricing' },
     { to: '/about', label: 'About' },
-    { to: '/blog', label: 'Blog' },
     { to: '/contact', label: 'Contact' },
   ];
 
@@ -145,20 +148,73 @@ export default function Navbar() {
               <span>Start a project</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-
-            {/* Mobile Menu Toggle Button */}
-            <button
-              type="button"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-expanded={mobileOpen}
-              aria-label="Toggle Navigation Menu"
-              className="lg:hidden p-2 rounded-lg border border-subtle bg-surface text-primary hover:bg-surface-2 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
-            >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
           </div>
         </div>
       </header>
+
+      {/* ================= MOBILE BOTTOM NAVIGATION MENU BAR ================= */}
+      <nav
+        aria-label="Mobile bottom navigation bar"
+        className="fixed bottom-0 inset-x-0 z-40 bg-surface/95 backdrop-blur-md border-t border-subtle h-16 flex items-center justify-around px-2 lg:hidden shadow-lg select-none"
+      >
+        <Link
+          href="/"
+          onClick={() => setMobileOpen(false)}
+          className={`flex flex-col items-center justify-center flex-1 py-1 transition-colors min-h-[44px] ${
+            pathname === '/' && !mobileOpen ? 'text-[#FF6B2C]' : 'text-muted hover:text-primary'
+          }`}
+        >
+          <Home className="w-5 h-5" />
+          <span className="font-head text-[10px] font-bold tracking-tight mt-1">Home</span>
+        </Link>
+
+        <Link
+          href="/services"
+          onClick={() => setMobileOpen(false)}
+          className={`flex flex-col items-center justify-center flex-1 py-1 transition-colors min-h-[44px] ${
+            pathname === '/services' && !mobileOpen ? 'text-[#FF6B2C]' : 'text-muted hover:text-primary'
+          }`}
+        >
+          <Layers className="w-5 h-5" />
+          <span className="font-head text-[10px] font-bold tracking-tight mt-1">Services</span>
+        </Link>
+
+        <Link
+          href="/work"
+          onClick={() => setMobileOpen(false)}
+          className={`flex flex-col items-center justify-center flex-1 py-1 transition-colors min-h-[44px] ${
+            pathname === '/work' && !mobileOpen ? 'text-[#FF6B2C]' : 'text-muted hover:text-primary'
+          }`}
+        >
+          <Briefcase className="w-5 h-5" />
+          <span className="font-head text-[10px] font-bold tracking-tight mt-1">Work</span>
+        </Link>
+
+        <Link
+          href="/pricing"
+          onClick={() => setMobileOpen(false)}
+          className={`flex flex-col items-center justify-center flex-1 py-1 transition-colors min-h-[44px] ${
+            pathname === '/pricing' && !mobileOpen ? 'text-[#FF6B2C]' : 'text-muted hover:text-primary'
+          }`}
+        >
+          <Tag className="w-5 h-5" />
+          <span className="font-head text-[10px] font-bold tracking-tight mt-1">Pricing</span>
+        </Link>
+
+        <button
+          type="button"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle Full Menu"
+          className={`flex flex-col items-center justify-center flex-1 py-1 transition-colors cursor-pointer min-h-[44px] ${
+            mobileOpen ? 'text-[#FF6B2C]' : 'text-muted hover:text-primary'
+          }`}
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          <span className="font-head text-[10px] font-bold tracking-tight mt-1">
+            {mobileOpen ? 'Close' : 'Menu'}
+          </span>
+        </button>
+      </nav>
 
       {/* ================= MOBILE FULL-SCREEN SLIDE DRAWER ================= */}
       {mobileOpen && (
