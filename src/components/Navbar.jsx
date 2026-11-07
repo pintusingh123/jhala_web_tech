@@ -10,13 +10,15 @@ import ThemeToggle from './ui/ThemeToggle';
 import WhatsAppIcon from './WhatsAppIcon';
 import { company } from '../content/company';
 
+const monthFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [announcementDismissed, setAnnouncementDismissed] = useState(false);
 
   // Current month for announcement
-  const currentMonth = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(new Date());
+  const currentMonth = monthFormatter.format(new Date());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,7 +140,7 @@ export default function Navbar() {
             {/* Primary CTA Button: "Start a project" (Section 4.B) */}
             <Link
               to="/contact"
-              className="bg-[#FF6B2C] hover:bg-[#FF8452] text-white px-4 sm:px-5 py-2.5 rounded-lg font-head text-xs sm:text-sm font-bold tracking-tight shadow-xs hover:shadow-md transition-all active:scale-[0.98] flex items-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-[#FF6B2C] hover:bg-[#FF8452] text-white px-4 sm:px-5 py-2.5 rounded-lg font-head text-xs sm:text-sm font-bold tracking-tight shadow-xs hover:shadow-md transition-[background-color,box-shadow,transform] active:scale-[0.98] flex items-center gap-1.5 cursor-pointer shrink-0"
             >
               <span>Start a project</span>
               <ArrowRight className="w-4 h-4" />

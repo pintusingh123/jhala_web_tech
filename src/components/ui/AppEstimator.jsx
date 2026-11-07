@@ -55,9 +55,9 @@ export default function AppEstimator({ onOpenQuote }) {
         <div className="lg:col-span-7 space-y-6">
           {/* 1. Platform Choice */}
           <div>
-            <label className="block font-mono text-xs uppercase font-bold text-primary mb-2">
+            <span className="block font-mono text-xs uppercase font-bold text-primary mb-2">
               1. Platform Deployment
-            </label>
+            </span>
             <div className="grid grid-cols-3 gap-2">
               {[
                 { id: 'mobile', label: 'React Native App', icon: Smartphone },
@@ -70,7 +70,7 @@ export default function AppEstimator({ onOpenQuote }) {
                     type="button"
                     key={p.id}
                     onClick={() => setPlatform(p.id)}
-                    className={`p-3 rounded-lg border text-left flex flex-col justify-between transition-all cursor-pointer ${
+                    className={`p-3 rounded-lg border text-left flex flex-col justify-between transition-colors cursor-pointer ${
                       platform === p.id
                         ? 'border-[#FF6B2C] bg-[#FF6B2C]/10 text-primary shadow-2xs'
                         : 'border-subtle bg-surface-2 text-muted hover:text-primary hover:border-subtle/80'
@@ -86,9 +86,9 @@ export default function AppEstimator({ onOpenQuote }) {
 
           {/* 2. Application Category */}
           <div>
-            <label className="block font-mono text-xs uppercase font-bold text-primary mb-2">
+            <span className="block font-mono text-xs uppercase font-bold text-primary mb-2">
               2. Business Category
-            </label>
+            </span>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
                 { id: 'ecommerce', label: 'E-Commerce / Store' },
@@ -100,7 +100,7 @@ export default function AppEstimator({ onOpenQuote }) {
                   type="button"
                   key={t.id}
                   onClick={() => setAppType(t.id)}
-                  className={`py-2 px-2.5 rounded-lg border text-xs font-mono font-bold text-center transition-all cursor-pointer ${
+                  className={`py-2 px-2.5 rounded-lg border text-xs font-mono font-bold text-center transition-colors cursor-pointer ${
                     appType === t.id
                       ? 'border-[#FF6B2C] bg-[#FF6B2C] text-white shadow-2xs'
                       : 'border-subtle bg-surface-2 text-muted hover:text-primary hover:border-subtle/80'
@@ -114,9 +114,9 @@ export default function AppEstimator({ onOpenQuote }) {
 
           {/* 3. Core Features Checklist */}
           <div>
-            <label className="block font-mono text-xs uppercase font-bold text-primary mb-2">
+            <span className="block font-mono text-xs uppercase font-bold text-primary mb-2">
               3. Key Integrations Needed
-            </label>
+            </span>
             <div className="grid grid-cols-2 gap-2">
               {[
                 { id: 'auth', label: 'User Login & Biometrics' },

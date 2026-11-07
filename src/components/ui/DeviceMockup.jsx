@@ -60,7 +60,7 @@ export default function DeviceMockup({
           <img
             src={current.laptopImg || laptopImage}
             alt={`${current.name} real production web application`}
-            className="w-full h-full object-cover object-top transition-all duration-500"
+            className="w-full h-full object-cover object-top transition-opacity duration-500"
             loading="eager"
             onError={(e) => {
               e.target.src = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80';

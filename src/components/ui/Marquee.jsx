@@ -17,7 +17,7 @@ export default function Marquee({
       >
         {items.concat(items).map((item, idx) => (
           <div
-            key={idx}
+            key={`${item.name || item}-${idx}`}
             className="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-medium text-muted hover:text-[#FF6B2C] transition-colors py-2 whitespace-nowrap cursor-default"
           >
             {item.icon && <span className="opacity-80">{item.icon}</span>}

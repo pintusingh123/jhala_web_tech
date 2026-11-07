@@ -16,7 +16,7 @@ export default function ThemeToggle({ className = '' }) {
       document.documentElement.setAttribute('data-theme', next);
     }
     try {
-      localStorage.setItem('jwt-theme', next);
+      localStorage.setItem('jhala-color-theme', next);
     } catch {
       // ignore
     }

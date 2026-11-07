@@ -16,7 +16,7 @@ export default function WhatsAppFab() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat directly on WhatsApp with our lead developer"
-        className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#25D366] focus-visible:outline-offset-3"
+        className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-[transform,background-color,box-shadow] duration-200 focus-visible:outline-2 focus-visible:outline-[#25D366] focus-visible:outline-offset-3"
       >
         <WhatsAppIcon className="w-6 h-6 sm:w-7 sm:h-7 fill-current" />
         

@@ -12,7 +12,7 @@
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem('jwt-theme');
+        var saved = localStorage.getItem('jhala-color-theme') || localStorage.getItem('jwt-theme');
         if (saved === 'dark' || saved === 'light') {
           document.documentElement.setAttribute('data-theme', saved);
         } else {

@@ -14,16 +14,19 @@ export function Accordion({ items, allowMultiple = false, className = '' }) {
     }
   };
 
+  const openSet = new Set(openIndexes);
+
   return (
     <div className={`space-y-3 ${className}`}>
       {items.map((item, idx) => {
-        const isOpen = openIndexes.includes(idx);
+        const isOpen = openSet.has(idx);
         const headerId = `accordion-header-${idx}`;
         const panelId = `accordion-panel-${idx}`;
+        const itemKey = item.q || item.title || `accordion-item-${idx}`;
 
         return (
           <div
-            key={idx}
+            key={itemKey}
             className="rounded-xl border border-subtle bg-surface transition-colors duration-150 overflow-hidden"
           >
             <h3>

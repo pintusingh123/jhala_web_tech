@@ -93,10 +93,11 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
+                      <label htmlFor="contact-name" className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
                         Your Name *
                       </label>
                       <input
+                        id="contact-name"
                         type="text"
                         required
                         value={formData.name}
@@ -107,10 +108,11 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
+                      <label htmlFor="contact-phone" className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
                         Phone / WhatsApp *
                       </label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         required
                         value={formData.phone}
@@ -122,10 +124,11 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
+                    <label htmlFor="contact-email" className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
                       Email Address *
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       required
                       value={formData.email}
@@ -137,10 +140,11 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
+                      <label htmlFor="contact-project-type" className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
                         Project Type *
                       </label>
                       <select
+                        id="contact-project-type"
                         value={formData.projectType}
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                         className="w-full px-4 py-3 rounded-lg border border-subtle bg-surface-2 text-primary font-body text-sm focus:border-[#FF6B2C] outline-none transition-colors cursor-pointer"
@@ -155,10 +159,11 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
+                      <label htmlFor="contact-budget" className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
                         Estimated Budget
                       </label>
                       <select
+                        id="contact-budget"
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                         className="w-full px-4 py-3 rounded-lg border border-subtle bg-surface-2 text-primary font-body text-sm focus:border-[#FF6B2C] outline-none transition-colors cursor-pointer"
@@ -172,10 +177,11 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
+                    <label htmlFor="contact-message" className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
                       Project Details &bull; What are you building?
                     </label>
                     <textarea
+                      id="contact-message"
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
