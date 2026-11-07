@@ -23,10 +23,22 @@ export default function ContactPage() {
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.honeypot) return; // bot detected
 
+    // 1. Post to Next.js serverless API route
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+    } catch {
+      // ignore network errors, continue with WhatsApp flow
+    }
+
+    // 2. Immediate 1-click WhatsApp connect for owner & client
     const formattedMessage = `*New Project Inquiry via JhalaWebTech Website*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Email:* ${formData.email}\n` +
