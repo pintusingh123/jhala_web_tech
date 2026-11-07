@@ -64,9 +64,9 @@ export default function WhyChooseUs() {
           const Icon = r.icon;
           return (
             <TiltCard key={r.title} maxTilt={6} scale={1.01} className="h-full">
-              <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+              <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group">
                 <div>
-                  <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center mb-5 group-hover:bg-[#FDB345] group-hover:text-white transition-all">
+                  <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center mb-5 group-hover:bg-[#FDB345] group-hover:text-white transition-colors duration-200">
                     <Icon className="w-6 h-6" />
                   </div>
 

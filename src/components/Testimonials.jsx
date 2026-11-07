@@ -58,7 +58,7 @@ export default function Testimonials() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {testimonials.map((t) => (
           <TiltCard key={t.author} maxTilt={5} scale={1.01} className="h-full">
-            <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+            <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group">
               <div>
                 {/* Star Rating & Verified Pill */}
                 <div className="flex justify-between items-center pb-4 border-b border-[#E5E5E5] mb-4">

@@ -73,7 +73,7 @@ export default function Hero({ onExploreServices }) {
             <Link
               to="/contact"
               aria-label="Get in touch with JhalaWebTech"
-              className="flex justify-center items-center gap-2 px-6 sm:px-7 py-3.5 bg-[#FDB345] hover:bg-[#F69B2E] text-white font-narrow text-sm sm:text-base font-bold uppercase tracking-wider rounded transition-all shadow-xs hover:shadow-md active:scale-95 cursor-pointer text-center"
+              className="flex justify-center items-center gap-2 px-6 sm:px-7 py-3.5 bg-[#FDB345] hover:bg-[#F69B2E] text-white font-narrow text-sm sm:text-base font-bold uppercase tracking-wider rounded transition-colors shadow-xs hover:shadow-md active:scale-95 cursor-pointer text-center"
             >
               <span>Get a Free Quote</span>
               <ArrowRight className="w-4 h-4" />
@@ -82,7 +82,7 @@ export default function Hero({ onExploreServices }) {
             <button
               onClick={handleWhatsApp}
               aria-label="Direct WhatsApp consultation"
-              className="flex justify-center items-center gap-2 px-6 py-3.5 bg-white border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-narrow text-sm sm:text-base font-bold uppercase tracking-wider rounded transition-all active:scale-95 cursor-pointer"
+              className="flex justify-center items-center gap-2 px-6 py-3.5 bg-white border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-narrow text-sm sm:text-base font-bold uppercase tracking-wider rounded transition-colors active:scale-95 cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 fill-current" />
               <span>WhatsApp Direct</span>

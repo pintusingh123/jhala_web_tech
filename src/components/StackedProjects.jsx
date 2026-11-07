@@ -117,7 +117,7 @@ export default function StackedProjects() {
 
       {/* Featured 3D Interactive Card in Tvisha Two-Tone Style */}
       <TiltCard maxTilt={4} scale={1.005} className="w-full">
-        <div className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-md transition-all duration-300">
+        <div className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-md transition-[border-color,box-shadow] duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* Left Column (7 cols): Information & Deliverables */}
             <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">

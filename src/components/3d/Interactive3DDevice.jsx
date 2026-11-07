@@ -13,6 +13,7 @@ import {
 
 export default function Interactive3DDevice() {
   const [activeTab, setActiveTab] = useState('mobile');
+  const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef(null);
 
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -20,6 +21,7 @@ export default function Interactive3DDevice() {
   const handleMouseMove = useCallback((e) => {
     const el = containerRef.current;
     if (!el) return;
+    setIsHovered(true);
     const rect = el.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -30,6 +32,7 @@ export default function Interactive3DDevice() {
   }, []);
 
   const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
     setTilt({ x: 0, y: 0 });
   }, []);
 
@@ -87,7 +90,7 @@ export default function Interactive3DDevice() {
           transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
           transition: 'transform 0.15s ease-out',
         }}
-        className="w-full [transform-style:preserve-3d] will-change-transform"
+        className={`w-full [transform-style:preserve-3d] ${isHovered ? 'will-change-transform' : ''}`}
       >
         {/* Device Frame */}
         <div className="bg-white rounded-2xl border-2 border-[#E5E5E5] shadow-2xl p-4 sm:p-6 relative overflow-hidden [transform-style:preserve-3d]">
@@ -98,7 +101,7 @@ export default function Interactive3DDevice() {
           <div className="flex bg-[#F5F5F7] p-1 rounded mb-4 border border-[#E5E5E5] relative z-10 [transform:translateZ(15px)]">
             <button
               onClick={() => setActiveTab('mobile')}
-              className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+              className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
                 activeTab === 'mobile'
                   ? 'bg-[#FDB345] text-white shadow-xs'
                   : 'text-[#575C62] hover:text-[#333333]'
@@ -109,7 +112,7 @@ export default function Interactive3DDevice() {
             </button>
             <button
               onClick={() => setActiveTab('web')}
-              className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+              className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
                 activeTab === 'web'
                   ? 'bg-[#FDB345] text-white shadow-xs'
                   : 'text-[#575C62] hover:text-[#333333]'
@@ -120,7 +123,7 @@ export default function Interactive3DDevice() {
             </button>
             <button
               onClick={() => setActiveTab('ai')}
-              className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+              className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-1.5 cursor-pointer ${
                 activeTab === 'ai'
                   ? 'bg-[#FDB345] text-white shadow-xs'
                   : 'text-[#575C62] hover:text-[#333333]'
@@ -162,9 +165,9 @@ export default function Interactive3DDevice() {
 
             {/* Dynamic Features List */}
             <div className="space-y-2 mb-5">
-              {current.highlights.map((h, i) => (
+              {current.highlights.map((h) => (
                 <div
-                  key={i}
+                  key={h}
                   className="flex items-center gap-2.5 p-2 bg-[#F5F5F7] rounded border border-[#E5E5E5] text-xs font-medium text-[#333333]"
                 >
                   <ShieldCheck className="w-4 h-4 text-[#FDB345] shrink-0" />

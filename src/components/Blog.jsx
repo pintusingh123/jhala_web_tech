@@ -110,8 +110,17 @@ Tuning max_wal_size and checkpoint_completion_target prevents I/O write spikes, 
         {articles.map((art) => (
           <TiltCard key={art.id} maxTilt={5} scale={1.01} className="h-full">
             <article
+              role="button"
+              tabIndex={0}
+              aria-label={`Read breakdown: ${art.title}`}
               onClick={() => setSelectedArticle(art)}
-              className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group cursor-pointer"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedArticle(art);
+                }
+              }}
+              className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FDB345]"
             >
               <div>
                 {/* Meta */}
@@ -146,6 +155,7 @@ Tuning max_wal_size and checkpoint_completion_target prevents I/O write spikes, 
       {/* Article Modal Dialog */}
       <dialog
         ref={dialogRef}
+        aria-labelledby="blog-dialog-title"
         onClose={() => setSelectedArticle(null)}
         className="backdrop:bg-black/50 p-0 rounded border border-[#E5E5E5] shadow-2xl max-w-2xl w-[92vw] max-h-[85vh] overflow-hidden bg-white text-[#333333]"
       >
@@ -157,7 +167,7 @@ Tuning max_wal_size and checkpoint_completion_target prevents I/O write spikes, 
                 <span className="font-narrow text-[10px] font-bold uppercase tracking-wider text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30">
                   {selectedArticle.category}
                 </span>
-                <h3 className="font-slab text-xl font-bold text-[#333333] mt-2 leading-tight">
+                <h3 id="blog-dialog-title" className="font-slab text-xl font-bold text-[#333333] mt-2 leading-tight">
                   {selectedArticle.title}
                 </h3>
                 <div className="flex items-center gap-3 font-narrow text-xs text-[#575C62] uppercase tracking-wider mt-1 font-bold">

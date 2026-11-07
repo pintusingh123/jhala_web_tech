@@ -92,7 +92,7 @@ export default function TechStack() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {technologies[activeTab].map((tech) => (
           <TiltCard key={tech.name} maxTilt={5} scale={1.01} className="h-full">
-            <div className="bg-white p-5 rounded border border-[#E5E5E5] shadow-xs hover:border-[#FDB345] hover:shadow-md transition-all flex flex-col justify-between h-full group">
+            <div className="bg-white p-5 rounded border border-[#E5E5E5] shadow-xs hover:border-[#FDB345] hover:shadow-md transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group">
               <div>
                 <div className="flex justify-between items-start mb-3">
                   <h4 className="font-slab text-lg font-bold text-[#333333] group-hover:text-[#FDB345] transition-colors">

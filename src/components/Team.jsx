@@ -64,7 +64,7 @@ export default function Team() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {members.map((member) => (
           <TiltCard key={member.name} maxTilt={5} scale={1.01} className="h-full">
-            <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-8 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+            <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-8 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group">
               <div>
                 {/* Top Profile Header */}
                 <div className="flex items-start gap-4 mb-6">

@@ -101,7 +101,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               aria-label="Get a free quote from JhalaWebTech"
-              className="bg-[#FDB345] hover:bg-[#F69B2E] text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider whitespace-nowrap transition-all shadow-xs hover:shadow-md active:scale-95 flex items-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-[#FDB345] hover:bg-[#F69B2E] text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider whitespace-nowrap transition-colors shadow-xs hover:shadow-md active:scale-95 flex items-center gap-1.5 cursor-pointer shrink-0"
             >
               <span>Get Free Quote</span>
               <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />

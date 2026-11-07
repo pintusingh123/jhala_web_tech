@@ -171,11 +171,11 @@ export default function Services({ onSelectService }) {
           const IconComp = service.icon;
           return (
             <TiltCard key={service.id} maxTilt={6} scale={1.01} className="h-full">
-              <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+              <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group">
                 <div>
                   {/* Icon & Badge Header */}
                   <div className="flex justify-between items-start mb-4">
-                    <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center group-hover:bg-[#FDB345] group-hover:text-white transition-all">
+                    <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center group-hover:bg-[#FDB345] group-hover:text-white transition-colors duration-200">
                       <IconComp className="w-6 h-6" />
                     </div>
                     {service.badge && (
@@ -195,8 +195,8 @@ export default function Services({ onSelectService }) {
 
                   {/* Bullet Points with Yellow Checks */}
                   <ul className="space-y-2 mb-6">
-                    {service.points.map((pt, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs font-medium text-[#333333]">
+                    {service.points.map((pt) => (
+                      <li key={pt} className="flex items-start gap-2 text-xs font-medium text-[#333333]">
                         <Check className="w-4 h-4 text-[#FDB345] mt-0.5 shrink-0" />
                         <span>{pt}</span>
                       </li>

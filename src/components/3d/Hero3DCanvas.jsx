@@ -19,7 +19,6 @@ export default function Hero3DCanvas() {
       1000
     );
     camera.position.z = isMobile ? 22 : 17;
-    // Shift slightly to the right on desktop to frame the hero nicely
     if (!isMobile) {
       camera.position.x = 2.5;
     }
@@ -128,12 +127,10 @@ export default function Hero3DCanvas() {
     );
     observer.observe(container);
 
-    // 6. Smooth 60fps Animation Loop
-    let animId;
+    // 6. Smooth 60fps Animation Loop with Three.js setAnimationLoop
     const clock = new THREE.Clock();
 
-    const animate = () => {
-      animId = requestAnimationFrame(animate);
+    renderer.setAnimationLoop(() => {
       if (!isVisible) return; // 0% CPU consumption when scrolled past hero
 
       const delta = clock.getDelta();
@@ -159,9 +156,7 @@ export default function Hero3DCanvas() {
       coreMesh.scale.set(scale, scale, scale);
 
       renderer.render(scene, camera);
-    };
-
-    animate();
+    });
 
     // 7. Responsive Resize Handler
     const handleResize = () => {
@@ -177,7 +172,7 @@ export default function Hero3DCanvas() {
 
     // Cleanup
     return () => {
-      cancelAnimationFrame(animId);
+      renderer.setAnimationLoop(null);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('resize', handleResize);
       observer.disconnect();

@@ -118,7 +118,7 @@ export default function Portfolio({ onOpenContact }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((proj) => (
           <TiltCard key={proj.title} maxTilt={6} scale={1.01} className="h-full">
-            <div className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+            <div className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group">
               <div>
                 {/* Image Preview Container */}
                 <div className="relative h-48 w-full bg-[#F5F5F7] overflow-hidden">
