@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sparkles } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function DeviceMockup({
   laptopImage = '/images/garments-showcase.jpg',
@@ -118,7 +118,7 @@ export default function DeviceMockup({
 
       {/* Floating Trust Badge: Verified Delivery */}
       <div className="absolute -top-3 -left-2 sm:-left-4 hidden sm:flex items-center gap-2 bg-surface px-3 py-1.5 rounded-lg shadow-xl border border-subtle">
-        <Sparkles className="w-4 h-4 text-[#FF6B2C]" />
+        <CheckCircle2 className="w-4 h-4 text-[#3DD9B0]" />
         <span className="font-mono text-xs font-semibold text-primary">
           Production Shipped
         </span>

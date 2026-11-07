@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { ExternalLink, ArrowRight, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import TiltCard from './3d/TiltCard';
 
@@ -218,7 +218,7 @@ export default function StackedProjects() {
                 }}
               />
               <div className="absolute top-8 right-8 bg-white px-3 py-1.5 rounded shadow-sm border border-[#E5E5E5] font-narrow text-xs font-bold uppercase tracking-wider text-[#333333] flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#FDB345]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#25D366]" />
                 <span>Verified Deployment</span>
               </div>
             </div>
