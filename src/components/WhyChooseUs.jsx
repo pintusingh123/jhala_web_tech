@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
     {
       icon: Code2,
       title: 'Clean, Scalable Architecture',
-      desc: 'Built with modern stacks like React 19, Next.js, Flutter, and Node.js. Our architectures are engineered to scale smoothly to hundreds of thousands of users.',
+      desc: 'Built with battle-tested stacks like React Native, React 19, Next.js, Node.js, Django, and Firebase. Our architectures are engineered to scale smoothly to hundreds of thousands of users.',
       stat: 'Sub-Second Latency',
     },
     {

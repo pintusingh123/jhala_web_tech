@@ -12,7 +12,7 @@ export default function FAQ({ onOpenContact }) {
     },
     {
       q: 'What mobile app and software technologies do you specialize in?',
-      a: 'We specialize in React Native and Flutter for mobile apps, native Swift and Kotlin, React 19 and Next.js for high-speed web apps, and Python (FastAPI/Django), Node.js, PostgreSQL, and AWS for backend microservices and databases.',
+      a: 'We specialize exclusively in React Native for cross-platform iOS and Android mobile apps. For websites, we build responsive static and dynamic web solutions using HTML5, CSS3, modern JavaScript, Single Page Applications (SPAs) with React.js, and high-performance Next.js storefronts. For backends, we build robust APIs with Node.js, Django (Python), and Firebase alongside bespoke CRM systems and custom CMS portals.',
     },
     {
       q: 'Can you integrate AI or LLMs into our existing legacy software?',

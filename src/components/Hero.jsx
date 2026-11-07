@@ -8,14 +8,14 @@ import {
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import Hero3DCanvas from './3d/Hero3DCanvas';
-import Interactive3DDevice from './3d/Interactive3DDevice';
+import Interactive3DLaptop from './3d/Interactive3DLaptop';
 
 const WHATSAPP_NUMBER = '8003642596';
 
 export default function Hero({ onExploreServices }) {
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      'Hello JhalaWebTech! I visited your website and would like to discuss building a mobile app / custom software project.'
+      'Hello JhalaWebTech! I visited your website and would like to discuss building a React Native mobile app / website / CRM / custom software project.'
     );
     window.open(`https://wa.me/91${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
   };
@@ -34,7 +34,7 @@ export default function Hero({ onExploreServices }) {
           <div className="flex items-center gap-2 mb-3">
             <span className="w-6 h-[3px] bg-[#FDB345] inline-block" />
             <span className="font-narrow text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FDB345]">
-              Mobile App &amp; Custom Software Development Company
+              React Native Apps &bull; Custom Websites &bull; CRM &bull; CMS &bull; Backend
             </span>
           </div>
 
@@ -42,19 +42,19 @@ export default function Hero({ onExploreServices }) {
           <h1 className="font-slab text-3xl sm:text-5xl lg:text-6xl font-bold text-[#333333] leading-[1.12] sm:leading-[1.1] tracking-tight mb-5">
             We Build{' '}
             <span className="text-[#FDB345] inline-block">
-              Mobile Apps
+              React Native Apps
             </span>
             ,<br />
-            Custom Software &amp;{' '}
+            Websites, CRM &amp;{' '}
             <span className="relative inline-block text-[#333333]">
-              Web Solutions
+              Custom Software
               <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#FDB345]"></span>
             </span>
           </h1>
 
           {/* Subtitle Paragraph in clean Roboto */}
           <p className="font-sans-body text-base sm:text-lg text-[#575C62] leading-relaxed mb-6 max-w-2xl">
-            Ideal confluence of technical expertise and innovation. From cross-platform iOS &amp; Android mobile apps to robust enterprise software and automated web platforms, JhalaWebTech engineers digital solutions that drive measurable business ROI.
+            Ideal confluence of technical engineering and innovation. We engineer high-performance mobile apps exclusively with <strong className="text-[#333333] font-semibold">React Native</strong>, responsive websites (<strong className="text-[#333333] font-semibold">HTML, CSS, JS, Static &amp; Dynamic SPAs with React.js &amp; Next.js</strong>), scalable backends with <strong className="text-[#333333] font-semibold">Node.js, Django (Python) &amp; Firebase</strong>, and bespoke <strong className="text-[#333333] font-semibold">CRM &amp; CMS platforms</strong>.
           </p>
 
           {/* Tvisha's Iconic Two-Color Golden Box Component */}
@@ -62,7 +62,7 @@ export default function Hero({ onExploreServices }) {
             <div className="flex items-center gap-3">
               <span className="font-slab text-2xl sm:text-3xl font-light text-white opacity-80">{'{'}</span>
               <p className="font-slab text-base sm:text-xl font-medium text-white tracking-wide">
-                We Build Mobile Apps, Custom Software &amp; AI Solutions
+                We Build React Native Apps, Custom Websites, CRM &amp; CMS Solutions
               </p>
               <span className="font-slab text-2xl sm:text-3xl font-light text-white opacity-80">{'}'}</span>
             </div>
@@ -121,9 +121,9 @@ export default function Hero({ onExploreServices }) {
           </div>
         </div>
 
-        {/* Right Column (5 cols): Interactive 3D Perspective Device Mockup */}
+        {/* Right Column (5 cols): Interactive 3D Perspective Laptop Model */}
         <div className="lg:col-span-5 w-full flex flex-col justify-center">
-          <Interactive3DDevice />
+          <Interactive3DLaptop />
         </div>
       </div>
     </section>
