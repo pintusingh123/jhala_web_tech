@@ -15,15 +15,13 @@ import Logo from './Logo';
 import { company } from '../content/company';
 
 const monthFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
+const currentMonth = monthFormatter.format(new Date());
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [announcementDismissed, setAnnouncementDismissed] = useState(false);
   const pathname = usePathname();
-
-  // Current month for announcement
-  const currentMonth = monthFormatter.format(new Date());
 
   useEffect(() => {
     const handleScroll = () => {

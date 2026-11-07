@@ -67,7 +67,7 @@ export default function ClientLayout({ children }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-xs font-bold uppercase shadow-xs active:scale-95 transition-all"
+          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-xs font-bold uppercase shadow-xs active:scale-95 transition-[background-color,transform]"
         >
           <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
           <span>WhatsApp</span>
@@ -75,7 +75,7 @@ export default function ClientLayout({ children }) {
 
         <Link
           href="/contact"
-          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#FF6B2C] hover:bg-[#FF8452] text-white font-head text-xs font-bold tracking-tight shadow-xs active:scale-95 text-center transition-all"
+          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-lg bg-[#FF6B2C] hover:bg-[#FF8452] text-white font-head text-xs font-bold tracking-tight shadow-xs active:scale-95 text-center transition-[background-color,transform]"
         >
           <span>Get Free Quote</span>
           <ArrowRight className="w-3.5 h-3.5 shrink-0" />
