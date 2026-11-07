@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
 import Container from '../components/ui/Container';

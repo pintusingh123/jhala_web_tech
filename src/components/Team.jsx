@@ -1,3 +1,5 @@
+'use client';
+
 import { Phone } from 'lucide-react';
 import Section from './ui/Section';
 import Card from './ui/Card';

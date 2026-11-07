@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Loader2 } from 'lucide-react';
 
 const Button = forwardRef(function Button(
@@ -59,26 +59,28 @@ const Button = forwardRef(function Button(
     </>
   );
 
-  if (to) {
-    return (
-      <Link to={to} className={combinedClasses} ref={ref} {...props}>
-        {content}
-      </Link>
-    );
-  }
+  const targetUrl = to || href;
 
-  if (href) {
+  if (targetUrl && (targetUrl.startsWith('http') || targetUrl.startsWith('mailto:') || targetUrl.startsWith('tel:'))) {
     return (
       <a
-        href={href}
+        href={targetUrl}
         className={combinedClasses}
         ref={ref}
-        target={href.startsWith('http') ? '_blank' : undefined}
-        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        target={targetUrl.startsWith('http') ? '_blank' : undefined}
+        rel={targetUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
         {...props}
       >
         {content}
       </a>
+    );
+  }
+
+  if (targetUrl) {
+    return (
+      <Link href={targetUrl} className={combinedClasses} ref={ref} {...props}>
+        {content}
+      </Link>
     );
   }
 

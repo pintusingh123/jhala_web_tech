@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { AlertCircle, ArrowLeft, Home } from 'lucide-react';
 import Container from '../components/ui/Container';
 import Card from '../components/ui/Card';
@@ -25,12 +25,12 @@ export default function NotFoundPage() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link to="/">
+            <Link href="/">
               <Button variant="primary" icon={Home}>
                 Return to Homepage
               </Button>
             </Link>
-            <Link to="/contact">
+            <Link href="/contact">
               <Button variant="secondary" icon={ArrowLeft}>
                 Contact Support
               </Button>

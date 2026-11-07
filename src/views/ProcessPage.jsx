@@ -1,17 +1,19 @@
-import { useNavigate } from 'react-router-dom';
+'use client';
+
+import { useRouter } from 'next/navigation';
 import Process from '../components/Process';
 import WhyChooseUs from '../components/WhyChooseUs';
 import FAQ from '../components/FAQ';
 import CtaBand from '../components/CtaBand';
 
 export default function ProcessPage() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className="flex flex-col">
-      <Process onOpenContact={() => navigate('/contact')} />
-      <WhyChooseUs onOpenContact={() => navigate('/contact')} />
-      <FAQ onOpenContact={() => navigate('/contact')} />
+      <Process onOpenContact={() => router.push('/contact')} />
+      <WhyChooseUs onOpenContact={() => router.push('/contact')} />
+      <FAQ onOpenContact={() => router.push('/contact')} />
       <CtaBand />
     </div>
   );

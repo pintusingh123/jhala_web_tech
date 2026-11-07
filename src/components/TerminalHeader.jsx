@@ -1,5 +1,5 @@
 import { ChevronRight, Home } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export default function TerminalHeader({ label }) {
   const formatLabel = (str) => {
@@ -17,7 +17,7 @@ export default function TerminalHeader({ label }) {
     <div className="w-full flex flex-wrap items-center justify-between gap-3 pt-4 pb-4 mb-2 border-b border-subtle">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 font-mono text-xs text-muted">
-        <Link to="/" className="hover:text-primary flex items-center gap-1 transition-colors">
+        <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors">
           <Home className="w-3.5 h-3.5" />
           <span>Home</span>
         </Link>

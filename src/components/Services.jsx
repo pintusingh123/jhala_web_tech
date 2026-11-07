@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { 
   Globe, 
   Smartphone, 
@@ -94,7 +94,7 @@ export default function Services({ onSelectService }) {
                   </div>
 
                   <Link
-                    to="/contact"
+                    href="/contact"
                     onClick={onSelectService}
                     className="inline-flex items-center gap-1.5 font-head text-xs sm:text-sm font-bold text-[#FF6B2C] hover:text-[#FF8452] transition-colors"
                   >

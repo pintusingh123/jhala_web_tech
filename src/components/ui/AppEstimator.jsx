@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { Smartphone, Laptop, Layers, ShieldCheck, ArrowRight, Calculator } from 'lucide-react';
 import Button from './Button';

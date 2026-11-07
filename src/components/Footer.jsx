@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
 import Container from './ui/Container';
 import WhatsAppIcon from './WhatsAppIcon';
@@ -19,7 +21,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-subtle">
           {/* Column 1: Brand (4 cols) */}
           <div className="lg:col-span-4">
-            <Link to="/" className="mb-3 group w-fit block" aria-label="JhalaWebTech Home">
+            <Link href="/" className="mb-3 group w-fit block" aria-label="JhalaWebTech Home">
               <Logo size="sm" />
             </Link>
 
@@ -61,32 +63,32 @@ export default function Footer() {
             </span>
             <ul className="space-y-2.5 text-xs font-body">
               <li>
-                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/services" className="hover:text-[#FF6B2C] transition-colors">
                   React Native Mobile Apps (iOS &amp; Android)
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/services" className="hover:text-[#FF6B2C] transition-colors">
                   Website Design &amp; React.js SPAs
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/services" className="hover:text-[#FF6B2C] transition-colors">
                   Next.js 15 E-Commerce Storefronts
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/services" className="hover:text-[#FF6B2C] transition-colors">
                   Custom CRM Platforms &amp; Dashboards
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/services" className="hover:text-[#FF6B2C] transition-colors">
                   Node.js &amp; Django (Python) Backends
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/services" className="hover:text-[#FF6B2C] transition-colors">
                   Firebase Real-Time DB &amp; Auth
                 </Link>
               </li>
@@ -100,32 +102,32 @@ export default function Footer() {
             </span>
             <ul className="space-y-2.5 text-xs font-body">
               <li>
-                <Link to="/work" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/work" className="hover:text-[#FF6B2C] transition-colors">
                   Selected Work
                 </Link>
               </li>
               <li>
-                <Link to="/process" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/process" className="hover:text-[#FF6B2C] transition-colors">
                   5-Step Process
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/pricing" className="hover:text-[#FF6B2C] transition-colors">
                   Pricing &amp; Packages
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/about" className="hover:text-[#FF6B2C] transition-colors">
                   About Team
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/blog" className="hover:text-[#FF6B2C] transition-colors">
                   Engineering Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-[#FF6B2C] transition-colors">
+                <Link href="/contact" className="hover:text-[#FF6B2C] transition-colors">
                   Free Quote
                 </Link>
               </li>
@@ -179,10 +181,10 @@ export default function Footer() {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-center sm:text-left">
             <span>&copy; {currentYear} {company.legalName}. All rights reserved.</span>
-            <Link to="/privacy" className="hover:text-primary transition-colors">
+            <Link href="/privacy" className="hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-primary transition-colors">
+            <Link href="/terms" className="hover:text-primary transition-colors">
               Terms of Service
             </Link>
           </div>

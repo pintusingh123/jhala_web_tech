@@ -1,3 +1,5 @@
+'use client';
+
 import { ArrowRight, ChevronRight, ShieldCheck, Zap, Users } from 'lucide-react';
 import Button from './ui/Button';
 import Eyebrow from './ui/Eyebrow';

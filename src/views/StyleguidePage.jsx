@@ -1,3 +1,5 @@
+'use client';
+
 import Container from '../components/ui/Container';
 import Eyebrow from '../components/ui/Eyebrow';
 import Button from '../components/ui/Button';

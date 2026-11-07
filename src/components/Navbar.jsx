@@ -1,5 +1,8 @@
+'use client';
+
 import { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { 
   Menu, 
   X, 
@@ -17,6 +20,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [announcementDismissed, setAnnouncementDismissed] = useState(false);
+  const pathname = usePathname();
 
   // Current month for announcement
   const currentMonth = monthFormatter.format(new Date());
@@ -64,9 +68,9 @@ export default function Navbar() {
         </aside>
       )}
 
-      {/* ================= B. NAVBAR (Section 4.B) ================= */}
+      {/* ================= B. STICKY NAVBAR (Section 4.B) ================= */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-200 ${
+        className={`sticky top-0 z-40 w-full transition-all duration-200 ${
           scrolled
             ? 'bg-surface/95 backdrop-blur-md border-b border-subtle shadow-xs py-3'
             : 'bg-page/80 backdrop-blur-xs py-4 border-b border-transparent'
@@ -75,7 +79,7 @@ export default function Navbar() {
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between gap-4">
           {/* Left: Brand Logo (Wordmark + Mark) */}
           <Link
-            to="/"
+            href="/"
             className="cursor-pointer group select-none shrink-0"
             aria-label="JhalaWebTech Home"
           >
@@ -84,31 +88,26 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <nav
-            aria-label="Main Navigation"
-            className="hidden lg:flex items-center gap-6 xl:gap-8"
+            aria-label="Main desktop navigation"
+            className="hidden lg:flex items-center gap-7 font-head text-sm font-semibold tracking-tight"
           >
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  `font-head text-sm font-semibold tracking-tight transition-colors py-1 relative ${
-                    isActive
-                      ? 'text-[#FF6B2C]'
-                      : 'text-muted hover:text-primary'
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    <span>{link.label}</span>
-                    {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FF6B2C] rounded-full" />
-                    )}
-                  </>
-                )}
-              </NavLink>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  href={link.to}
+                  className={`font-head text-sm font-semibold tracking-tight transition-colors py-1 relative ${
+                    isActive ? 'text-[#FF6B2C]' : 'text-muted hover:text-primary'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FF6B2C] rounded-full" />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right Action Cluster */}
@@ -130,7 +129,7 @@ export default function Navbar() {
 
             {/* Primary CTA Button: "Start a project" (Section 4.B) */}
             <Link
-              to="/contact"
+              href="/contact"
               className="bg-[#FF6B2C] hover:bg-[#FF8452] text-white px-4 sm:px-5 py-2.5 rounded-lg font-head text-xs sm:text-sm font-bold tracking-tight shadow-xs hover:shadow-md transition-[background-color,box-shadow,transform] active:scale-[0.98] flex items-center gap-1.5 cursor-pointer shrink-0"
             >
               <span>Start a project</span>
@@ -164,21 +163,22 @@ export default function Navbar() {
               Menu Navigation
             </span>
 
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                onClick={() => setMobileOpen(false)}
-                className={({ isActive }) =>
-                  `font-head text-2xl font-bold tracking-tight transition-colors py-2 flex items-center justify-between border-b border-subtle/50 ${
+            {navLinks.map((link) => {
+              const isActive = pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  href={link.to}
+                  onClick={() => setMobileOpen(false)}
+                  className={`font-head text-2xl font-bold tracking-tight transition-colors py-2 flex items-center justify-between border-b border-subtle/50 ${
                     isActive ? 'text-[#FF6B2C]' : 'text-primary'
-                  }`
-                }
-              >
-                <span>{link.label}</span>
-                <ArrowRight className="w-4 h-4 text-muted" />
-              </NavLink>
-            ))}
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  <ArrowRight className="w-4 h-4 text-muted" />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile Bottom Actions */}
@@ -204,7 +204,7 @@ export default function Navbar() {
             </a>
 
             <Link
-              to="/contact"
+              href="/contact"
               onClick={() => setMobileOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-[#FF6B2C] text-white rounded-xl font-head text-base font-bold shadow-md"
             >

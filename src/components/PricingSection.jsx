@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import Section from './ui/Section';
 import PricingCard from './ui/PricingCard';

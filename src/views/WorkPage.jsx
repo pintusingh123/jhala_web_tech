@@ -1,14 +1,16 @@
-import { useNavigate } from 'react-router-dom';
+'use client';
+
+import { useRouter } from 'next/navigation';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import CtaBand from '../components/CtaBand';
 
 export default function WorkPage() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className="flex flex-col">
-      <Portfolio onOpenContact={() => navigate('/contact')} />
+      <Portfolio onOpenContact={() => router.push('/contact')} />
       <Testimonials />
       <CtaBand />
     </div>

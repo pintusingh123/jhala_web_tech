@@ -1,5 +1,7 @@
+'use client';
+
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ExternalLink, ArrowRight, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import TiltCard from './3d/TiltCard';
@@ -197,7 +199,7 @@ export default function StackedProjects() {
                 </a>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 font-narrow text-sm font-bold uppercase tracking-wider text-[#333333] hover:text-[#FDB345] rounded transition-colors"
                 >
                   <span>Request Similar App</span>

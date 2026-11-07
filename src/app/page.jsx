@@ -1,4 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+'use client';
+
+import { useRouter } from 'next/navigation';
 import Hero from '../components/Hero';
 import TechMarquee from '../components/TechMarquee';
 import Services from '../components/Services';
@@ -14,33 +16,33 @@ import Blog from '../components/Blog';
 import CtaBand from '../components/CtaBand';
 
 export default function HomePage() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <>
       {/* C. Hero */}
-      <Hero onExploreWork={() => navigate('/work')} />
+      <Hero onExploreWork={() => router.push('/work')} />
 
       {/* D. Logo / Tech Marquee */}
       <TechMarquee />
 
       {/* E. Services Bento Grid */}
-      <Services onSelectService={() => navigate('/contact')} />
+      <Services onSelectService={() => router.push('/contact')} />
 
       {/* F. Selected Work (Real Case Studies) */}
-      <Portfolio onOpenContact={() => navigate('/contact')} />
+      <Portfolio onOpenContact={() => router.push('/contact')} />
 
       {/* G. Process (5-Step Timeline) */}
-      <Process onOpenContact={() => navigate('/contact')} />
+      <Process onOpenContact={() => router.push('/contact')} />
 
       {/* H. Why Us / Differentiators */}
-      <WhyChooseUs onOpenContact={() => navigate('/contact')} />
+      <WhyChooseUs onOpenContact={() => router.push('/contact')} />
 
       {/* I. Stats Strip */}
       <Stats />
 
       {/* J. Pricing / Packages & Interactive App Estimator */}
-      <PricingSection onOpenContact={() => navigate('/contact')} />
+      <PricingSection onOpenContact={() => router.push('/contact')} />
 
       {/* K. Testimonials */}
       <Testimonials />
@@ -49,7 +51,7 @@ export default function HomePage() {
       <TechStack />
 
       {/* M. FAQ Accordion */}
-      <FAQ onOpenContact={() => navigate('/contact')} />
+      <FAQ onOpenContact={() => router.push('/contact')} />
 
       {/* N. Blog / Insights */}
       <Blog />

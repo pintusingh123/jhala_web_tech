@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root {
+  /* ========================================================
+     DESIGN SYSTEM TOKENS — DEEP INK + SIGNAL ORANGE (DARK)
+     ======================================================== */
+  --bg:            #0B0D12;   /* page background */
+  --surface:       #12151C;   /* card background */
+  --surface-2:     #1A1E28;   /* raised / hover state */
+  --border:        #262B38;   /* subtle structural border */
+  --border-focus:  #FF6B2C;
+  --text:          #F3F4F6;   /* primary text */
+  --text-muted:    #9AA3B2;   /* secondary / label text */
+
+  /* Brand */
+  --accent:        #FF6B2C;   /* Signal Orange: max 10% screen */
+  --accent-hover:  #FF8452;
+  --accent-soft:   rgba(255, 107, 44, 0.12);
+  --secondary:     #3DD9B0;   /* success, verified pills */
+
+  /* Feedback */
+  --danger:        #F0524F;
+  --warning:       #F5B83D;
+
+  /* Typography */
+  --font-head:     'Space Grotesk', system-ui, sans-serif;
+  --font-body:     'Inter', system-ui, sans-serif;
+  --font-mono:     'JetBrains Mono', ui-monospace, monospace;
+
+  /* Fluid typography */
+  --fs-display:    clamp(2.4rem, 5.5vw + 1rem, 4.75rem);
+  --fs-h2:         clamp(1.85rem, 3vw + 0.8rem, 3rem);
+  --fs-h3:         clamp(1.2rem, 1.2vw + 0.9rem, 1.55rem);
+  --fs-body:       clamp(0.95rem, 0.3vw + 0.9rem, 1.1rem);
+  --fs-small:      0.875rem;
+
+  /* Radius & Shadows */
+  --radius-sm:     8px;
+  --radius-md:     14px;
+  --radius-lg:     22px;
+  --shadow-1:      0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2:      0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-glow:   0 0 24px rgba(255, 107, 44, 0.2);
+}
+
+/* ========================================================
+   LIGHT THEME OVERRIDE (Alternative Palette)
+   ======================================================== */
+:root[data-theme="light"] {
+  --bg:            #FAF8F5;   /* warm off-white page background */
+  --surface:       #FFFFFF;   /* clean card surface */
+  --surface-2:     #F2EFEA;   /* raised / subtle fill */
+  --border:        #E4DFD7;   /* soft warm border */
+  --border-focus:  #FF6B2C;
+  --text:          #14161C;   /* deep ink text (contrast >= 4.5:1) */
+  --text-muted:    #5B6372;   /* muted secondary text */
+
+  --shadow-1:      0 1px 3px rgba(20, 22, 28, 0.08);
+  --shadow-2:      0 12px 32px rgba(20, 22, 28, 0.1);
+  --shadow-glow:   0 0 24px rgba(255, 107, 44, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Accessibility: Universal Focus Ring (Section 11) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Marquee Keyframes for infinite tech logos */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Utility semantic tokens */
+.bg-page {
+  background-color: var(--bg);
+}
+.bg-surface {
+  background-color: var(--surface);
+}
+.bg-surface-2 {
+  background-color: var(--surface-2);
+}
+.border-subtle {
+  border-color: var(--border);
+}
+.text-primary {
+  color: var(--text);
+}
+.text-muted {
+  color: var(--text-muted);
+}
+.font-head {
+  font-family: var(--font-head);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}

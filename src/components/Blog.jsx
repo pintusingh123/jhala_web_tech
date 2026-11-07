@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useRef, useEffect } from 'react';
 import { Clock, ArrowRight, X } from 'lucide-react';
 import Section from './ui/Section';

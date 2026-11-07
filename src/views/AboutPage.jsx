@@ -1,4 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+'use client';
+
+import { useRouter } from 'next/navigation';
 import TerminalHeader from '../components/TerminalHeader';
 import About from '../components/About';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -6,14 +8,14 @@ import Team from '../components/Team';
 import Testimonials from '../components/Testimonials';
 
 export default function AboutPage() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
-    <div className="gsap-fade-in flex flex-col gap-10">
+    <div className="flex flex-col gap-10">
       <TerminalHeader label="ABOUT_JHALAWEBTECH" />
-      <About onOpenContact={() => navigate('/contact')} />
-      <WhyChooseUs onOpenContact={() => navigate('/contact')} />
-      <Team onOpenContact={() => navigate('/contact')} />
+      <About onOpenContact={() => router.push('/contact')} />
+      <WhyChooseUs onOpenContact={() => router.push('/contact')} />
+      <Team onOpenContact={() => router.push('/contact')} />
       <Testimonials />
     </div>
   );

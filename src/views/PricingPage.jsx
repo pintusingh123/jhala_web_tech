@@ -1,15 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+'use client';
+
+import { useRouter } from 'next/navigation';
 import PricingSection from '../components/PricingSection';
 import FAQ from '../components/FAQ';
 import CtaBand from '../components/CtaBand';
 
 export default function PricingPage() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className="flex flex-col">
-      <PricingSection onOpenContact={() => navigate('/contact')} />
-      <FAQ onOpenContact={() => navigate('/contact')} />
+      <PricingSection onOpenContact={() => router.push('/contact')} />
+      <FAQ onOpenContact={() => router.push('/contact')} />
       <CtaBand />
     </div>
   );

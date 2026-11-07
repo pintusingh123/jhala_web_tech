@@ -1,5 +1,7 @@
+'use client';
+
 import { useState, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { 
   Smartphone, 
   Code2, 
@@ -190,7 +192,7 @@ export default function Interactive3DDevice() {
 
             {/* Live CTA Button */}
             <Link
-              to="/contact"
+              href="/contact"
               className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#333333] hover:bg-[#FDB345] text-white font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider rounded transition-colors group cursor-pointer"
             >
               <span>Build This Product</span>
