@@ -109,18 +109,11 @@ Tuning max_wal_size and checkpoint_completion_target prevents I/O write spikes, 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {articles.map((art) => (
           <TiltCard key={art.id} maxTilt={5} scale={1.01} className="h-full">
-            <article
-              role="button"
-              tabIndex={0}
+            <button
+              type="button"
               aria-label={`Read breakdown: ${art.title}`}
               onClick={() => setSelectedArticle(art)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  setSelectedArticle(art);
-                }
-              }}
-              className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FDB345]"
+              className="text-left w-full bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-[border-color,box-shadow] duration-300 flex flex-col justify-between h-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FDB345]"
             >
               <div>
                 {/* Meta */}
@@ -143,11 +136,11 @@ Tuning max_wal_size and checkpoint_completion_target prevents I/O write spikes, 
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#E5E5E5] flex items-center justify-between font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345] group-hover:text-[#F69B2E]">
+              <div className="pt-4 border-t border-[#E5E5E5] flex items-center justify-between font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345] group-hover:text-[#F69B2E] w-full">
                 <span>Read Full Breakdown</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
-            </article>
+            </button>
           </TiltCard>
         ))}
       </div>
