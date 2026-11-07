@@ -8,6 +8,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import TiltCard from './3d/TiltCard';
 
 export default function WhyChooseUs() {
   const reasons = [
@@ -62,33 +63,32 @@ export default function WhyChooseUs() {
         {reasons.map((r) => {
           const Icon = r.icon;
           return (
-            <div
-              key={r.title}
-              className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
-            >
-              <div>
-                <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center mb-5 group-hover:bg-[#FDB345] group-hover:text-white transition-all">
-                  <Icon className="w-6 h-6" />
+            <TiltCard key={r.title} maxTilt={6} scale={1.01} className="h-full">
+              <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center mb-5 group-hover:bg-[#FDB345] group-hover:text-white transition-all">
+                    <Icon className="w-6 h-6" />
+                  </div>
+
+                  <div className="inline-block px-2.5 py-0.5 rounded font-narrow text-[11px] font-bold uppercase tracking-wider bg-[#FFF8EE] text-[#F69B2E] border border-[#FDB345]/30 mb-2.5">
+                    {r.stat}
+                  </div>
+
+                  <h3 className="font-slab text-lg sm:text-xl font-bold text-[#333333] mb-2 group-hover:text-[#FDB345] transition-colors">
+                    {r.title}
+                  </h3>
+
+                  <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed">
+                    {r.desc}
+                  </p>
                 </div>
 
-                <div className="inline-block px-2.5 py-0.5 rounded font-narrow text-[11px] font-bold uppercase tracking-wider bg-[#FFF8EE] text-[#F69B2E] border border-[#FDB345]/30 mb-2.5">
-                  {r.stat}
+                <div className="pt-4 mt-4 border-t border-[#E5E5E5] flex items-center gap-1.5 font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345]">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span>Verified Client Guarantee</span>
                 </div>
-
-                <h3 className="font-slab text-lg sm:text-xl font-bold text-[#333333] mb-2 group-hover:text-[#FDB345] transition-colors">
-                  {r.title}
-                </h3>
-
-                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed">
-                  {r.desc}
-                </p>
               </div>
-
-              <div className="pt-4 mt-4 border-t border-[#E5E5E5] flex items-center gap-1.5 font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345]">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Verified Client Guarantee</span>
-              </div>
-            </div>
+            </TiltCard>
           );
         })}
       </div>

@@ -11,6 +11,7 @@ import {
   Check
 } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import TiltCard from './3d/TiltCard';
 
 export default function Services({ onSelectService }) {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -164,69 +165,68 @@ export default function Services({ onSelectService }) {
         </div>
       </div>
 
-      {/* Services Grid with Two-Tone Borders and Yellow Accents */}
+      {/* Services Grid with 3D Tilt Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredServices.map((service) => {
           const IconComp = service.icon;
           return (
-            <div
-              key={service.id}
-              className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
-            >
-              <div>
-                {/* Icon & Badge Header */}
-                <div className="flex justify-between items-start mb-4">
-                  <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center group-hover:bg-[#FDB345] group-hover:text-white transition-all">
-                    <IconComp className="w-6 h-6" />
+            <TiltCard key={service.id} maxTilt={6} scale={1.01} className="h-full">
+              <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+                <div>
+                  {/* Icon & Badge Header */}
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="w-12 h-12 rounded bg-[#FFF8EE] border border-[#FDB345]/30 text-[#FDB345] flex items-center justify-center group-hover:bg-[#FDB345] group-hover:text-white transition-all">
+                      <IconComp className="w-6 h-6" />
+                    </div>
+                    {service.badge && (
+                      <span className="font-narrow text-[11px] font-bold uppercase tracking-wider text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30">
+                        {service.badge}
+                      </span>
+                    )}
                   </div>
-                  {service.badge && (
-                    <span className="font-narrow text-[11px] font-bold uppercase tracking-wider text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30">
-                      {service.badge}
-                    </span>
-                  )}
+
+                  <h3 className="font-slab text-xl font-bold text-[#333333] mb-2.5 group-hover:text-[#FDB345] transition-colors">
+                    {service.title}
+                  </h3>
+
+                  <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-5">
+                    {service.description}
+                  </p>
+
+                  {/* Bullet Points with Yellow Checks */}
+                  <ul className="space-y-2 mb-6">
+                    {service.points.map((pt, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs font-medium text-[#333333]">
+                        <Check className="w-4 h-4 text-[#FDB345] mt-0.5 shrink-0" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <h3 className="font-slab text-xl font-bold text-[#333333] mb-2.5 group-hover:text-[#FDB345] transition-colors">
-                  {service.title}
-                </h3>
+                {/* Footer Tech Tags & Quote Trigger */}
+                <div className="pt-4 border-t border-[#E5E5E5]">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {service.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2 py-0.5 bg-[#F5F5F7] border border-[#DADBDD] text-[#575C62] font-narrow text-[11px] font-bold uppercase rounded"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-5">
-                  {service.description}
-                </p>
-
-                {/* Bullet Points with Yellow Checks */}
-                <ul className="space-y-2 mb-6">
-                  {service.points.map((pt, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs font-medium text-[#333333]">
-                      <Check className="w-4 h-4 text-[#FDB345] mt-0.5 shrink-0" />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Footer Tech Tags & Quote Trigger */}
-              <div className="pt-4 border-t border-[#E5E5E5]">
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {service.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 bg-[#F5F5F7] border border-[#DADBDD] text-[#575C62] font-narrow text-[11px] font-bold uppercase rounded"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                  <button
+                    onClick={onSelectService}
+                    className="w-full flex items-center justify-between text-xs sm:text-sm font-narrow uppercase tracking-wider font-bold text-[#FDB345] hover:text-[#F69B2E] py-2 group/btn cursor-pointer"
+                  >
+                    <span>Request Project Estimate</span>
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform" />
+                  </button>
                 </div>
-
-                <button
-                  onClick={onSelectService}
-                  className="w-full flex items-center justify-between text-xs sm:text-sm font-narrow uppercase tracking-wider font-bold text-[#FDB345] hover:text-[#F69B2E] py-2 group/btn cursor-pointer"
-                >
-                  <span>Request Project Estimate</span>
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform" />
-                </button>
               </div>
-            </div>
+            </TiltCard>
           );
         })}
       </div>

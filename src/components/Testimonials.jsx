@@ -1,5 +1,6 @@
 import { Star, CheckCircle2 } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import TiltCard from './3d/TiltCard';
 
 export default function Testimonials() {
   const testimonials = [
@@ -53,49 +54,48 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Testimonials Grid */}
+      {/* Testimonials Grid with 3D Tilt */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {testimonials.map((t) => (
-          <div
-            key={t.author}
-            className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
-          >
-            <div>
-              {/* Star Rating & Verified Pill */}
-              <div className="flex justify-between items-center pb-4 border-b border-[#E5E5E5] mb-4">
-                <div className="flex gap-0.5 text-[#FDB345]">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <span className="font-narrow text-[11px] font-bold uppercase tracking-wider text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30 flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FDB345]" />
-                  <span>{t.verified}</span>
-                </span>
-              </div>
-
-              {/* Quote text in Zilla Slab style */}
-              <p className="font-slab text-sm sm:text-base text-[#333333] leading-relaxed mb-6 italic">
-                "{t.quote}"
-              </p>
-            </div>
-
-            {/* Author info & Metric */}
-            <div className="pt-4 border-t border-[#E5E5E5] flex flex-col gap-2">
+          <TiltCard key={t.author} maxTilt={5} scale={1.01} className="h-full">
+            <div className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
               <div>
-                <h4 className="font-slab text-base sm:text-lg font-bold text-[#333333] group-hover:text-[#FDB345] transition-colors">
-                  {t.author}
-                </h4>
-                <p className="font-sans-body text-xs text-[#575C62]">
-                  {t.role}
+                {/* Star Rating & Verified Pill */}
+                <div className="flex justify-between items-center pb-4 border-b border-[#E5E5E5] mb-4">
+                  <div className="flex gap-0.5 text-[#FDB345]">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <span className="font-narrow text-[11px] font-bold uppercase tracking-wider text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30 flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#FDB345]" />
+                    <span>{t.verified}</span>
+                  </span>
+                </div>
+
+                {/* Quote text in Zilla Slab style */}
+                <p className="font-slab text-sm sm:text-base text-[#333333] leading-relaxed mb-6 italic">
+                  "{t.quote}"
                 </p>
               </div>
 
-              <div className="inline-block mt-1 self-start px-2.5 py-0.5 rounded bg-[#FFF8EE] text-[#F69B2E] font-narrow text-[11px] font-bold uppercase tracking-wider border border-[#FDB345]/30">
-                Impact: {t.metric}
+              {/* Author info & Metric */}
+              <div className="pt-4 border-t border-[#E5E5E5] flex flex-col gap-2">
+                <div>
+                  <h4 className="font-slab text-base sm:text-lg font-bold text-[#333333] group-hover:text-[#FDB345] transition-colors">
+                    {t.author}
+                  </h4>
+                  <p className="font-sans-body text-xs text-[#575C62]">
+                    {t.role}
+                  </p>
+                </div>
+
+                <div className="inline-block mt-1 self-start px-2.5 py-0.5 rounded bg-[#FFF8EE] text-[#F69B2E] font-narrow text-[11px] font-bold uppercase tracking-wider border border-[#FDB345]/30">
+                  Impact: {t.metric}
+                </div>
               </div>
             </div>
-          </div>
+          </TiltCard>
         ))}
       </div>
     </section>

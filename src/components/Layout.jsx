@@ -1,9 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Layout() {
   const location = useLocation();
@@ -25,26 +29,71 @@ export default function Layout() {
 
     lenisRef.current = lenis;
 
-    let animId;
-    const raf = (time) => {
-      lenis.raf(time);
-      animId = requestAnimationFrame(raf);
+    // Connect Lenis to GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    const updateTicker = (time) => {
+      lenis.raf(time * 1000);
     };
-    animId = requestAnimationFrame(raf);
+
+    gsap.ticker.add(updateTicker);
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      if (animId) cancelAnimationFrame(animId);
+      gsap.ticker.remove(updateTicker);
       lenis.destroy();
     };
   }, []);
 
-  // Scroll to top on route change
+  // Scroll to top on route change & trigger smooth GSAP reveals
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
     } else {
       window.scrollTo(0, 0);
     }
+
+    // Allow DOM to settle, then initialize animations
+    const timer = setTimeout(() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      const fadeEls = document.querySelectorAll('.gsap-fade-in');
+      fadeEls.forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'all' }
+        );
+      });
+
+      const scrollEls = document.querySelectorAll('.gsap-scroll-trigger');
+      scrollEls.forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 88%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      });
+
+      ScrollTrigger.refresh();
+    }, 50);
+
+    return () => {
+      clearTimeout(timer);
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, [location.pathname]);
 
   return (

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Smartphone, Globe, Server, Database, Sparkles, CheckCircle2 } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import TiltCard from './3d/TiltCard';
 
 export default function TechStack() {
   const [activeTab, setActiveTab] = useState('mobile');
@@ -87,32 +88,31 @@ export default function TechStack() {
         })}
       </div>
 
-      {/* Technologies Cards Grid */}
+      {/* Technologies Cards Grid with 3D Tilt */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {technologies[activeTab].map((tech) => (
-          <div
-            key={tech.name}
-            className="bg-white p-5 rounded border border-[#E5E5E5] shadow-xs hover:border-[#FDB345] hover:shadow-md transition-all flex flex-col justify-between group"
-          >
-            <div>
-              <div className="flex justify-between items-start mb-3">
-                <h4 className="font-slab text-lg font-bold text-[#333333] group-hover:text-[#FDB345] transition-colors">
-                  {tech.name}
-                </h4>
-                <span className="font-narrow text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FFF8EE] text-[#F69B2E] border border-[#FDB345]/30">
-                  {tech.level}
-                </span>
+          <TiltCard key={tech.name} maxTilt={5} scale={1.01} className="h-full">
+            <div className="bg-white p-5 rounded border border-[#E5E5E5] shadow-xs hover:border-[#FDB345] hover:shadow-md transition-all flex flex-col justify-between h-full group">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <h4 className="font-slab text-lg font-bold text-[#333333] group-hover:text-[#FDB345] transition-colors">
+                    {tech.name}
+                  </h4>
+                  <span className="font-narrow text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FFF8EE] text-[#F69B2E] border border-[#FDB345]/30">
+                    {tech.level}
+                  </span>
+                </div>
+                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-4">
+                  {tech.desc}
+                </p>
               </div>
-              <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-4">
-                {tech.desc}
-              </p>
-            </div>
 
-            <div className="flex items-center gap-1.5 font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345] pt-3 border-t border-[#E5E5E5]">
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>Production Tested</span>
+              <div className="flex items-center gap-1.5 font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345] pt-3 border-t border-[#E5E5E5]">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>Production Tested</span>
+              </div>
             </div>
-          </div>
+          </TiltCard>
         ))}
       </div>
     </section>

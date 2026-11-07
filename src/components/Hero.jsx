@@ -1,23 +1,18 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
-  Smartphone, 
-  Code2, 
-  Sparkles, 
   CheckCircle2, 
   ShieldCheck, 
   Zap, 
-  Star,
   ChevronRight
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import Hero3DCanvas from './3d/Hero3DCanvas';
+import Interactive3DDevice from './3d/Interactive3DDevice';
 
 const WHATSAPP_NUMBER = '8003642596';
 
 export default function Hero({ onExploreServices }) {
-  const [activeTab, setActiveTab] = useState('mobile');
-
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
       'Hello JhalaWebTech! I visited your website and would like to discuss building a mobile app / custom software project.'
@@ -25,48 +20,13 @@ export default function Hero({ onExploreServices }) {
     window.open(`https://wa.me/91${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
-  const showcaseTabs = {
-    mobile: {
-      badge: 'iOS & ANDROID APP DEVELOPMENT',
-      title: 'High-Performance Mobile Applications',
-      desc: 'Native iOS (Swift), Android (Kotlin), and cross-platform Flutter & React Native apps engineered for 60fps native performance, offline sync, and instant payment gateways.',
-      stats: [
-        { label: 'Store Rating', value: '4.9 ★' },
-        { label: 'App Launch', value: '< 1.2s' },
-        { label: 'Platforms', value: 'iOS + Android' },
-      ],
-      tags: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase'],
-    },
-    web: {
-      badge: 'HIGH-CONCURRENCY ARCHITECTURE',
-      title: 'Custom Software & Web Platforms',
-      desc: 'Full-stack enterprise architectures with React 19, Next.js, and Node.js APIs supporting 50,000+ concurrent user sessions with sub-second response times.',
-      stats: [
-        { label: 'Lighthouse Score', value: '99/100' },
-        { label: 'API Latency', value: '< 180ms' },
-        { label: 'Uptime SLA', value: '99.99%' },
-      ],
-      tags: ['React 19', 'Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
-    },
-    ai: {
-      badge: 'INTELLIGENT AUTOMATION',
-      title: 'AI & Machine Learning Development',
-      desc: 'Integrating enterprise LLMs, custom machine learning models, and automated business workflows that eliminate operational overhead and boost customer engagement.',
-      stats: [
-        { label: 'Task Automation', value: '75%' },
-        { label: 'Processing Speed', value: 'Sub-second' },
-        { label: 'Accuracy Rate', value: '99.2%' },
-      ],
-      tags: ['Python', 'FastAPI', 'LangGraph', 'OpenAI', 'Redis Vector'],
-    },
-  };
-
-  const activeContent = showcaseTabs[activeTab];
-
   return (
     <section className="w-full relative pt-4 sm:pt-8 pb-10 sm:pb-16 overflow-hidden">
+      {/* 3D WebGL GPU Constellation & Geometric Wireframe Background */}
+      <Hero3DCanvas />
+
       {/* Two-Color Composition Header Strip */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         
         {/* Left Column (7 cols): Tvisha-Style Two-Tone Hero Content */}
         <div className="lg:col-span-7 flex flex-col justify-center items-start w-full">
@@ -161,108 +121,9 @@ export default function Hero({ onExploreServices }) {
           </div>
         </div>
 
-        {/* Right Column (5 cols): Two-Tone Contrasting Showcase Card */}
+        {/* Right Column (5 cols): Interactive 3D Perspective Device Mockup */}
         <div className="lg:col-span-5 w-full flex flex-col justify-center">
-          <div className="bg-[#FFFFFF] rounded border border-[#E5E5E5] shadow-md p-5 sm:p-6 relative">
-            {/* Top Selector Tabs in Tvisha Two-Tone Palette */}
-            <div className="flex bg-[#F5F5F7] p-1 rounded mb-5 border border-[#E5E5E5]">
-              <button
-                onClick={() => setActiveTab('mobile')}
-                className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                  activeTab === 'mobile'
-                    ? 'bg-[#FDB345] text-white shadow-xs'
-                    : 'text-[#575C62] hover:text-[#333333]'
-                }`}
-              >
-                <Smartphone className="w-3.5 h-3.5" />
-                <span>Mobile</span>
-              </button>
-              <button
-                onClick={() => setActiveTab('web')}
-                className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                  activeTab === 'web'
-                    ? 'bg-[#FDB345] text-white shadow-xs'
-                    : 'text-[#575C62] hover:text-[#333333]'
-                }`}
-              >
-                <Code2 className="w-3.5 h-3.5" />
-                <span>Custom SW</span>
-              </button>
-              <button
-                onClick={() => setActiveTab('ai')}
-                className={`flex-1 py-2 px-2 text-xs font-narrow font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                  activeTab === 'ai'
-                    ? 'bg-[#FDB345] text-white shadow-xs'
-                    : 'text-[#575C62] hover:text-[#333333]'
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>AI Tech</span>
-              </button>
-            </div>
-
-            {/* Showcase Tab Content */}
-            <div className="transition-all duration-300">
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-narrow text-[11px] font-bold uppercase tracking-widest text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30">
-                  {activeContent.badge}
-                </span>
-                <div className="flex items-center gap-1 text-[#FDB345]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                  ))}
-                </div>
-              </div>
-
-              <h2 className="font-slab text-xl sm:text-2xl font-bold text-[#333333] mb-2">
-                {activeContent.title}
-              </h2>
-
-              <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-5">
-                {activeContent.desc}
-              </p>
-
-              {/* Metrics Grid with Tvisha Two-Tone borders */}
-              <div className="grid grid-cols-3 gap-2.5 bg-[#F5F5F7] p-3.5 rounded border border-[#E5E5E5] mb-5">
-                {activeContent.stats.map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <span className="block font-slab text-base sm:text-xl font-bold text-[#333333]">
-                      {stat.value}
-                    </span>
-                    <span className="font-narrow text-[11px] text-[#575C62] uppercase font-bold tracking-wider">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Technologies Pills */}
-              <div className="mb-5">
-                <span className="font-narrow text-xs font-bold text-[#575C62] uppercase tracking-wider block mb-2">
-                  Engineered With
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {activeContent.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 bg-white border border-[#E5E5E5] text-[#333333] font-narrow text-xs font-bold uppercase rounded shadow-2xs"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Card Action Link */}
-              <Link
-                to="/contact"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#333333] hover:bg-[#FDB345] text-white font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider rounded transition-colors group cursor-pointer"
-              >
-                <span>Request Project Estimate</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
+          <Interactive3DDevice />
         </div>
       </div>
     </section>

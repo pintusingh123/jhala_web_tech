@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowRight, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, Sparkles } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import TiltCard from './3d/TiltCard';
 
 export default function StackedProjects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -99,14 +100,14 @@ export default function StackedProjects() {
             <button
               onClick={handlePrev}
               aria-label="Previous project"
-              className="p-2 rounded bg-white border border-[#E5E5E5] text-[#333333] hover:text-[#FDB345] hover:border-[#FDB345] transition-colors cursor-pointer shadow-2xs"
+              className="p-2 rounded bg-white border border-[#E5E5E5] text-[#333333] hover:text-[#FDB345] hover:border-[#FDB345] transition-colors cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next project"
-              className="p-2 rounded bg-white border border-[#E5E5E5] text-[#333333] hover:text-[#FDB345] hover:border-[#FDB345] transition-colors cursor-pointer shadow-2xs"
+              className="p-2 rounded bg-white border border-[#E5E5E5] text-[#333333] hover:text-[#FDB345] hover:border-[#FDB345] transition-colors cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -114,113 +115,116 @@ export default function StackedProjects() {
         </div>
       </div>
 
-      {/* Featured Showcase Card in Tvisha Two-Tone Style */}
-      <div className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-md transition-all duration-300">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-          {/* Left Column (7 cols): Information & Deliverables */}
-          <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
-            <div>
-              {/* Category & Badge */}
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="px-3 py-0.5 rounded font-narrow text-xs font-bold uppercase tracking-wider bg-[#FFF8EE] text-[#F69B2E] border border-[#FDB345]/30">
-                  {currentProject.category}
-                </span>
-                <span className="inline-flex items-center gap-1 font-narrow text-xs font-bold uppercase tracking-wider text-[#FDB345] bg-[#F5F5F7] px-2.5 py-0.5 rounded border border-[#E5E5E5]">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Live Production</span>
-                </span>
-              </div>
-
-              {/* Title & Subtitle */}
-              <h3 className="font-slab text-2xl sm:text-3xl font-bold text-[#333333] mb-1.5 tracking-tight">
-                {currentProject.title}
-              </h3>
-              <p className="font-sans text-sm sm:text-base font-semibold text-[#FDB345] mb-4">
-                {currentProject.subtitle}
-              </p>
-
-              {/* Description */}
-              <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-6">
-                {currentProject.description}
-              </p>
-
-              {/* Verified Metrics Chips */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 bg-[#F5F5F7] p-4 rounded border border-[#E5E5E5]">
-                <div>
-                  <span className="font-narrow text-[11px] font-bold text-[#575C62] uppercase tracking-wider block mb-0.5">
-                    Performance Metric
+      {/* Featured 3D Interactive Card in Tvisha Two-Tone Style */}
+      <TiltCard maxTilt={4} scale={1.005} className="w-full">
+        <div className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-md transition-all duration-300">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+            {/* Left Column (7 cols): Information & Deliverables */}
+            <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                {/* Category & Badge */}
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <span className="px-3 py-0.5 rounded font-narrow text-xs font-bold uppercase tracking-wider bg-[#FFF8EE] text-[#F69B2E] border border-[#FDB345]/30">
+                    {currentProject.category}
                   </span>
-                  <span className="font-slab text-sm sm:text-base font-bold text-[#333333]">
-                    {currentProject.metric}
+                  <span className="inline-flex items-center gap-1 font-narrow text-xs font-bold uppercase tracking-wider text-[#FDB345] bg-[#F5F5F7] px-2.5 py-0.5 rounded border border-[#E5E5E5]">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>Live Production</span>
                   </span>
                 </div>
-                <div>
-                  <span className="font-narrow text-[11px] font-bold text-[#575C62] uppercase tracking-wider block mb-0.5">
-                    Business Impact
-                  </span>
-                  <span className="font-slab text-sm sm:text-base font-bold text-[#FDB345]">
-                    {currentProject.impact}
-                  </span>
-                </div>
-              </div>
 
-              {/* Tech Stack Pills */}
-              <div className="mb-6">
-                <span className="font-narrow text-xs font-bold text-[#575C62] uppercase tracking-wider block mb-2">
-                  Technologies Deployed
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {currentProject.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2.5 py-1 bg-white border border-[#E5E5E5] text-[#333333] font-narrow text-xs font-bold uppercase rounded shadow-2xs"
-                    >
-                      {t}
+                {/* Title & Subtitle */}
+                <h3 className="font-slab text-2xl sm:text-3xl font-bold text-[#333333] mb-1.5 tracking-tight">
+                  {currentProject.title}
+                </h3>
+                <p className="font-sans text-sm sm:text-base font-semibold text-[#FDB345] mb-4">
+                  {currentProject.subtitle}
+                </p>
+
+                {/* Description */}
+                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-6">
+                  {currentProject.description}
+                </p>
+
+                {/* Verified Metrics Chips */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 bg-[#F5F5F7] p-4 rounded border border-[#E5E5E5]">
+                  <div>
+                    <span className="font-narrow text-[11px] font-bold text-[#575C62] uppercase tracking-wider block mb-0.5">
+                      Performance Metric
                     </span>
-                  ))}
+                    <span className="font-slab text-sm sm:text-base font-bold text-[#333333]">
+                      {currentProject.metric}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="font-narrow text-[11px] font-bold text-[#575C62] uppercase tracking-wider block mb-0.5">
+                      Business Impact
+                    </span>
+                    <span className="font-slab text-sm sm:text-base font-bold text-[#FDB345]">
+                      {currentProject.impact}
+                    </span>
+                  </div>
                 </div>
+
+                {/* Tech Stack Pills */}
+                <div className="mb-6">
+                  <span className="font-narrow text-xs font-bold text-[#575C62] uppercase tracking-wider block mb-2">
+                    Technologies Deployed
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {currentProject.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-1 bg-white border border-[#E5E5E5] text-[#333333] font-narrow text-xs font-bold uppercase rounded shadow-2xs"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Live Link Button */}
+              <div className="pt-5 border-t border-[#E5E5E5] flex flex-wrap items-center gap-3">
+                <a
+                  href={currentProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FDB345] hover:bg-[#F69B2E] text-white font-narrow text-sm font-bold uppercase tracking-wider rounded shadow-xs transition-colors cursor-pointer"
+                >
+                  <span>Visit Live Platform</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 font-narrow text-sm font-bold uppercase tracking-wider text-[#333333] hover:text-[#FDB345] rounded transition-colors"
+                >
+                  <span>Request Similar App</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
 
-            {/* Live Link Button */}
-            <div className="pt-5 border-t border-[#E5E5E5] flex flex-wrap items-center gap-3">
-              <a
-                href={currentProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FDB345] hover:bg-[#F69B2E] text-white font-narrow text-sm font-bold uppercase tracking-wider rounded shadow-xs transition-colors cursor-pointer"
-              >
-                <span>Visit Live Platform</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
-
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 font-narrow text-sm font-bold uppercase tracking-wider text-[#333333] hover:text-[#FDB345] rounded transition-colors"
-              >
-                <span>Request Similar App</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column (5 cols): Visual Preview */}
-          <div className="lg:col-span-5 bg-[#F5F5F7] relative min-h-[280px] lg:min-h-[460px] flex items-center justify-center p-4 sm:p-6 overflow-hidden border-t lg:border-t-0 lg:border-l border-[#E5E5E5]">
-            <img
-              src={currentProject.image}
-              alt={currentProject.title}
-              className="w-full h-full object-cover rounded shadow-md border border-[#E5E5E5] group-hover:scale-102 transition-transform duration-500"
-              onError={(e) => {
-                e.target.src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80';
-              }}
-            />
-            <div className="absolute top-8 right-8 bg-white px-3 py-1.5 rounded shadow-sm border border-[#E5E5E5] font-narrow text-xs font-bold uppercase tracking-wider text-[#333333] flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#FDB345]" />
-              <span>Verified Deployment</span>
+            {/* Right Column (5 cols): Visual Preview with 3D floating tag */}
+            <div className="lg:col-span-5 bg-[#F5F5F7] relative min-h-[280px] lg:min-h-[460px] flex items-center justify-center p-4 sm:p-6 overflow-hidden border-t lg:border-t-0 lg:border-l border-[#E5E5E5]">
+              <img
+                key={currentProject.id}
+                src={currentProject.image}
+                alt={currentProject.title}
+                className="w-full h-full object-cover rounded shadow-md border border-[#E5E5E5] hover:scale-102 transition-transform duration-500"
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80';
+                }}
+              />
+              <div className="absolute top-8 right-8 bg-white px-3 py-1.5 rounded shadow-sm border border-[#E5E5E5] font-narrow text-xs font-bold uppercase tracking-wider text-[#333333] flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#FDB345]" />
+                <span>Verified Deployment</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </TiltCard>
 
       {/* Quick Project Selectors Carousel Bar */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-4">

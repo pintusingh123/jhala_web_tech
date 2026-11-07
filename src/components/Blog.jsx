@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ArrowRight, Clock, X } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import TiltCard from './3d/TiltCard';
 
 export default function Blog() {
   const [selectedArticle, setSelectedArticle] = useState(null);
@@ -59,75 +60,86 @@ Rather than triggering component-wide re-renders on every incoming ticker messag
 #### 3. Zero-Allocation Binary Buffers
 Protocol Buffers and ArrayBuffers replace bulky JSON payloads over WebSockets, eliminating garbage collection pauses during peak volume.
       `,
-      tags: ['React 19', 'WebSockets', 'Canvas 2D', 'Performance'],
+      tags: ['React 19', 'WebSockets', 'Canvas2D', 'Buffers', 'Edge'],
     },
     {
-      id: 'headless-commerce-edge',
-      title: 'Zero Layout Shift: Headless E-Commerce at the Global Edge',
-      category: 'HEADLESS COMMERCE',
-      readTime: '5 min read',
+      id: 'postgres-scaling-50k',
+      title: 'PostgreSQL Concurrency: Scaling Beyond 50,000 Active Connections',
+      category: 'SYSTEM ARCHITECTURE',
+      readTime: '10 min read',
       date: 'JUN 2026',
-      summary: 'Lessons learned building headless storefronts with Next.js edge caching and multi-region Shopify Plus inventory synchronization.',
+      summary: 'Architectural lessons in PgBouncer pool sizing, partition pruning, and WAL write pipeline tuning for high-throughput enterprise platforms.',
       content: `
-### The Blueprint for Instant E-Commerce
-Conversion rates plummet by 7% for every 100ms of checkout latency. We broke down standard monolith checkout stacks into a distributed edge model:
+### Scaling PostgreSQL Under Heavy Workloads
+When traffic spikes from thousands of concurrent users, database connection starvation is the primary point of failure. Here is our battle-tested recipe for rock-solid stability:
 
-#### 1. Edge-Rendered Product Catalogs
-Product listing pages are pre-warmed across 300+ global Cloudflare edge locations, resulting in a time-to-first-byte (TTFB) under 40ms worldwide.
+#### 1. PgBouncer Transaction Pooling
+By pooling connections at the transaction level rather than session level, backend microservices handle 50k+ client connections using a dedicated pool of only 120 PostgreSQL server connections.
 
-#### 2. Stale-While-Revalidate Inventory Sync
-Real-time inventory levels are queried via lightweight edge workers that cache SKU counts and update asynchronously in the background.
+#### 2. Declarative Table Partitioning
+High-frequency audit logs and transaction ledgers are partitioned monthly. Query planner pruning ensures searches touch only relevant tables, slashing query latency by 92%.
 
-#### 3. 1-Click Razorpay UPI & Stripe Connect
-Integrating frictionless local payment methods directly on product cards boosted mobile checkout conversion rates by 42%.
+#### 3. SSD WAL Tuning
+Tuning max_wal_size and checkpoint_completion_target prevents I/O write spikes, maintaining sub-millisecond query execution.
       `,
-      tags: ['Next.js', 'Shopify Plus', 'Edge Caching', 'Stripe'],
+      tags: ['PostgreSQL', 'PgBouncer', 'Database Tuning', 'Docker', 'AWS'],
     },
   ];
 
   return (
-    <section className="w-full py-8 sm:py-12" id="blog">
-      {/* Section Header */}
-      <SectionHeader
-        tag="ENGINEERING INSIGHTS &amp; RESEARCH"
-        title="Technical Thoughts &amp;"
-        highlightedTitle="Best Practices"
-        description="Deep dives into mobile engineering, system design, high-frequency React architectures, and production AI pipelines."
-      />
+    <section className="w-full py-8 sm:py-12" id="insights">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#E5E5E5] gap-4">
+        <SectionHeader
+          tag="ENGINEERING &amp; ARCHITECTURE BLOG"
+          title="Technical Insights from"
+          highlightedTitle="Our Labs"
+          description="In-depth breakdowns, performance benchmarks, and architectural design patterns written directly by our lead engineers."
+        />
 
-      {/* Grid */}
+        <div className="flex items-center gap-2 p-2 bg-[#F5F5F7] rounded border border-[#E5E5E5] self-start md:self-end">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#FDB345] animate-pulse" />
+          <span className="font-narrow text-xs uppercase font-bold tracking-wider text-[#333333]">
+            Peer-Reviewed Engineering
+          </span>
+        </div>
+      </div>
+
+      {/* Articles Grid with 3D Tilt */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {articles.map((art) => (
-          <article
-            key={art.id}
-            className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
-            onClick={() => setSelectedArticle(art)}
-          >
-            <div>
-              <div className="flex justify-between items-center pb-3 border-b border-[#E5E5E5] mb-4 text-xs font-semibold text-[#575C62]">
-                <span className="font-narrow text-[10px] font-bold text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30 uppercase tracking-wider">
-                  {art.category}
-                </span>
-                <span className="flex items-center gap-1 font-narrow uppercase tracking-wider">
-                  <Clock className="w-3.5 h-3.5 text-[#FDB345]" />
-                  {art.readTime}
-                </span>
+          <TiltCard key={art.id} maxTilt={5} scale={1.01} className="h-full">
+            <article
+              onClick={() => setSelectedArticle(art)}
+              className="bg-white rounded border border-[#E5E5E5] p-6 sm:p-7 shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group cursor-pointer"
+            >
+              <div>
+                {/* Meta */}
+                <div className="flex justify-between items-center mb-4">
+                  <span className="font-narrow text-[10px] font-bold uppercase tracking-wider text-[#F69B2E] bg-[#FFF8EE] px-2.5 py-0.5 rounded border border-[#FDB345]/30">
+                    {art.category}
+                  </span>
+                  <div className="flex items-center gap-1 font-narrow text-xs text-[#575C62] uppercase tracking-wider font-bold">
+                    <Clock className="w-3.5 h-3.5 text-[#FDB345]" />
+                    <span>{art.readTime}</span>
+                  </div>
+                </div>
+
+                <h3 className="font-slab text-lg sm:text-xl font-bold text-[#333333] mb-3 group-hover:text-[#FDB345] transition-colors leading-snug">
+                  {art.title}
+                </h3>
+
+                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-6">
+                  {art.summary}
+                </p>
               </div>
 
-              <h3 className="font-slab text-lg sm:text-xl font-bold text-[#333333] mb-2.5 group-hover:text-[#FDB345] transition-colors leading-snug">
-                {art.title}
-              </h3>
-
-              <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-6">
-                {art.summary}
-              </p>
-            </div>
-
-            <div className="pt-4 border-t border-[#E5E5E5] flex items-center justify-between font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345] group-hover:text-[#F69B2E]">
-              <span>Read Full Breakdown</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </article>
+              <div className="pt-4 border-t border-[#E5E5E5] flex items-center justify-between font-narrow text-xs uppercase tracking-wider font-bold text-[#FDB345] group-hover:text-[#F69B2E]">
+                <span>Read Full Breakdown</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </article>
+          </TiltCard>
         ))}
       </div>
 
@@ -170,31 +182,17 @@ Integrating frictionless local payment methods directly on product cards boosted
                 {selectedArticle.content}
               </div>
 
-              <div className="pt-4 border-t border-[#E5E5E5] mt-6">
-                <span className="font-narrow text-xs font-bold text-[#575C62] uppercase tracking-wider block mb-2">
-                  Topics Covered
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {selectedArticle.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2.5 py-1 bg-[#F5F5F7] text-[#333333] font-narrow text-xs font-bold uppercase rounded border border-[#DADBDD]"
-                    >
-                      #{t}
-                    </span>
-                  ))}
-                </div>
+              {/* Tags */}
+              <div className="pt-4 border-t border-[#E5E5E5] flex flex-wrap gap-1.5">
+                {selectedArticle.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2.5 py-1 bg-[#F5F5F7] border border-[#DADBDD] text-[#333333] font-narrow text-xs font-bold uppercase rounded"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="p-4 border-t border-[#E5E5E5] bg-[#F5F5F7] flex justify-end">
-              <button
-                onClick={() => setSelectedArticle(null)}
-                className="px-4 py-2 bg-[#333333] hover:bg-[#FDB345] text-white font-narrow text-xs font-bold uppercase tracking-wider rounded transition-colors cursor-pointer"
-              >
-                Close Article
-              </button>
             </div>
           </div>
         )}

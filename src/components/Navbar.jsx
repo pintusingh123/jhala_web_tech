@@ -42,9 +42,7 @@ export default function Navbar() {
             to="/"
             className="flex items-center gap-2.5 cursor-pointer group active:scale-95 transition-transform select-none shrink-0"
           >
-            <div className="w-9 h-9 rounded bg-[#FDB345] flex items-center justify-center text-white font-slab font-bold text-lg shadow-xs group-hover:bg-[#F69B2E] transition-colors shrink-0">
-              J
-            </div>
+            
             <div className="flex flex-col justify-center shrink-0">
               <span className="font-slab text-xl sm:text-2xl font-bold tracking-tight text-[#333333] group-hover:text-[#FDB345] transition-colors leading-none">
                 JhalaWebTech

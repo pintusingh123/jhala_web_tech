@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import TiltCard from './3d/TiltCard';
 
 export default function Portfolio({ onOpenContact }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -113,86 +114,85 @@ export default function Portfolio({ onOpenContact }) {
         </div>
       </div>
 
-      {/* Grid */}
+      {/* Grid with 3D Tilt Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((proj) => (
-          <div
-            key={proj.title}
-            className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
-          >
-            <div>
-              {/* Image Preview Container */}
-              <div className="relative h-48 w-full bg-[#F5F5F7] overflow-hidden">
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';
-                  }}
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="font-narrow text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-white text-[#F69B2E] shadow-2xs border border-[#FDB345]/40">
-                    {proj.categoryLabel}
-                  </span>
-                </div>
-              </div>
-
-              {/* Text Info */}
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-1">
-                  <span className="font-narrow text-xs font-bold uppercase tracking-wider text-[#575C62]">
-                    Client: {proj.client}
-                  </span>
-                </div>
-
-                <h3 className="font-slab text-xl font-bold text-[#333333] mb-2 group-hover:text-[#FDB345] transition-colors">
-                  {proj.title}
-                </h3>
-
-                <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-4">
-                  {proj.description}
-                </p>
-
-                {/* Metrics Chip */}
-                <div className="inline-block px-3 py-1 bg-[#FFF8EE] border border-[#FDB345]/30 text-[#F69B2E] font-narrow text-xs font-bold uppercase tracking-wider rounded mb-4">
-                  {proj.metrics}
-                </div>
-
-                {/* Tech Pills */}
-                <div className="flex flex-wrap gap-1.5">
-                  {proj.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 bg-[#F5F5F7] border border-[#DADBDD] text-[#333333] font-narrow text-[11px] font-bold uppercase rounded"
-                    >
-                      {t}
+          <TiltCard key={proj.title} maxTilt={6} scale={1.01} className="h-full">
+            <div className="bg-white rounded border border-[#E5E5E5] overflow-hidden shadow-xs hover:border-[#FDB345] hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+              <div>
+                {/* Image Preview Container */}
+                <div className="relative h-48 w-full bg-[#F5F5F7] overflow-hidden">
+                  <img
+                    src={proj.image}
+                    alt={proj.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.target.src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';
+                    }}
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="font-narrow text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-white text-[#F69B2E] shadow-2xs border border-[#FDB345]/40">
+                      {proj.categoryLabel}
                     </span>
-                  ))}
+                  </div>
+                </div>
+
+                {/* Text Info */}
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="font-narrow text-xs font-bold uppercase tracking-wider text-[#575C62]">
+                      Client: {proj.client}
+                    </span>
+                  </div>
+
+                  <h3 className="font-slab text-xl font-bold text-[#333333] mb-2 group-hover:text-[#FDB345] transition-colors">
+                    {proj.title}
+                  </h3>
+
+                  <p className="font-sans-body text-xs sm:text-sm text-[#575C62] leading-relaxed mb-4">
+                    {proj.description}
+                  </p>
+
+                  {/* Metrics Chip */}
+                  <div className="inline-block px-3 py-1 bg-[#FFF8EE] border border-[#FDB345]/30 text-[#F69B2E] font-narrow text-xs font-bold uppercase tracking-wider rounded mb-4">
+                    {proj.metrics}
+                  </div>
+
+                  {/* Tech Pills */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {proj.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2 py-0.5 bg-[#F5F5F7] border border-[#DADBDD] text-[#333333] font-narrow text-[11px] font-bold uppercase rounded"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Card Action */}
-            <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-[#E5E5E5]">
-              <a
-                href={proj.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider text-[#FDB345] hover:text-[#F69B2E] transition-colors cursor-pointer"
-              >
-                <span>Live Preview</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+              {/* Card Action */}
+              <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-[#E5E5E5]">
+                <a
+                  href={proj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-narrow text-xs sm:text-sm font-bold uppercase tracking-wider text-[#FDB345] hover:text-[#F69B2E] transition-colors cursor-pointer"
+                >
+                  <span>Live Preview</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
 
-              <button
-                onClick={onOpenContact}
-                className="font-narrow text-xs font-bold uppercase tracking-wider text-[#575C62] hover:text-[#333333] transition-colors cursor-pointer"
-              >
-                Inquire Similar
-              </button>
+                <button
+                  onClick={onOpenContact}
+                  className="font-narrow text-xs font-bold uppercase tracking-wider text-[#575C62] hover:text-[#333333] transition-colors cursor-pointer"
+                >
+                  Inquire Similar
+                </button>
+              </div>
             </div>
-          </div>
+          </TiltCard>
         ))}
       </div>
     </section>
