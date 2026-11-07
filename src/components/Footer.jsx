@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
 import Container from './ui/Container';
 import WhatsAppIcon from './WhatsAppIcon';
+import Logo from './Logo';
 import { company } from '../content/company';
 
 export default function Footer() {
@@ -18,13 +19,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-subtle">
           {/* Column 1: Brand (4 cols) */}
           <div className="lg:col-span-4">
-            <Link to="/" className="flex items-center gap-2.5 mb-3 group w-fit">
-              <div className="w-8 h-8 rounded-lg bg-[#FF6B2C] text-white flex items-center justify-center font-head font-bold text-base shadow-xs">
-                J
-              </div>
-              <span className="font-head text-lg font-bold text-primary group-hover:text-[#FF6B2C] transition-colors">
-                JhalaWebTech
-              </span>
+            <Link to="/" className="mb-3 group w-fit block" aria-label="JhalaWebTech Home">
+              <Logo size="sm" />
             </Link>
 
             <p className="font-body text-xs text-muted leading-relaxed mb-5 max-w-sm">

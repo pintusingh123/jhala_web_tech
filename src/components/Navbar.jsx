@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import ThemeToggle from './ui/ThemeToggle';
 import WhatsAppIcon from './WhatsAppIcon';
+import Logo from './Logo';
 import { company } from '../content/company';
 
 const monthFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
@@ -75,20 +76,10 @@ export default function Navbar() {
           {/* Left: Brand Logo (Wordmark + Mark) */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 cursor-pointer group select-none shrink-0"
+            className="cursor-pointer group select-none shrink-0"
             aria-label="JhalaWebTech Home"
           >
-            <div className="w-9 h-9 rounded-lg bg-[#FF6B2C] text-white flex items-center justify-center font-head font-bold text-lg shadow-xs group-hover:bg-[#FF8452] transition-colors">
-              J
-            </div>
-            <div className="flex flex-col">
-              <span className="font-head text-lg sm:text-xl font-bold tracking-tight text-primary group-hover:text-[#FF6B2C] transition-colors leading-none">
-                JhalaWebTech
-              </span>
-              <span className="font-mono text-[10px] text-muted tracking-wider uppercase mt-1 leading-none hidden sm:block">
-                Web &bull; Mobile &bull; CRM
-              </span>
-            </div>
+            <Logo size="md" />
           </Link>
 
           {/* Desktop Navigation Links */}

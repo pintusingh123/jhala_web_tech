@@ -1,10 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#0A0A0A"/>
-  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#C8FF3D" stroke-width="2"/>
-  <!-- Terminal Prompt Slash -->
-  <path d="M12 20 L20 28 L12 36" fill="none" stroke="#C8FF3D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- JWT Monogram Text -->
-  <text x="24" y="38" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="-1">JWT</text>
-  <!-- Active Neon Dot -->
-  <circle cx="52" cy="22" r="3" fill="#C8FF3D"/>
+  <defs>
+    <!-- Background Gradient (Deep Ink) -->
+    <linearGradient id="jwtBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181D28"/>
+      <stop offset="100%" stop-color="#0B0D12"/>
+    </linearGradient>
+
+    <!-- Signal Orange Gradient -->
+    <linearGradient id="jwtOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA06E"/>
+      <stop offset="50%" stop-color="#FF6B2C"/>
+      <stop offset="100%" stop-color="#E55315"/>
+    </linearGradient>
+
+    <!-- Electric Emerald / Teal Gradient -->
+    <linearGradient id="jwtTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#55EFC4"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+
+    <!-- Subtle Glow for Brand Depth -->
+    <filter id="jwtGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#FF6B2C" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base Frame -->
+  <rect width="64" height="64" rx="16" fill="url(#jwtBg)"/>
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#2B3242" stroke-width="1.2"/>
+
+  <!-- Left Code Terminal Chevron '<' (Represents Web / Code Rigor) -->
+  <path d="M22 23 L14 31 L22 39" 
+        fill="none" 
+        stroke="url(#jwtTeal)" 
+        stroke-width="3.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+  <!-- Interlocking Bold 'J' Form in Signal Orange (Represents Jhala & Execution) -->
+  <path d="M43 17 L43 37 C43 44.5 37.5 49 30 49 C24 49 19.5 45.5 17.5 41" 
+        fill="none" 
+        stroke="url(#jwtOrange)" 
+        stroke-width="5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        filter="url(#jwtGlow)"/>
+
+  <!-- Precision Origin Node (White Spark) -->
+  <circle cx="43" cy="17" r="3.2" fill="#FFFFFF"/>
 </svg>
