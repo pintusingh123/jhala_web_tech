@@ -8,9 +8,9 @@ export default function Portfolio({ onOpenContact }) {
 
   const filterTabs = [
     { id: 'all', label: 'All Projects' },
-    { id: 'foodtech', label: 'FoodTech & Subscriptions' },
-    { id: 'commerce', label: 'E-Commerce' },
-    { id: 'enterprise', label: 'Enterprise & AI' },
+    { id: 'commerce', label: 'E-Commerce & Garments' },
+    { id: 'auto', label: 'Bike Parts & Auto' },
+    { id: 'foodtech', label: 'FoodTech & Tiffin' },
   ];
 
   const projects = [
@@ -54,30 +54,30 @@ export default function Portfolio({ onOpenContact }) {
       image: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=1000&q=80',
     },
     {
-      id: 'synapse',
-      category: 'enterprise',
-      title: 'Synapse AI Orchestration OS',
-      client: 'Synthetix Global',
-      categoryLabel: 'Agentic AI & Multi-LLM Systems',
-      description: 'Multi-agent reasoning platform that executes deterministic data extraction, automated tool calling, and RAG vector semantic search.',
-      tech: ['Python', 'LangGraph', 'FastAPI', 'OpenAI'],
-      metrics: '70% Workflow Automation • Sub-200ms Latency',
-      highlight: 'Enterprise AI',
-      link: 'https://synapse-ai.jwt.io',
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80',
+      id: 'garments-store',
+      category: 'commerce',
+      title: 'Radhika Garments & Fashion Store',
+      client: 'Radhika Garments & Apparel',
+      categoryLabel: 'Garments & Fashion E-Commerce',
+      description: 'Mobile-first online garments and clothing boutique web platform with interactive catalog browsing, size & fabric filters, festive discount coupons, 1-click Razorpay UPI checkout, and automated WhatsApp order notifications.',
+      tech: ['Next.js', 'React', 'Tailwind CSS', 'Razorpay UPI', 'Node.js'],
+      metrics: '3x Online Orders • 1-Click UPI',
+      highlight: 'Live Garments Store',
+      link: 'https://radhikagarments.jwt.io',
+      image: '/images/garments-showcase.jpg',
     },
     {
-      id: 'kinetic',
-      category: 'enterprise',
-      title: 'Kinetic Trading Engine',
-      client: 'Apex Capital',
-      categoryLabel: 'FinTech & Real-Time WebSockets',
-      description: 'High-frequency algorithmic trading terminal delivering sub-8ms UI render loops, real-time WebSocket market streams, and custom portfolio analytics.',
-      tech: ['React 19', 'WebSockets', 'Go', 'AWS'],
-      metrics: '< 8ms Latency • 50k Ops/sec',
-      highlight: 'FinTech Terminal',
-      link: 'https://kinetic-trading.jwt.io',
-      image: 'https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1000&q=80',
+      id: 'bike-parts-store',
+      category: 'auto',
+      title: 'MotoSpares — Bike Spare Parts Online Store',
+      client: 'MotoSpares Auto Components',
+      categoryLabel: 'Automotive E-Commerce & Bike Spares',
+      description: 'Dedicated online e-commerce marketplace for motorcycle and bike spare parts. Features bike model compatibility search (make, model, year), real-time inventory management, pan-India courier dispatch, and secure digital payments.',
+      tech: ['React 19', 'Next.js', 'PostgreSQL', 'Tailwind CSS', 'Razorpay'],
+      metrics: '5,000+ Spare Parts • Pan-India Delivery',
+      highlight: 'Auto Spare Parts Store',
+      link: 'https://motospares.jwt.io',
+      image: '/images/bikeparts-showcase.jpg',
     },
   ];
 
@@ -102,7 +102,7 @@ export default function Portfolio({ onOpenContact }) {
             <button
               key={tab.id}
               onClick={() => setSelectedFilter(tab.id)}
-              className={`px-3 py-1.5 font-narrow text-xs uppercase tracking-wider font-bold rounded transition-all cursor-pointer ${
+              className={`px-3 py-1.5 font-narrow text-xs uppercase tracking-wider font-bold rounded transition-colors cursor-pointer ${
                 selectedFilter === tab.id
                   ? 'bg-[#FDB345] text-white shadow-xs'
                   : 'text-[#575C62] hover:text-[#333333]'
