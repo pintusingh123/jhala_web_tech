@@ -189,11 +189,11 @@ export default function AppEstimator({ onOpenQuote }) {
               Estimated Investment
             </span>
 
-            <div className="flex items-baseline gap-2 mb-1">
-              <span className="font-head text-3xl sm:text-4xl font-bold text-primary tracking-tight">
+            <div className="flex items-baseline flex-wrap gap-x-2 gap-y-1 mb-1">
+              <span className="font-head text-2xl sm:text-3xl font-bold text-primary tracking-tight whitespace-nowrap">
                 ₹{totalMinPrice.toLocaleString('en-IN')}
               </span>
-              <span className="font-body text-sm text-muted">
+              <span className="font-head text-lg sm:text-xl font-bold text-muted whitespace-nowrap">
                 – ₹{totalMaxPrice.toLocaleString('en-IN')}
               </span>
             </div>

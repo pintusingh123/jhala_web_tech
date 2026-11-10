@@ -26,30 +26,32 @@ export default function PricingCard({
       )}
 
       <div>
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="font-head text-xl font-bold text-primary">
+        <div className="flex justify-between items-start gap-2 mb-2 sm:min-h-[3rem]">
+          <h3 className="font-head text-lg sm:text-xl font-bold text-primary leading-snug">
             {tier.name}
           </h3>
           {!tier.popular && tier.badge && (
-            <Badge variant="neutral" size="sm">
+            <Badge variant="neutral" size="sm" className="shrink-0 text-[10px] sm:text-xs">
               {tier.badge}
             </Badge>
           )}
         </div>
 
-        <p className="font-body text-xs sm:text-sm text-muted leading-relaxed mb-6">
+        <p className="font-body text-xs sm:text-sm text-muted leading-relaxed mb-6 sm:min-h-[3.25rem]">
           {tier.desc}
         </p>
 
         {/* Price Display */}
-        <div className="pb-6 mb-6 border-b border-subtle">
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-mono text-xs font-bold text-muted uppercase">Starting</span>
-            <span className="font-head text-3xl sm:text-4xl font-bold text-primary tracking-tight">
+        <div className="pb-5 mb-6 border-b border-subtle">
+          <span className="font-mono text-[10px] sm:text-xs font-bold text-muted uppercase tracking-wider block mb-1">
+            Starting
+          </span>
+          <div className="flex items-baseline">
+            <span className="font-head text-2xl sm:text-[1.65rem] font-bold text-primary tracking-tight whitespace-nowrap">
               {price}
             </span>
           </div>
-          <span className="font-mono text-[11px] text-muted block mt-1">
+          <span className="font-mono text-[11px] text-muted block mt-1.5">
             {tier.period} &bull; Delivered in {tier.timeline}
           </span>
         </div>
