@@ -31,7 +31,7 @@ export default function DeviceMockup({
       tag: 'Tiffin Food Delivery',
       laptopImg: '/images/jayshreeshyam-showcase.jpg',
       phoneImg: '/images/gharoti-showcase.jpg',
-      url: 'jayshreeshyamtiffin.jwt.io',
+      url: 'jayshreeshamtiffinservice.vercel.app',
       metric: '500+ Daily Meals',
       tech: 'WhatsApp Checkout',
     },

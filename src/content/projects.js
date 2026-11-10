@@ -16,8 +16,8 @@ export const projects = [
     ],
     image: '/images/garments-showcase.jpg',
     featured: true,
-    link: 'https://radhikagarments.jwt.io',
-    isLive: true,
+    link: null,
+    isLive: false,
     quote: {
       text: 'Our customers love how fast they can pick clothes and pay via UPI. Daily orders have tripled since launch!',
       author: 'Pooja Sharma',
@@ -41,8 +41,8 @@ export const projects = [
     ],
     image: '/images/bikeparts-showcase.jpg',
     featured: true,
-    link: 'https://motospares.jwt.io',
-    isLive: true,
+    link: null,
+    isLive: false,
     quote: {
       text: 'The vehicle compatibility search resolved our biggest headache: return requests. Our dispatch runs like clockwork now.',
       author: 'Rajesh Sharma',
