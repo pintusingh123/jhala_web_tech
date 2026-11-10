@@ -1,34 +1,34 @@
 export const faqs = [
   {
-    q: 'How much will our website or mobile app project cost?',
-    a: 'Our starter business websites start from ₹18,000 ($250), full dynamic e-commerce web applications start from ₹45,000 ($600), and custom React Native mobile apps or bespoke CRM systems typically start from ₹85,000 ($1,150). We provide a detailed fixed-price quote with transparent milestones after our initial discovery call—zero hidden hourly fees.',
+    q: 'Website ya Mobile App banwane me kitna kharcha aayega?',
+    a: 'Hamare prices bilkul transparent aur reasonable hain: Static Website ₹15,000 se ₹25,000 ke budget me ban jati hai. Full Dynamic Website ya Online Store ₹30,000 se ₹45,000 me tayyar hoti hai. Aur Mobile Applications (Android & iPhone) ₹30,000 se start hote hain (aapke features ke hisaab se). Pehle call me requirement samajhne ke baad hum fixed price written quote dete hain — baad me koi extra charge nahi lagta.',
   },
   {
-    q: 'How fast can you launch our first version (MVP)?',
-    a: 'Standard business websites launch within 7 to 14 days. Full-featured e-commerce platforms and custom React Native apps typically take 3 to 6 weeks. We work in structured 1–2 week sprints and provide live test links every week so you see continuous progress.',
+    q: 'Project banne me kitna samay lagega?',
+    a: 'Normal business website 7 se 14 din me launch ho jati hai. Dynamic online store 2 se 3 hafte me aur mobile applications lagbhag 3 se 5 hafte me launch ho jate hain. Har hafte hum aapko live demo link dete hain taaki aap apne phone par real progress dekh sakein.',
   },
   {
-    q: 'Do you build apps for both Android and iOS?',
-    a: 'Yes. We build cross-platform mobile apps exclusively using React Native. This allows us to write a single clean, high-performance codebase that runs natively on both Apple iPhones and Android devices with 60fps gesture smoothness, cutting your development and maintenance costs by almost half.',
+    q: 'Kya mobile app Android aur iPhone dono me chalegi?',
+    a: 'Haan! Hum React Native technology use karte hain jisse ek hi development me aapki app Google Play Store (Android) aur Apple App Store (iPhone) dono par smoothly chalti hai. Isse aapka lagbhag 40% kharcha bach jata hai.',
   },
   {
-    q: 'Do we own 100% of the source code and design assets?',
-    a: 'Yes, completely. You own every line of code, database schema, design asset, and cloud configuration from day one. Upon final milestone completion, full repository ownership is transferred directly to your GitHub/cloud accounts. No vendor lock-in ever.',
+    q: 'Kya website aur app ka poora control hamare paas rahega?',
+    a: 'Haan, 100% poora ownership aapka hoga. Website ka domain, hosting, database, source code aur admin password sab kuch launch ke baad aapko handover kiya jata hai. Aapka data aur software hamesha aapke control me rehta hai.',
   },
   {
-    q: 'What stack do you use for web, backends, and databases?',
-    a: 'For websites and frontends, we use HTML5, CSS3, modern JavaScript, React.js Single Page Applications, and Next.js 15. For backends, we specialize in Node.js (Express), Django (Python), and Firebase. For data storage, we configure PostgreSQL, MongoDB, and Redis.',
+    q: 'Kya hum baad me khud photos aur rate change kar payenge?',
+    a: 'Ji bilkul! Dynamic website aur mobile app ke sath hum ek aasan Admin Panel dete hain. Aap apne mobile ya laptop se kabhi bhi naye products/services jod sakte hain, photo badal sakte hain aur rate update kar sakte hain. Iske liye kisi technical knowledge ki zaroorat nahi hoti.',
   },
   {
-    q: 'How are project payments structured?',
-    a: 'We use milestone-based payments tied directly to verified deliverables: typically 30% advance on project kickoff, 40% upon staging demo approval, and the remaining 30% upon final production deployment and code transfer. We accept UPI, NEFT/IMPS, and international wire/cards.',
+    q: 'Payment kaise karni hoti hai?',
+    a: 'Payment hum aasan milestone me lete hain: 30% advance project start hone par, 40% jab hum aapko working demo dikhate hain, aur baki 30% jab aapki website/app live ho jati hai aur aap poori tarah satisfied hote hain. Hum UPI, PhonePe, Google Pay, Bank Transfer aur Cards sab accept karte hain.',
   },
   {
-    q: 'How do we communicate during development?',
-    a: 'You collaborate directly with senior developers via a dedicated WhatsApp group and weekly Google Meet / phone check-ins. Every Friday, you receive a live staging URL to click and test on your own device.',
+    q: 'Kaam ke dauran aapse baat kaise hogi?',
+    a: 'Aapki direct baat hamare senior developers (Pintu Jhala aur Abhay Prajapati) se direct phone call aur dedicated WhatsApp group par hoti hai. Koi middleman ya sales agent nahi hota — jo coder aapka kaam kar raha hai, wahi aapse baat karega.',
   },
   {
-    q: 'What post-launch warranty and support do you provide?',
-    a: 'Every project includes 30 days of free post-launch support covering any bug resolution, server configuration, and minor text/image updates. After 30 days, we offer affordable monthly maintenance plans with 24/7 SLA uptime monitoring.',
+    q: 'Website launch hone ke baad agar koi problem aayi toh?',
+    a: 'Har project ke sath hum 30 din ka FREE technical support aur warranty dete hain. Launch ke baad koi bhi issue aane par ya chhota-mota change hone par hum turant solve karke dete hain bina kisi extra charge ke.',
   },
 ];

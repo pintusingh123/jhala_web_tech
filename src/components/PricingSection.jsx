@@ -12,10 +12,10 @@ export default function PricingSection({ onOpenContact }) {
   return (
     <Section
       id="pricing"
-      eyebrow="TRANSPARENT PACKAGES &amp; INVESTMENT"
-      title="Clear pricing with zero"
-      highlightWord="hidden surprises."
-      subtitle="Choose a package that fits your stage, or calculate your custom mobile app &amp; platform scope below. All projects include direct developer access and 30-day post-launch warranty."
+      eyebrow="TRANSPARENT PRICING &amp; PACKAGES"
+      title="Simple, affordable packages with zero"
+      highlightWord="hidden costs."
+      subtitle="Static websites at ₹15k–₹25k, dynamic web stores at ₹30k–₹45k, and mobile apps starting from ₹30k. Honest pricing and free 30-day technical support."
       align="center"
     >
       {/* Currency Switcher Toggle (INR / USD) */}
@@ -61,7 +61,7 @@ export default function PricingSection({ onOpenContact }) {
 
       {/* Footnote */}
       <p className="font-mono text-xs text-muted text-center max-w-xl mx-auto mb-14">
-        * Final price confirmed in writing after free discovery call. Standard 30/40/30 milestone payment structure.
+        * Har project ka exact fixed price written proposal me confirm hota hai. Payment simple 30/40/30 milestone basis par hoti hai.
       </p>
 
       {/* Interactive App Development Timeline & Cost Estimator (Section 13) */}

@@ -15,8 +15,8 @@ export default function ContactPage() {
     name: '',
     email: '',
     phone: '',
-    projectType: 'React Native Mobile App',
-    budget: '₹45k – ₹1.2L',
+    projectType: 'Static Website (₹15k – ₹25k)',
+    budget: '₹15,000 – ₹25,000 (Static Website)',
     message: '',
     honeypot: '', // spam prevention trap
   });
@@ -59,11 +59,11 @@ export default function ContactPage() {
         <div className="max-w-3xl mb-12">
           <Eyebrow>START YOUR PROJECT</Eyebrow>
           <h1 className="font-head text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight leading-[1.15] mb-4">
-            Get a fixed-price technical quote{' '}
+            Get a fixed-price quote{' '}
             <span className="text-[#FF6B2C]">in 24 hours.</span>
           </h1>
           <p className="font-body text-base text-muted leading-relaxed">
-            Tell us what you want to build. We will review your requirements, assess technical feasibility, and send a detailed milestone estimate. No spam, no sales push.
+            Tell us about your project requirements. We will give you a clear, honest fixed-price estimate and timeline with zero sales pressure.
           </p>
         </div>
 
@@ -163,12 +163,12 @@ export default function ContactPage() {
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                         className="w-full px-4 py-3 rounded-lg border border-subtle bg-surface-2 text-primary font-body text-sm focus:border-[#FF6B2C] outline-none transition-colors cursor-pointer"
                       >
-                        <option value="React Native Mobile App">React Native Mobile App (iOS &amp; Android)</option>
-                        <option value="Website / Web App Development">Website / Single Page App (React/Next.js)</option>
-                        <option value="E-Commerce Storefront">E-Commerce Storefront &amp; Payments</option>
-                        <option value="Custom CRM / CMS Platform">Custom CRM / CMS Software Platform</option>
-                        <option value="Backend APIs & Node/Django">Backend APIs (Node.js / Django / Firebase)</option>
-                        <option value="UI/UX Product Design">UI/UX Design &amp; Figma Prototype</option>
+                        <option value="Static Website (₹15k – ₹25k)">Static Website (₹15,000 – ₹25,000)</option>
+                        <option value="Dynamic Website & Store (₹30k – ₹45k)">Dynamic Website &amp; Online Store (₹30,000 – ₹45,000)</option>
+                        <option value="Mobile App (Starts ₹30k)">Mobile App - Android &amp; iOS (Starts ₹30,000)</option>
+                        <option value="Custom CRM & Business Software">Custom CRM &amp; Business Software</option>
+                        <option value="Website Redesign & Speed Optimization">Website Redesign &amp; Speed Optimization</option>
+                        <option value="UI/UX Product Design">UI/UX Design &amp; Prototype Preview</option>
                       </select>
                     </div>
 
@@ -182,10 +182,11 @@ export default function ContactPage() {
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                         className="w-full px-4 py-3 rounded-lg border border-subtle bg-surface-2 text-primary font-body text-sm focus:border-[#FF6B2C] outline-none transition-colors cursor-pointer"
                       >
-                        <option value="₹18k – ₹45k (Starter Website)">₹18,000 – ₹45,000 (Starter)</option>
-                        <option value="₹45k – ₹1.2L (Business Web/App)">₹45,000 – ₹1,20,000 (Business)</option>
-                        <option value="₹1.2L – ₹3L (Custom App/CRM)">₹1,20,000 – ₹3,00,000 (Custom Platform)</option>
-                        <option value="₹3L+ (Enterprise Architecture)">₹3,00,000+ (Enterprise)</option>
+                        <option value="₹15,000 – ₹25,000 (Static Website)">₹15,000 – ₹25,000 (Static Website)</option>
+                        <option value="₹30,000 – ₹45,000 (Dynamic Website / Store)">₹30,000 – ₹45,000 (Dynamic Website / Store)</option>
+                        <option value="₹30,000 – ₹60,000 (Mobile App - iOS & Android)">₹30,000 – ₹60,000 (Mobile App)</option>
+                        <option value="₹60,000 – ₹1,20,000 (Mobile App + Web Store)">₹60,000 – ₹1,20,000 (Mobile App + Web Store)</option>
+                        <option value="₹1,20,000+ (Custom Software / CRM)">₹1,20,000+ (Custom Software / CRM)</option>
                       </select>
                     </div>
                   </div>
@@ -231,10 +232,10 @@ export default function ContactPage() {
                 FAST TRACK CONSULTATION
               </span>
               <h3 className="font-head text-xl font-bold text-primary mb-3">
-                Need an immediate answer?
+                Need quick advice?
               </h3>
               <p className="font-body text-xs sm:text-sm text-muted leading-relaxed mb-6">
-                Our lead developers Pintu and Abhay are accessible directly via WhatsApp for quick architectural questions and project feasibility checks.
+                Our lead developers Pintu and Abhay are directly available on WhatsApp to answer your questions, discuss feasibility, and give free quotes.
               </p>
 
               <div className="space-y-3">

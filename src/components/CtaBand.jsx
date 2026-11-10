@@ -20,11 +20,11 @@ export default function CtaBand() {
         </span>
 
         <h2 className="font-head text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight leading-[1.15] mb-4">
-          Have an idea? Let's talk.
+          Have a project in mind? Let's talk.
         </h2>
 
         <p className="font-body text-sm sm:text-base text-muted leading-relaxed mb-8 max-w-xl mx-auto">
-          Get a detailed, fixed-price proposal and architecture blueprint within 24 hours. No obligation, no spam.
+          Get a clear, fixed-price proposal and timeline within 24 hours. Free consultation with direct developer guidance and zero obligation.
         </p>
 
         {/* Primary Action Button Cluster */}

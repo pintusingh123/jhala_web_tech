@@ -26,7 +26,7 @@ export default function Footer() {
             </Link>
 
             <p className="font-body text-xs text-muted leading-relaxed mb-5 max-w-sm">
-              Engineering-led web and React Native mobile app development studio based in Rajasthan, India. We ship fast, reliable, revenue-generating software for startups and ambitious businesses worldwide.
+              Web and React Native mobile app development agency based in Rajasthan, India. We build fast, reliable websites and apps with transparent pricing and direct developer support.
             </p>
 
             <div className="flex items-center gap-2.5">

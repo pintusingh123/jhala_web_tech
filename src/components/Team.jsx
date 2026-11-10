@@ -10,12 +10,12 @@ export default function Team() {
   const members = [
     {
       name: 'Abhay Prajapati',
-      role: 'Lead Full-Stack Engineer & React Specialist',
-      tag: 'LEAD ENGINEER',
+      role: 'Lead Web Developer & React Specialist',
+      tag: 'LEAD WEB DEVELOPER',
       image: '/images/abhay.png',
       whatsapp: '9509123636',
       phone: null,
-      desc: 'Specializes in high-velocity full-stack web and React applications. Expert in responsive React 19 interfaces, secure Node.js APIs, and scalable MongoDB/PostgreSQL architectures with a passion for clean, maintainable UI.',
+      desc: 'Expert in building super-fast websites, dynamic online stores, and clean user interfaces. Specializes in Next.js, React, Node.js, and creating mobile-responsive designs that convert visitors into paying customers.',
       skills: [
         'React.js',
         'Next.js 15',
@@ -29,12 +29,12 @@ export default function Team() {
     },
     {
       name: 'Pintu Jhala',
-      role: 'Principal Software Architect & Full-Stack Engineer',
-      tag: 'LEAD ARCHITECT',
+      role: 'Lead Mobile App Developer & Architect',
+      tag: 'LEAD APP DEVELOPER',
       image: '/images/pintu.png',
       whatsapp: '8003642596',
       phone: '8441992003',
-      desc: 'Architects end-to-end cloud platforms, React Native mobile apps, microservices, and bespoke software solutions. Expert in Python, Django, FastAPI, React.js, PostgreSQL, and system security with an emphasis on production resilience.',
+      desc: 'Specializes in custom mobile applications for Android & iPhone (React Native), instant UPI payment integrations, cloud databases, and custom business management software (CRM) designed to automate daily operations.',
       skills: [
         'React Native (iOS & Android)',
         'Full-Stack Architecture',
@@ -58,10 +58,10 @@ export default function Team() {
   return (
     <Section
       id="team"
-      eyebrow="SENIOR ENGINEERING TEAM"
-      title="Meet the engineers behind"
-      highlightWord="your product."
-      subtitle="We believe in radical engineering transparency. You collaborate directly with the senior full-stack architects designing and building your product."
+      eyebrow="OUR CORE TEAM"
+      title="Meet the developers behind"
+      highlightWord="your project."
+      subtitle="Direct developer communication. You talk directly with the developers building your website and mobile app — no account managers or sales runaround."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
         {members.map((member) => (

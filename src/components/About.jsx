@@ -7,23 +7,23 @@ export default function About() {
   const principles = [
     {
       icon: Code2,
-      title: 'Architectural Rigor',
-      desc: 'We write clean, modular, and mathematically structured code designed for long-term maintainability and zero technical debt.',
+      title: 'Clean & High-Quality Code',
+      desc: 'We write clean, well-tested code that runs smoothly without bugs, so your website or app works reliably for years.',
     },
     {
       icon: Zap,
-      title: 'Relentless Execution Speed',
-      desc: 'Zero bloated dependencies. Optimized execution loops, minimal bundle payloads, and blazing-fast sub-second render cycles.',
+      title: 'Lightning-Fast Mobile Speed',
+      desc: 'Websites and apps that open instantly even on slow mobile data. No long loading times, no lag, maximum customer retention.',
     },
     {
       icon: ShieldCheck,
-      title: 'Production Resilience',
-      desc: 'Fail-safe architectures with end-to-end monitoring, automated CI/CD pipelines, and guaranteed 99.99% uptime SLAs.',
+      title: 'Secure & Always Online',
+      desc: 'Safe payments, daily cloud backups, and high uptime so your website or mobile app never goes down when customers visit.',
     },
     {
       icon: Cpu,
-      title: 'Direct Senior Access',
-      desc: 'You communicate directly with the lead software architects designing your database and shipping your features.',
+      title: 'Direct Developer Access',
+      desc: 'You communicate directly with the developers writing your code via WhatsApp and call. Zero middlemen, zero miscommunication.',
     },
   ];
 
@@ -31,9 +31,9 @@ export default function About() {
     <Section
       id="about"
       eyebrow="ABOUT JHALAWEBTECH"
-      title="Engineering software with"
-      highlightWord="passion & precision."
-      subtitle="JhalaWebTech (JWT) is a digital engineering studio based in Rajasthan, India. We engineer custom websites, React Native mobile apps, and scalable business backends for ambitious companies worldwide."
+      title="Building digital solutions with"
+      highlightWord="care & commitment."
+      subtitle="JhalaWebTech is a web and mobile app development agency based in Rajasthan, India. We build fast business websites, iOS/Android mobile apps, and custom software that help your business grow."
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 items-stretch">
         {/* Left Manifesto Card (5 cols) */}
@@ -41,19 +41,19 @@ export default function About() {
           <Card className="h-full p-6 sm:p-8 bg-surface flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Badge variant="accent">Our Agency Philosophy</Badge>
+                <Badge variant="accent">Our Promise to You</Badge>
               </div>
 
               <h3 className="font-head text-2xl sm:text-3xl font-bold text-primary leading-snug mb-4">
-                "We don't build disposable prototypes. We engineer digital infrastructure that powers business longevity."
+                "We don't just deliver websites or apps — we build digital tools that bring real customers and revenue to your business."
               </h3>
 
               <p className="font-body text-xs sm:text-sm text-muted leading-relaxed mb-4">
-                Founded on the belief that software should be robust, fast, and transparently delivered, JhalaWebTech bridges high-fidelity UI design with deep full-stack backend and mobile capability.
+                Founded on the belief that digital technology should be affordable, fast, and transparent, JhalaWebTech gives business owners premium web and mobile app solutions at honest prices.
               </p>
 
               <p className="font-body text-xs sm:text-sm text-muted leading-relaxed">
-                Whether deploying a React Native app for iOS &amp; Android, automating internal workflows with a bespoke CRM, or designing an e-commerce platform, we treat every project like our own flagship product.
+                Whether you need a simple 5-page business website, a complete online store with UPI payments, or a custom mobile application, we treat your project with personal care and commitment.
               </p>
             </div>
 

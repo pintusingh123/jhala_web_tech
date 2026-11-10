@@ -29,9 +29,9 @@ export default function Services({ onSelectService }) {
     <Section
       id="services"
       eyebrow="WHAT WE BUILD FOR YOU"
-      title="Engineering solutions built for"
-      highlightWord="measurable growth."
-      subtitle="We take your product from architecture and interactive prototypes to live deployment, with weekly checkpoints, transparent pricing, and zero vendor lock-in."
+      title="Websites and apps crafted to"
+      highlightWord="grow your business."
+      subtitle="From simple business websites to full online stores and mobile apps — transparent fixed pricing, live weekly updates on your phone, and direct developer support."
     >
       <BentoGrid>
         {services.map((service) => {

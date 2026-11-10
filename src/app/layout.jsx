@@ -29,7 +29,7 @@ export const metadata = {
     template: '%s | JhalaWebTech',
   },
   description:
-    'Custom websites and React Native mobile apps that turn visitors into customers. Engineering-led development, clear pricing, weekly demos, launch in weeks.',
+    'Custom websites starting from ₹15k and mobile apps starting from ₹30k. Fast development, transparent fixed pricing, weekly live demos, and launch in weeks.',
   keywords: [
     'website development company in Rajasthan',
     'mobile app development India',
@@ -78,12 +78,12 @@ export default function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'JhalaWebTech',
-    legalName: 'JhalaWebTech Engineering Studio',
+    legalName: 'JhalaWebTech Software Agency',
     url: 'https://jhalawebtech.vercel.app',
     logo: 'https://jhalawebtech.vercel.app/images/logo.svg',
     image: 'https://jhalawebtech.vercel.app/images/logo.svg',
     description:
-      'Custom web and React Native mobile app development studio based in Rajasthan, India. Engineering revenue-generating digital products for startups and enterprises.',
+      'Custom website and React Native mobile app development agency based in Rajasthan, India. Websites from ₹15k, mobile apps from ₹30k with transparent fixed pricing and weekly demos.',
     telephone: '+91-8441992003',
     email: 'info@jhalawebtech.com',
     priceRange: '₹₹ - ₹₹₹',

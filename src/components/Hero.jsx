@@ -20,10 +20,10 @@ export default function Hero({ onExploreWork }) {
           
           {/* Left Column (7 cols): Strong Typography & Concrete Value Proposition */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            {/* Section Eyebrow (Section 4.C & 7) */}
-            <Eyebrow>WEB &bull; REACT NATIVE &bull; CRM &bull; CLOUD</Eyebrow>
+            {/* Section Eyebrow */}
+            <Eyebrow>WEBSITES FROM ₹15,000 &bull; APPS FROM ₹30,000</Eyebrow>
 
-            {/* Specific H1 Headline (Section 4.C: Outcome + Speed) */}
+            {/* Specific H1 Headline */}
             <h1 className="font-head text-3xl sm:text-5xl lg:text-[3.4rem] font-bold tracking-tight text-primary leading-[1.12] mb-5">
               Websites and mobile apps that{' '}
               <span className="text-[#FF6B2C] inline-block">
@@ -31,9 +31,9 @@ export default function Hero({ onExploreWork }) {
               </span>
             </h1>
 
-            {/* 1–2 Line Subtitle (Section 4.C) */}
+            {/* 1–2 Line Subtitle */}
             <p className="font-body text-base sm:text-lg text-muted leading-relaxed max-w-2xl mb-8">
-              Custom web &amp; React Native app development for startups and growing businesses. Clear fixed-price quotes, weekly live demos, launch in 4 to 6 weeks.
+              High-speed websites (₹15k–₹45k) and custom Android &amp; iOS mobile apps (starting from ₹30k). Honest fixed pricing, weekly live demos on your phone, and direct WhatsApp support.
             </p>
 
             {/* CTAs: Primary "Get a free quote" · Secondary "See our work" */}

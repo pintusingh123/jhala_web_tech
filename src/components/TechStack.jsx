@@ -19,40 +19,40 @@ export default function TechStack() {
 
   const stackData = {
     mobile: [
-      { name: 'React Native', role: 'Primary cross-platform framework for iOS & Android', tag: 'Core Mobile' },
-      { name: 'React Native CLI & Expo', role: 'Rapid development, device testing & build toolchain', tag: 'Toolchain' },
-      { name: 'Firebase Mobile SDK', role: 'Push notifications, crashlytics & offline cache sync', tag: 'Cloud' },
-      { name: 'Razorpay UPI Mobile SDK', role: 'Native UPI, card, and netbanking checkout inside mobile apps', tag: 'Payments' },
-      { name: 'Google Play Console', role: 'AAB build signing, internal testing & live store deployment', tag: 'Release' },
-      { name: 'Apple App Store / TestFlight', role: 'iOS bundle submission & TestFlight beta distribution', tag: 'Release' },
+      { name: 'React Native', role: 'One codebase for both Android and iPhone (iOS)', tag: 'Core Mobile' },
+      { name: 'React Native CLI & Expo', role: 'Fast app building, smooth animations & real-device testing', tag: 'Toolchain' },
+      { name: 'Firebase Mobile SDK', role: 'Instant push notifications and automatic offline sync', tag: 'Cloud' },
+      { name: 'UPI & Payment Gateways', role: 'Direct PhonePe, Google Pay, Paytm & card payments in app', tag: 'Payments' },
+      { name: 'Google Play Store', role: 'Complete testing and publishing support on Android Play Store', tag: 'Release' },
+      { name: 'Apple App Store', role: 'iOS publishing and TestFlight preview distribution', tag: 'Release' },
     ],
     frontend: [
-      { name: 'React.js SPAs', role: 'Dynamic Single Page Applications with fast client routing', tag: 'Core' },
-      { name: 'Next.js 15', role: 'Server-side rendering (SSR), edge caching & optimal SEO', tag: 'Core' },
-      { name: 'HTML5, CSS3 & JavaScript', role: 'Semantic markup, accessible structures adhering to WCAG', tag: 'Foundation' },
-      { name: 'Tailwind CSS v4', role: 'Utility-first modern styling with zero runtime bloat', tag: 'Styling' },
-      { name: 'TypeScript', role: 'Strict static type contracts across frontend and API layers', tag: 'Type Safety' },
-      { name: 'Vite', role: 'Sub-second Hot Module Replacement and production bundling', tag: 'Bundler' },
+      { name: 'React.js', role: 'Fast, interactive web applications with instant page transitions', tag: 'Core Web' },
+      { name: 'Next.js 15', role: 'Top Google search ranking (SEO) and lightning-fast loading', tag: 'Core Web' },
+      { name: 'HTML5 & CSS3', role: 'Clean, standard web code that looks great on every screen', tag: 'Foundation' },
+      { name: 'Tailwind CSS', role: 'Modern, clean styling without bloated files or slow speeds', tag: 'Styling' },
+      { name: 'JavaScript & TypeScript', role: 'Error-free, reliable code quality for smooth operations', tag: 'Reliability' },
+      { name: 'Modern Build Tools', role: 'Optimized files so customer websites load in under 1 second', tag: 'Performance' },
     ],
     backend: [
-      { name: 'Node.js & Express', role: 'Event-driven high-concurrency microservices and REST APIs', tag: 'Core' },
-      { name: 'Django (Python)', role: 'Robust enterprise Python framework with ORM & admin dashboard', tag: 'Core' },
-      { name: 'Firebase Cloud Functions', role: 'Serverless backend logic, webhooks, and background jobs', tag: 'Serverless' },
-      { name: 'Custom CRM Architecture', role: 'Lead pipelines, user roles, audit trails & permissions', tag: 'Custom CRM' },
-      { name: 'Custom CMS Systems', role: 'Dynamic content editing portals for blogs & catalogs', tag: 'Custom CMS' },
-      { name: 'WebSockets', role: 'Live bidirectional streaming for real-time tracking & chat', tag: 'Real-time' },
+      { name: 'Node.js & Express', role: 'High-speed servers that can handle thousands of users smoothly', tag: 'Server' },
+      { name: 'Python & Django', role: 'Rock-solid security, powerful admin dashboards, and database controls', tag: 'Server' },
+      { name: 'Firebase Cloud Functions', role: 'Automatic background tasks, email alerts, and webhook sync', tag: 'Cloud Tasks' },
+      { name: 'Custom CRM Architecture', role: 'Lead management, customer orders, staff permissions & billing', tag: 'Custom CRM' },
+      { name: 'Admin Dashboards (CMS)', role: 'Easy photo upload, product editing, and rate changing from phone', tag: 'Admin Panel' },
+      { name: 'Live WebSockets', role: 'Real-time order status tracking and instant chat updates', tag: 'Live Updates' },
     ],
     database: [
-      { name: 'PostgreSQL', role: 'ACID-compliant relational database for transactional integrity', tag: 'Primary SQL' },
-      { name: 'Firebase Firestore', role: 'Document database with real-time multi-device synchronization', tag: 'Real-time NoSQL' },
-      { name: 'MongoDB', role: 'High-throughput document store for flexible schema needs', tag: 'NoSQL' },
-      { name: 'Redis', role: 'In-memory caching and session store for sub-5ms responses', tag: 'Cache' },
+      { name: 'PostgreSQL', role: 'Ultra-safe, tamper-proof database for payment and customer orders', tag: 'Secure SQL' },
+      { name: 'Firebase Firestore', role: 'Real-time database that instantly syncs between app and website', tag: 'Real-Time' },
+      { name: 'MongoDB', role: 'Fast and flexible database for products, users, and catalogs', tag: 'Database' },
+      { name: 'Redis Cache', role: 'High-speed caching memory so popular pages open in milliseconds', tag: 'Speed Cache' },
     ],
     cloud: [
-      { name: 'Vercel Edge', role: 'Global edge deployment with automated CI/CD previews', tag: 'Web Hosting' },
-      { name: 'AWS (EC2, S3, RDS)', role: 'Scalable cloud computing, asset buckets, and database hosting', tag: 'Cloud' },
-      { name: 'Docker Containers', role: 'Isolated reproducible runtime environments for zero-drift deploys', tag: 'DevOps' },
-      { name: 'GitHub Actions', role: 'Automated test runners, linting checks, and staging pipelines', tag: 'CI/CD' },
+      { name: 'Vercel Edge Hosting', role: 'Fast global hosting ensuring your website opens instantly anywhere', tag: 'Fast Hosting' },
+      { name: 'AWS Cloud Hosting', role: 'Safe cloud servers, unlimited media storage, and automatic backups', tag: 'Cloud' },
+      { name: 'Docker Containers', role: 'Safe isolated server environment ensuring 99.9% uptime', tag: 'Uptime' },
+      { name: 'Automated Quality Checks', role: 'Automatic testing before every release to prevent bugs', tag: 'Zero Bugs' },
     ],
   };
 
@@ -60,9 +60,9 @@ export default function TechStack() {
     <Section
       id="tech-stack"
       eyebrow="TECHNOLOGIES WE MASTER"
-      title="Battle-tested, modern engineering"
-      highlightWord="frameworks."
-      subtitle="We choose frameworks with strong long-term maintenance records, zero proprietary vendor traps, and high community support."
+      title="Reliable, industry-standard modern"
+      highlightWord="technologies."
+      subtitle="We choose proven, world-class technologies that keep your website and app fast, secure, and easy to maintain."
     >
       {/* Category Tab Switcher */}
       <div className="flex flex-wrap gap-2 mb-8 p-1.5 rounded-xl border border-subtle bg-surface w-fit">

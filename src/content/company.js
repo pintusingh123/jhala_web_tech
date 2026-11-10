@@ -1,8 +1,8 @@
 export const company = {
   name: 'JhalaWebTech',
   legalName: 'JhalaWebTech Software Agency',
-  tagline: 'Websites and mobile apps that turn visitors into customers.',
-  subtagline: 'Custom web & app development for startups and growing businesses. Clear pricing, weekly demos, launch in weeks.',
+  tagline: 'Fast websites from ₹15,000 & Mobile Apps from ₹30,000.',
+  subtagline: 'Affordable websites & React Native mobile apps for businesses and startups. Fixed-price quotes, weekly live progress, launch in 2 to 4 weeks.',
   location: 'Rajasthan, India (Serving Global Clients)',
   state: 'Rajasthan',
   country: 'India',
