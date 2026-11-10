@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import { Smartphone, Laptop, Server, Database, Cloud } from 'lucide-react';
 import Section from './ui/Section';
-import Card from './ui/Card';
-import Badge from './ui/Badge';
 
 export default function TechStack() {
   const [activeGroup, setActiveGroup] = useState('mobile');
@@ -63,53 +61,53 @@ export default function TechStack() {
       title="Reliable, industry-standard modern"
       highlightWord="technologies."
       subtitle="We choose proven, world-class technologies that keep your website and app fast, secure, and easy to maintain."
+      headerRight={
+        <div className="flex flex-wrap gap-1.5 p-1 rounded-xl border border-subtle bg-surface shadow-2xs">
+          {groups.map((g) => {
+            const Icon = g.icon;
+            const isActive = activeGroup === g.id;
+
+            return (
+              <button
+                type="button"
+                key={g.id}
+                onClick={() => setActiveGroup(g.id)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-bold transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-[#FF6B2C] text-white shadow-2xs'
+                    : 'text-muted hover:text-primary hover:bg-surface-2'
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                <span>{g.label.split(' ')[0]}</span>
+              </button>
+            );
+          })}
+        </div>
+      }
     >
-      {/* Category Tab Switcher */}
-      <div className="flex flex-wrap gap-2 mb-8 p-1.5 rounded-xl border border-subtle bg-surface w-fit">
-        {groups.map((g) => {
-          const Icon = g.icon;
-          const isActive = activeGroup === g.id;
-
-          return (
-            <button
-              type="button"
-              key={g.id}
-              onClick={() => setActiveGroup(g.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-head text-xs sm:text-sm font-bold tracking-tight transition-all cursor-pointer ${
-                isActive
-                  ? 'bg-[#FF6B2C] text-white shadow-2xs'
-                  : 'text-muted hover:text-primary hover:bg-surface-2'
-              }`}
-            >
-              <Icon className="w-4 h-4" />
-              <span>{g.label}</span>
-            </button>
-          );
-        })}
-      </div>
-
       {/* Tech Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {stackData[activeGroup].map((tech) => (
-          <Card
+          <div
             key={tech.name}
-            className="p-5 bg-surface hover:border-[#FF6B2C]/50 transition-colors flex flex-col justify-between"
+            className="p-5 sm:p-6 bg-surface rounded-2xl border border-subtle hover:border-[#FF6B2C]/40 transition-all duration-300 flex flex-col justify-between group shadow-2xs"
           >
             <div>
-              <div className="flex justify-between items-start gap-2 mb-2">
-                <h4 className="font-head text-base sm:text-lg font-bold text-primary">
+              <div className="flex justify-between items-start gap-2 mb-2.5">
+                <h4 className="font-head text-base sm:text-lg font-bold text-primary group-hover:text-[#FF6B2C] transition-colors">
                   {tech.name}
                 </h4>
-                <Badge variant="neutral" size="sm">
+                <span className="font-mono text-[10px] uppercase font-bold text-muted bg-surface-2 px-2 py-0.5 rounded border border-subtle">
                   {tech.tag}
-                </Badge>
+                </span>
               </div>
 
-              <p className="font-body text-xs text-muted leading-relaxed">
+              <p className="font-body text-xs sm:text-sm text-muted leading-relaxed">
                 {tech.role}
               </p>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </Section>

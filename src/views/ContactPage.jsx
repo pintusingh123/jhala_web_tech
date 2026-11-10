@@ -139,15 +139,14 @@ export default function ContactPage() {
 
                   <div>
                     <label htmlFor="contact-email" className="block font-mono text-xs uppercase font-bold text-primary mb-1.5">
-                      Email Address *
+                      Email Address <span className="text-muted font-normal lowercase">(optional)</span>
                     </label>
                     <input
                       id="contact-email"
                       type="email"
-                      required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="e.g. ramesh@company.com"
+                      placeholder="e.g. name@gmail.com (optional)"
                       className="w-full px-4 py-3 rounded-lg border border-subtle bg-surface-2 text-primary font-body text-sm focus:border-[#FF6B2C] outline-none transition-colors"
                     />
                   </div>

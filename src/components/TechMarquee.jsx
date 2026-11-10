@@ -3,27 +3,26 @@ import Container from './ui/Container';
 
 export default function TechMarquee() {
   const techLogos = [
+    { name: 'PhonePe & Google Pay UPI' },
+    { name: 'WhatsApp Business API' },
+    { name: 'Google Search (SEO Ready)' },
+    { name: 'Google Play Store' },
+    { name: 'Apple App Store' },
     { name: 'React Native (iOS & Android)' },
-    { name: 'Next.js 15' },
-    { name: 'React.js SPAs' },
+    { name: 'Next.js (Instant Loading)' },
+    { name: 'Razorpay Payment Gateway' },
     { name: 'Node.js & Express' },
-    { name: 'Django (Python)' },
-    { name: 'Firebase' },
-    { name: 'PostgreSQL' },
+    { name: 'Secure Cloud Database' },
     { name: 'Tailwind CSS' },
-    { name: 'TypeScript' },
-    { name: 'Razorpay UPI' },
-    { name: 'WhatsApp Cloud API' },
-    { name: 'AWS Cloud' },
-    { name: 'Vercel Edge' },
+    { name: 'AWS Cloud Hosting' },
   ];
 
   return (
-    <div className="w-full py-6 sm:py-8 border-y border-subtle bg-surface/50">
+    <div className="w-full py-4 sm:py-5 border-y border-subtle bg-surface/50">
       <Container>
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
           <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-muted shrink-0">
-            ENGINEERED WITH
+            TRUSTED &amp; SECURE TECH
           </span>
           <div className="w-full overflow-hidden">
             <Marquee items={techLogos} speed="40s" pauseOnHover={true} />

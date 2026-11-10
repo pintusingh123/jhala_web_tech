@@ -15,7 +15,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-surface border-t border-subtle pt-14 pb-8 sm:pt-16 sm:pb-10 font-body text-muted text-xs sm:text-sm">
+    <footer className="w-full bg-surface border-t border-subtle pt-10 pb-6 sm:pt-12 sm:pb-8 font-body text-muted text-xs sm:text-sm">
       <Container>
         {/* 4 Columns Grid (Section 4.Q) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-subtle">

@@ -67,7 +67,7 @@ export default function Navbar() {
           <div className="w-full flex items-center justify-center gap-1.5 sm:gap-2 text-center truncate">
             <span className="w-2 h-2 rounded-full bg-[#3DD9B0] animate-pulse shrink-0" />
             <span className="truncate text-[11px] sm:text-xs">
-              Now booking for <strong className="text-[#FF6B2C]">{currentMonth}</strong> <span className="hidden xs:inline">&bull; Free discovery call</span>
+              Now booking for <strong className="text-[#FF6B2C]">{currentMonth}</strong> <span className="hidden xs:inline">&bull; Free WhatsApp &amp; Phone Consultation</span>
             </span>
           </div>
           <button
@@ -89,7 +89,7 @@ export default function Navbar() {
             : 'bg-page/80 backdrop-blur-xs py-3 sm:py-4 border-b border-transparent'
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-4">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex items-center justify-between gap-3 sm:gap-4">
           {/* Left: Brand Logo (Wordmark + Mark) */}
           <Link
             href="/"

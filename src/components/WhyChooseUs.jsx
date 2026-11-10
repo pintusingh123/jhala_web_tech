@@ -45,22 +45,25 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Right Stacked Numbers List (7 cols) */}
-        <div className="lg:col-span-7 space-y-4 sm:space-y-5">
+        <div className="lg:col-span-7 space-y-4">
           {differentiators.map((d) => (
             <div
               key={d.num}
-              className="p-6 rounded-xl border border-subtle bg-surface hover:border-[#FF6B2C]/50 transition-colors flex items-start gap-5 sm:gap-6 group"
+              className="p-6 sm:p-7 rounded-2xl border border-subtle bg-surface hover:border-[#FF6B2C]/40 transition-all duration-300 flex items-start gap-5 sm:gap-6 group shadow-2xs"
             >
-              <span className="font-head text-3xl sm:text-4xl font-bold text-muted group-hover:text-[#FF6B2C] transition-colors shrink-0 leading-none pt-1">
-                {d.num}
-              </span>
+              <div className="flex flex-col items-center shrink-0 pt-0.5">
+                <span className="font-mono text-xl sm:text-2xl font-bold text-[#FF6B2C] group-hover:scale-105 transition-transform">
+                  {d.num}
+                </span>
+                <span className="w-4 h-0.5 bg-subtle mt-2 group-hover:bg-[#FF6B2C] transition-colors" />
+              </div>
 
-              <div className="flex-1">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                   <h4 className="font-head text-base sm:text-lg font-bold text-primary group-hover:text-[#FF6B2C] transition-colors">
                     {d.title}
                   </h4>
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#3DD9B0] bg-[#3DD9B0]/10 px-2 py-0.5 rounded">
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#3DD9B0] bg-[#3DD9B0]/10 px-2.5 py-0.5 rounded-full border border-[#3DD9B0]/20">
                     {d.highlight}
                   </span>
                 </div>

@@ -15,10 +15,10 @@ export const company = {
     whatsappAbhay: '9509123636',
   },
   stats: [
-    { value: '4–6', unit: 'Wks', label: 'Average MVP Launch Time', note: 'Sprint-based agile delivery' },
-    { value: '100%', unit: '', label: 'Source Code Ownership', note: 'Full IP & repository handover' },
-    { value: '0', unit: '', label: 'Middlemen / Silos', note: 'Direct access to senior developers' },
-    { value: '30', unit: 'Days', label: 'Free Post-Launch Support', note: 'Bug resolution & monitoring' },
+    { value: '1–3', unit: 'Wks', label: 'Fast Delivery Time', note: 'Ready & live on time' },
+    { value: '100%', unit: '', label: 'Complete Ownership', note: 'Website & domain are 100% yours' },
+    { value: '0', unit: '', label: 'Middlemen or Agents', note: 'Direct developer call & WhatsApp' },
+    { value: '30', unit: 'Days', label: 'Free Technical Support', note: 'Help & bug fixes included' },
   ],
   socials: {
     github: 'https://github.com/pintusingh123',

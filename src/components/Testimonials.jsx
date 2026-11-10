@@ -1,37 +1,34 @@
 import { Star, CheckCircle2 } from 'lucide-react';
 import Section from './ui/Section';
-import Card from './ui/Card';
-import Badge from './ui/Badge';
 import { testimonials } from '../content/testimonials';
 
 export default function Testimonials() {
   return (
     <Section
       id="testimonials"
-      eyebrow="CLIENT PROOF &amp; REVIEWS"
-      title="What founders say about shipping"
-      highlightWord="with us."
-      subtitle="Genuine feedback from business owners and operational heads who rely on JhalaWebTech to engineer their production platforms."
+      eyebrow="CLIENT REVIEWS"
+      title="What real business owners say about"
+      highlightWord="working with us."
+      subtitle="Genuine feedback from shop owners, founders, and managers whose websites and mobile apps we designed, built, and launched."
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
         {testimonials.map((t) => (
-          <Card
+          <div
             key={t.author}
-            variant="default"
-            className="flex flex-col justify-between p-6 sm:p-7 bg-surface hover:border-subtle/80"
+            className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-surface border border-subtle hover:border-[#FF6B2C]/40 transition-all duration-300 shadow-2xs group"
           >
             <div>
               {/* Top Meta: Stars & Metric Pill */}
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-subtle">
-                <div className="flex gap-0.5 text-[#FF6B2C]">
+                <div className="flex gap-1 text-[#FF6B2C]">
                   {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
                   ))}
                 </div>
 
-                <Badge variant="accent" size="sm">
+                <span className="font-mono text-[10px] uppercase font-bold text-[#3DD9B0] bg-[#3DD9B0]/10 px-2 py-0.5 rounded-full border border-[#3DD9B0]/20">
                   {t.metric}
-                </Badge>
+                </span>
               </div>
 
               {/* Quote Body */}
@@ -43,20 +40,20 @@ export default function Testimonials() {
             {/* Author Footer */}
             <div className="pt-4 border-t border-subtle flex items-center justify-between">
               <div>
-                <h4 className="font-head text-sm sm:text-base font-bold text-primary">
+                <h4 className="font-head text-sm sm:text-base font-bold text-primary group-hover:text-[#FF6B2C] transition-colors">
                   {t.author}
                 </h4>
-                <p className="font-mono text-xs text-muted">
+                <p className="font-mono text-[11px] text-muted">
                   {t.role}, {t.company}
                 </p>
               </div>
 
-              <div className="flex items-center gap-1 font-mono text-[10px] text-[#3DD9B0]">
-                <CheckCircle2 className="w-3.5 h-3.5" />
+              <div className="flex items-center gap-1 font-mono text-[10px] text-[#3DD9B0] bg-[#3DD9B0]/10 px-2 py-0.5 rounded-full border border-[#3DD9B0]/20">
+                <CheckCircle2 className="w-3 h-3" />
                 <span>Verified</span>
               </div>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </Section>

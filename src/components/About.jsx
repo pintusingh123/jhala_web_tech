@@ -1,4 +1,3 @@
-import { ShieldCheck, Cpu, Code2, Zap } from 'lucide-react';
 import Section from './ui/Section';
 import Card from './ui/Card';
 import Badge from './ui/Badge';
@@ -6,23 +5,27 @@ import Badge from './ui/Badge';
 export default function About() {
   const principles = [
     {
-      icon: Code2,
+      num: '01',
       title: 'Clean & High-Quality Code',
+      tag: 'Zero Lag',
       desc: 'We write clean, well-tested code that runs smoothly without bugs, so your website or app works reliably for years.',
     },
     {
-      icon: Zap,
+      num: '02',
       title: 'Lightning-Fast Mobile Speed',
+      tag: '< 1s Load',
       desc: 'Websites and apps that open instantly even on slow mobile data. No long loading times, no lag, maximum customer retention.',
     },
     {
-      icon: ShieldCheck,
+      num: '03',
       title: 'Secure & Always Online',
+      tag: '99.9% Uptime',
       desc: 'Safe payments, daily cloud backups, and high uptime so your website or mobile app never goes down when customers visit.',
     },
     {
-      icon: Cpu,
+      num: '04',
       title: 'Direct Developer Access',
+      tag: 'No Middlemen',
       desc: 'You communicate directly with the developers writing your code via WhatsApp and call. Zero middlemen, zero miscommunication.',
     },
   ];
@@ -38,7 +41,7 @@ export default function About() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 items-stretch">
         {/* Left Manifesto Card (5 cols) */}
         <div className="lg:col-span-5 flex flex-col">
-          <Card className="h-full p-6 sm:p-8 bg-surface flex flex-col justify-between">
+          <Card className="h-full p-6 sm:p-8 bg-surface flex flex-col justify-between border-subtle shadow-xs">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Badge variant="accent">Our Promise to You</Badge>
@@ -59,7 +62,7 @@ export default function About() {
 
             <div className="pt-6 border-t border-subtle mt-6 flex flex-wrap items-center justify-between gap-3 font-mono text-xs text-muted">
               <span className="flex items-center gap-1.5 text-[#3DD9B0]">
-                <span className="w-2 h-2 rounded-full bg-[#3DD9B0]" />
+                <span className="w-2 h-2 rounded-full bg-[#3DD9B0] animate-pulse" />
                 <span>Available for New Projects</span>
               </span>
               <span>Rajasthan &bull; Global Delivery</span>
@@ -69,27 +72,30 @@ export default function About() {
 
         {/* Right Principles Grid (7 cols) */}
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          {principles.map((p) => {
-            const Icon = p.icon;
-            return (
-              <Card
-                key={p.title}
-                className="p-6 bg-surface hover:border-[#FF6B2C]/50 transition-colors flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-lg bg-surface-2 border border-subtle text-[#FF6B2C] flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h4 className="font-head text-base sm:text-lg font-bold text-primary mb-2">
-                    {p.title}
-                  </h4>
-                  <p className="font-body text-xs sm:text-sm text-muted leading-relaxed">
-                    {p.desc}
-                  </p>
+          {principles.map((p) => (
+            <div
+              key={p.num}
+              className="p-6 rounded-2xl bg-surface border border-subtle hover:border-[#FF6B2C]/40 transition-all duration-300 flex flex-col justify-between group shadow-2xs"
+            >
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-subtle">
+                  <span className="font-mono text-sm font-bold text-[#FF6B2C]">
+                    {p.num}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#3DD9B0] bg-[#3DD9B0]/10 px-2 py-0.5 rounded border border-[#3DD9B0]/20">
+                    {p.tag}
+                  </span>
                 </div>
-              </Card>
-            );
-          })}
+
+                <h4 className="font-head text-base sm:text-lg font-bold text-primary group-hover:text-[#FF6B2C] transition-colors mb-2">
+                  {p.title}
+                </h4>
+                <p className="font-body text-xs sm:text-sm text-muted leading-relaxed">
+                  {p.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </Section>

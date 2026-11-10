@@ -14,9 +14,9 @@ export default function Hero({ onExploreWork }) {
   )}`;
 
   return (
-    <section className="w-full pt-6 sm:pt-10 pb-16 sm:pb-24 overflow-hidden relative">
+    <section className="w-full pt-4 sm:pt-6 pb-8 sm:pb-12 overflow-hidden relative">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Left Column (7 cols): Strong Typography & Concrete Value Proposition */}
           <div className="lg:col-span-7 flex flex-col items-start">
@@ -24,7 +24,7 @@ export default function Hero({ onExploreWork }) {
             <Eyebrow>WEBSITES FROM ₹15,000 &bull; APPS FROM ₹30,000</Eyebrow>
 
             {/* Specific H1 Headline */}
-            <h1 className="font-head text-3xl sm:text-5xl lg:text-[3.4rem] font-bold tracking-tight text-primary leading-[1.12] mb-5">
+            <h1 className="font-head text-3xl sm:text-5xl lg:text-[3.4rem] font-bold tracking-tight text-primary leading-[1.12] mb-4">
               Websites and mobile apps that{' '}
               <span className="text-[#FF6B2C] inline-block">
                 turn visitors into customers.
@@ -32,12 +32,12 @@ export default function Hero({ onExploreWork }) {
             </h1>
 
             {/* 1–2 Line Subtitle */}
-            <p className="font-body text-base sm:text-lg text-muted leading-relaxed max-w-2xl mb-8">
+            <p className="font-body text-base sm:text-lg text-muted leading-relaxed max-w-2xl mb-6">
               High-speed websites (₹15k–₹45k) and custom Android &amp; iOS mobile apps (starting from ₹30k). Honest fixed pricing, weekly live demos on your phone, and direct WhatsApp support.
             </p>
 
             {/* CTAs: Primary "Get a free quote" · Secondary "See our work" */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full mb-8">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full mb-6">
               <Button
                 variant="primary"
                 size="lg"
@@ -73,19 +73,19 @@ export default function Hero({ onExploreWork }) {
               </a>
             </div>
 
-            {/* Micro-Trust Strip Under CTAs (Section 4.C & 7) */}
+            {/* Micro-Trust Strip Under CTAs */}
             <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full pt-6 border-t border-subtle">
               <div className="flex items-center gap-2 font-mono text-xs text-muted">
                 <ShieldCheck className="w-4 h-4 text-[#FF6B2C] shrink-0" />
-                <span>100% Code Ownership</span>
+                <span>100% Complete Ownership</span>
               </div>
               <div className="flex items-center gap-2 font-mono text-xs text-muted">
                 <Zap className="w-4 h-4 text-[#FF6B2C] shrink-0" />
-                <span>Weekly Live Demos</span>
+                <span>Weekly Live Progress</span>
               </div>
               <div className="flex items-center gap-2 font-mono text-xs text-muted xs:col-span-2 sm:col-span-1">
                 <Users className="w-4 h-4 text-[#FF6B2C] shrink-0" />
-                <span>Direct Developer Access</span>
+                <span>Direct WhatsApp &amp; Call</span>
               </div>
             </div>
           </div>

@@ -23,10 +23,16 @@ export default function Portfolio({ onOpenContact }) {
   return (
     <Section
       id="work"
-      eyebrow="VERIFIED CLIENT RESULTS"
-      title="Selected projects engineered for"
-      highlightWord="real business outcomes."
-      subtitle="Explore production mobile applications, high-throughput e-commerce stores, and custom platforms shipped by JhalaWebTech."
+      eyebrow="RECENT CLIENT WORK"
+      title="Websites & mobile apps built for"
+      highlightWord="real business growth."
+      subtitle="Take a look at real websites, online stores, and mobile apps delivered for local businesses, shops, and startups."
+      headerRight={
+        <div className="hidden md:flex items-center gap-2 font-mono text-xs text-[#3DD9B0] bg-[#3DD9B0]/10 border border-[#3DD9B0]/20 px-3.5 py-1.5 rounded-xl">
+          <span className="w-2 h-2 rounded-full bg-[#3DD9B0] animate-pulse" />
+          <span>Production Live Across India</span>
+        </div>
+      }
     >
       {/* Asymmetric Alternating Project Grid (Section 4.F) */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-8 items-stretch">
@@ -114,7 +120,7 @@ export default function Portfolio({ onOpenContact }) {
                     onClick={() => setSelectedCaseStudy(proj)}
                     className="inline-flex items-center gap-1.5 font-head text-xs sm:text-sm font-bold text-[#FF6B2C] hover:text-[#FF8452] transition-colors cursor-pointer"
                   >
-                    <span>View Case Study</span>
+                    <span>See Project Details</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
 
@@ -174,7 +180,7 @@ export default function Portfolio({ onOpenContact }) {
               {/* Problem */}
               <div>
                 <span className="font-mono text-xs uppercase font-bold text-[#FF6B2C] tracking-wider block mb-1">
-                  1. The Business Problem
+                  1. The Client's Challenge
                 </span>
                 <p className="text-muted">
                   {selectedCaseStudy.problem}
@@ -184,7 +190,7 @@ export default function Portfolio({ onOpenContact }) {
               {/* Solution */}
               <div>
                 <span className="font-mono text-xs uppercase font-bold text-[#3DD9B0] tracking-wider block mb-1">
-                  2. Our Architectural Solution
+                  2. How We Solved It
                 </span>
                 <p className="text-muted">
                   {selectedCaseStudy.solution}
@@ -194,7 +200,7 @@ export default function Portfolio({ onOpenContact }) {
               {/* Verified Results with Numbers */}
               <div className="p-3.5 sm:p-4 bg-surface-2 rounded-xl border border-subtle">
                 <span className="font-mono text-xs uppercase font-bold text-primary tracking-wider block mb-3">
-                  3. Measurable Outcomes Shipped
+                  3. Key Results for the Client
                 </span>
                 <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   {selectedCaseStudy.metrics.map((m) => (
